@@ -1,0 +1,7 @@
+{
+  "buildCommand": "cd jmk-contents-web && npm run build",
+  "outputDirectory": "jmk-contents-web/.next",
+  "installCommand": "cd jmk-contents-web && npm install",
+  "framework": "nextjs",
+  "devCommand": "cd jmk-contents-web && npm run dev"
+}
