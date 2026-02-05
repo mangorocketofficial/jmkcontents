@@ -556,9 +556,9 @@ def generate_metadata(project_root_folder, bundle_id):
 - [x] Basic pages (Home, Privacy, Support, Terms, Contact, About, Apps)
 - [x] App card component
 - [x] Header and Footer components
-- [ ] Supabase database schema (tables creation)
-- [ ] App landing page template (dynamic route)
-- [ ] Vercel deployment
+- [x] Supabase database schema (tables creation)
+- [x] App landing page template (dynamic route)
+- [x] Vercel deployment (https://jmkcontents.vercel.app)
 - [ ] Cloudflare DNS configuration
 
 ### Phase 2: Content (Week 3-4)
