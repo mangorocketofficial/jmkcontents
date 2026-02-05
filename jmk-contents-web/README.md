@@ -142,5 +142,5 @@ Proxy: Enabled
 
 ## 문의
 
-- Email: bombezzang100@gmail.com
+- Email: bombezzang2607@gmail.com
 - Website: jmkcontents.com
