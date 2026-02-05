@@ -61,3 +61,26 @@ Claude Code는 Anthropic의 공식 CLI 도구로, AI와 함께 소프트웨어 �
 - 파일: [filename.ts](src/filename.ts)
 - 특정 라인: [filename.ts:42](src/filename.ts#L42)
 - 라인 범위: [filename.ts:42-51](src/filename.ts#L42-L51)
+
+## 프로젝트 진행 상황
+
+### JMK Contents 웹 플랫폼 (2026-02-05)
+
+#### 완료된 작업
+- ✅ Next.js 15 프로젝트 초기화
+- ✅ Supabase 클라이언트 설정 (client.ts, server.ts, types.ts)
+- ✅ shadcn/ui 컴포넌트 라이브러리 설치
+- ✅ 기본 레이아웃 (Header, Footer)
+- ✅ 홈페이지 구현 (Hero, Featured Apps, Features)
+- ✅ 법률 페이지 (Privacy, Support, Terms)
+- ✅ 추가 페이지 (Contact, About, Apps)
+- ✅ 재사용 가능한 컴포넌트 (AppCard)
+- ✅ 반응형 디자인 구현
+- ✅ 프로덕션 빌드 테스트
+
+#### 다음 단계
+- Supabase 데이터베이스 테이블 생성
+- 앱 상세 페이지 동적 라우트 구현
+- Supabase에서 실제 데이터 가져오기
+- Vercel 배포
+- Cloudflare DNS 설정
