@@ -1,36 +1,16 @@
 import { AppCard } from '@/components/AppCard'
 import { Button } from '@/components/ui/button'
+import { getFeaturedApps, getApps } from '@/lib/api/apps'
 import Link from 'next/link'
 
-// Mock data for demonstration
-const featuredApps = [
-  {
-    bundle_id: 'indsafety_prod',
-    app_name: '산업안전산업기사',
-    description: '산업안전산업기사 자격증 시험 준비를 위한 기출문제와 음성 듣기 기능을 제공합니다.',
-    icon_url: null,
-    categories: ['교육', '시험'],
-    rating: 4.5,
-  },
-  {
-    bundle_id: 'electrician_prod',
-    app_name: '전기기사',
-    description: '전기기사 자격증 시험 대비 기출문제 및 학습 자료를 제공합니다.',
-    icon_url: null,
-    categories: ['교육', '시험'],
-    rating: 4.7,
-  },
-  {
-    bundle_id: 'fire_safety_prod',
-    app_name: '소방설비기사',
-    description: '소방설비기사 자격증 시험을 위한 완벽한 학습 도구입니다.',
-    icon_url: null,
-    categories: ['교육', '시험'],
-    rating: 4.6,
-  },
-]
+export const revalidate = 3600 // Revalidate every hour
 
-export default function Home() {
+export default async function Home() {
+  const [featuredApps, allApps] = await Promise.all([
+    getFeaturedApps(),
+    getApps(),
+  ])
+
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Hero Section */}
@@ -39,7 +19,7 @@ export default function Home() {
           한국 자격증 시험 준비
         </h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          30개 이상의 iOS 앱으로 자격증 시험을 효과적으로 준비하세요
+          {allApps.length}개 이상의 iOS 앱으로 자격증 시험을 효과적으로 준비하세요
         </p>
         <div className="flex gap-4 justify-center pt-4">
           <Link href="/apps">
@@ -59,11 +39,19 @@ export default function Home() {
             <Button variant="ghost">전체 보기 →</Button>
           </Link>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {featuredApps.map((app) => (
-            <AppCard key={app.bundle_id} app={app} />
-          ))}
-        </div>
+        {featuredApps.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featuredApps.map((app) => (
+              <AppCard key={app.bundle_id} app={app} />
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-12">
+            <p className="text-muted-foreground">
+              추천 앱이 아직 없습니다. 곧 업데이트될 예정입니다.
+            </p>
+          </div>
+        )}
       </section>
 
       {/* Features Section */}
