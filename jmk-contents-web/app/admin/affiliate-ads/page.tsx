@@ -3,9 +3,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { getFirestoreDb } from '@/lib/firebase/admin'
 import { COLLECTIONS, AffiliateAd } from '@/lib/firebase/types'
-import { DollarSign, Plus, ExternalLink } from 'lucide-react'
+import { DollarSign, Plus, ExternalLink, BarChart3 } from 'lucide-react'
 import { DeleteAffiliateAdButton } from '@/components/admin/DeleteAffiliateAdButton'
 import { ToggleAffiliateAdButton } from '@/components/admin/ToggleAffiliateAdButton'
+import { AffiliateAdStats } from '@/components/admin/AffiliateAdStats'
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
@@ -105,6 +106,30 @@ export default async function AdminAffiliateAdsPage() {
           </CardContent>
         </Card>
       </div>
+
+      {/* Detailed Statistics */}
+      {ads.length > 0 && (
+        <details className="group">
+          <summary className="cursor-pointer list-none">
+            <Card className="hover:bg-muted/50 transition-colors">
+              <CardHeader className="flex flex-row items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <BarChart3 className="w-5 h-5" />
+                  <CardTitle>상세 통계 보기</CardTitle>
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  클릭하여 {' '}
+                  <span className="group-open:hidden">열기</span>
+                  <span className="hidden group-open:inline">닫기</span>
+                </div>
+              </CardHeader>
+            </Card>
+          </summary>
+          <div className="mt-6">
+            <AffiliateAdStats ads={ads} />
+          </div>
+        </details>
+      )}
 
       {/* Ads List */}
       {ads.length > 0 ? (

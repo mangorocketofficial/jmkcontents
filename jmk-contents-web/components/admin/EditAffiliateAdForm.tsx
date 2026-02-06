@@ -6,12 +6,28 @@ import Link from 'next/link'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { createAffiliateAd } from '@/app/actions/affiliate-ads'
+import { updateAffiliateAd } from '@/app/actions/affiliate-ads'
 import { ImageUploader } from '@/components/admin/ImageUploader'
 import { Loader2, ArrowLeft, AlertCircle, CheckCircle2 } from 'lucide-react'
 
-export default function NewAffiliateAdPage() {
+interface EditAffiliateAdFormProps {
+  ad: {
+    id: string
+    type: 'banner' | 'interstitial'
+    title: string
+    imageUrl: string
+    linkUrl: string
+    isActive: boolean
+    priority: number
+    startDate: string
+    endDate: string
+    appIds: string[]
+    impressions: number
+    clicks: number
+  }
+}
+
+export function EditAffiliateAdForm({ ad }: EditAffiliateAdFormProps) {
   const router = useRouter()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<{
@@ -20,16 +36,18 @@ export default function NewAffiliateAdPage() {
   }>({ type: null, message: '' })
 
   const [formData, setFormData] = useState({
-    type: 'banner' as 'banner' | 'interstitial',
-    title: '',
-    imageUrl: '',
-    linkUrl: '',
-    isActive: true,
-    priority: 10,
-    startDate: '',
-    endDate: '',
-    appIds: 'all', // 'all' 또는 쉼표로 구분된 앱 IDs
+    type: ad.type,
+    title: ad.title,
+    imageUrl: ad.imageUrl,
+    linkUrl: ad.linkUrl,
+    isActive: ad.isActive,
+    priority: ad.priority,
+    startDate: ad.startDate,
+    endDate: ad.endDate,
+    appIds: ad.appIds.join(', '),
   })
+
+  const ctr = ad.impressions > 0 ? ((ad.clicks / ad.impressions) * 100).toFixed(2) : '0.00'
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -37,12 +55,11 @@ export default function NewAffiliateAdPage() {
     setSubmitStatus({ type: null, message: '' })
 
     try {
-      // appIds 파싱
       const appIds = formData.appIds === 'all' || formData.appIds.trim() === ''
         ? ['all']
         : formData.appIds.split(',').map((id) => id.trim()).filter(Boolean)
 
-      const result = await createAffiliateAd({
+      const result = await updateAffiliateAd(ad.id, {
         type: formData.type,
         title: formData.title,
         imageUrl: formData.imageUrl,
@@ -67,7 +84,7 @@ export default function NewAffiliateAdPage() {
       console.error('Form submission error:', error)
       setSubmitStatus({
         type: 'error',
-        message: '광고 생성 중 오류가 발생했습니다.',
+        message: '광고 수정 중 오류가 발생했습니다.',
       })
     } finally {
       setIsSubmitting(false)
@@ -85,15 +102,38 @@ export default function NewAffiliateAdPage() {
           </Button>
         </Link>
         <div>
-          <h1 className="text-3xl font-bold">새 제휴광고 추가</h1>
+          <h1 className="text-3xl font-bold">광고 수정</h1>
         </div>
       </div>
+
+      {/* Statistics Card */}
+      <Card className="bg-blue-50 border-blue-200">
+        <CardHeader>
+          <CardTitle className="text-lg">광고 통계</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-3 gap-4 text-center">
+            <div>
+              <div className="text-2xl font-bold text-blue-900">{ad.impressions.toLocaleString()}</div>
+              <div className="text-sm text-blue-700">노출</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-blue-900">{ad.clicks.toLocaleString()}</div>
+              <div className="text-sm text-blue-700">클릭</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-blue-900">{ctr}%</div>
+              <div className="text-sm text-blue-700">CTR</div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
 
       <Card>
         <CardHeader>
           <CardTitle>광고 정보</CardTitle>
           <CardDescription>
-            새로운 제휴광고 정보를 입력하세요. * 표시는 필수 항목입니다.
+            광고 정보를 수정하세요. * 표시는 필수 항목입니다.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -160,7 +200,7 @@ export default function NewAffiliateAdPage() {
               />
             </div>
 
-            {/* Image URL */}
+            {/* Image URL with Preview */}
             <div>
               <label className="block text-sm font-medium mb-2">
                 이미지 *
@@ -275,7 +315,7 @@ export default function NewAffiliateAdPage() {
                   onChange={(e) => setFormData({ ...formData, isActive: e.target.checked })}
                   disabled={isSubmitting}
                 />
-                <span className="text-sm font-medium">즉시 활성화</span>
+                <span className="text-sm font-medium">활성화</span>
               </label>
             </div>
 
@@ -285,10 +325,10 @@ export default function NewAffiliateAdPage() {
                 {isSubmitting ? (
                   <>
                     <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                    생성 중...
+                    수정 중...
                   </>
                 ) : (
-                  '광고 생성'
+                  '광고 수정'
                 )}
               </Button>
               <Link href="/admin/affiliate-ads" className="flex-1">
