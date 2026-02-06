@@ -108,12 +108,12 @@ export default async function AppPage({ params }: AppPageProps) {
                   <span className="font-medium text-foreground">
                     {app.rating.toFixed(1)}
                   </span>
-                  {app.review_count > 0 && (
+                  {app.review_count && app.review_count > 0 && (
                     <span>({app.review_count.toLocaleString()})</span>
                   )}
                 </div>
               )}
-              {app.download_count > 0 && (
+              {app.download_count && app.download_count > 0 && (
                 <div>
                   <span className="font-medium text-foreground">
                     {app.download_count.toLocaleString()}

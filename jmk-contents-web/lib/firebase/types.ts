@@ -8,14 +8,16 @@ export interface App {
   app_name: string
   app_name_full?: string
   description?: string
+  description_full?: string
   categories?: string[]
   status: 'draft' | 'published' | 'archived'
   icon_url?: string
   app_store_url?: string
   marketing_url?: string
   rating?: number
-  review_count: number
-  download_count: number
+  review_count?: number
+  download_count?: number
+  is_featured?: boolean
   created_at: Date
   updated_at: Date
 }
@@ -47,6 +49,17 @@ export interface Lecture {
   updated_at: Date
 }
 
+export interface ContactSubmission {
+  id: string // 문서 ID
+  name: string
+  email: string
+  subject: string
+  message: string
+  status: 'pending' | 'in_progress' | 'resolved'
+  created_at: Date
+  updated_at: Date
+}
+
 /**
  * Firestore 컬렉션 이름
  */
@@ -54,4 +67,5 @@ export const COLLECTIONS = {
   APPS: 'apps',
   CONCEPTS: 'concepts',
   LECTURES: 'lectures',
+  CONTACT_SUBMISSIONS: 'contact_submissions',
 } as const
