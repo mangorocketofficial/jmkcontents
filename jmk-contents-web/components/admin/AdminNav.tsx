@@ -13,6 +13,7 @@ import {
   LogOut,
   Home,
   DollarSign,
+  TrendingUp,
 } from 'lucide-react'
 
 const navItems = [
@@ -21,6 +22,7 @@ const navItems = [
   { href: '/admin/concepts', label: 'Concepts', icon: BookOpen },
   { href: '/admin/lectures', label: 'Lectures', icon: Mic },
   { href: '/admin/affiliate-ads', label: 'Affiliate Ads', icon: DollarSign },
+  { href: '/admin/experiments', label: 'A/B Tests', icon: TrendingUp },
   { href: '/admin/contacts', label: 'Contacts', icon: Mail },
 ]
 

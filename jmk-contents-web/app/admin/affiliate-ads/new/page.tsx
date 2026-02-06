@@ -29,6 +29,7 @@ export default function NewAffiliateAdPage() {
     startDate: '',
     endDate: '',
     appIds: 'all', // 'all' 또는 쉼표로 구분된 앱 IDs
+    experimentGroup: '', // A/B 테스트 그룹
   })
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -52,6 +53,7 @@ export default function NewAffiliateAdPage() {
         startDate: formData.startDate || undefined,
         endDate: formData.endDate || undefined,
         appIds,
+        experimentGroup: formData.experimentGroup || undefined,
       })
 
       if (result.success) {
@@ -235,6 +237,23 @@ export default function NewAffiliateAdPage() {
               />
               <p className="text-xs text-muted-foreground mt-1">
                 'all' 입력 시 모든 앱에 표시. 특정 앱에만 표시하려면 앱 ID를 쉼표로 구분하여 입력
+              </p>
+            </div>
+
+            {/* Experiment Group */}
+            <div>
+              <label htmlFor="experimentGroup" className="block text-sm font-medium mb-2">
+                실험 그룹 (A/B 테스트)
+              </label>
+              <Input
+                id="experimentGroup"
+                value={formData.experimentGroup}
+                onChange={(e) => setFormData({ ...formData, experimentGroup: e.target.value })}
+                placeholder="예: book-promo-v1 (비워두면 일반 광고)"
+                disabled={isSubmitting}
+              />
+              <p className="text-xs text-muted-foreground mt-1">
+                같은 그룹명을 가진 광고들을 A/B 테스트로 비교할 수 있습니다
               </p>
             </div>
 

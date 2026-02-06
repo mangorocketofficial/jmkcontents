@@ -22,6 +22,7 @@ interface EditAffiliateAdFormProps {
     startDate: string
     endDate: string
     appIds: string[]
+    experimentGroup: string
     impressions: number
     clicks: number
   }
@@ -45,6 +46,7 @@ export function EditAffiliateAdForm({ ad }: EditAffiliateAdFormProps) {
     startDate: ad.startDate,
     endDate: ad.endDate,
     appIds: ad.appIds.join(', '),
+    experimentGroup: ad.experimentGroup,
   })
 
   const ctr = ad.impressions > 0 ? ((ad.clicks / ad.impressions) * 100).toFixed(2) : '0.00'
@@ -69,6 +71,7 @@ export function EditAffiliateAdForm({ ad }: EditAffiliateAdFormProps) {
         startDate: formData.startDate || undefined,
         endDate: formData.endDate || undefined,
         appIds,
+        experimentGroup: formData.experimentGroup || undefined,
       })
 
       if (result.success) {
@@ -275,6 +278,23 @@ export function EditAffiliateAdForm({ ad }: EditAffiliateAdFormProps) {
               />
               <p className="text-xs text-muted-foreground mt-1">
                 'all' 입력 시 모든 앱에 표시. 특정 앱에만 표시하려면 앱 ID를 쉼표로 구분하여 입력
+              </p>
+            </div>
+
+            {/* Experiment Group */}
+            <div>
+              <label htmlFor="experimentGroup" className="block text-sm font-medium mb-2">
+                실험 그룹 (A/B 테스트)
+              </label>
+              <Input
+                id="experimentGroup"
+                value={formData.experimentGroup}
+                onChange={(e) => setFormData({ ...formData, experimentGroup: e.target.value })}
+                placeholder="예: book-promo-v1 (비워두면 일반 광고)"
+                disabled={isSubmitting}
+              />
+              <p className="text-xs text-muted-foreground mt-1">
+                같은 그룹명을 가진 광고들을 A/B 테스트로 비교할 수 있습니다
               </p>
             </div>
 

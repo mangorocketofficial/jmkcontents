@@ -34,6 +34,7 @@ export default async function EditAffiliateAdPage({ params }: EditAffiliateAdPag
     startDate: data.startDate || '',
     endDate: data.endDate || '',
     appIds: data.appIds ?? ['all'],
+    experimentGroup: data.experimentGroup || '',
     impressions: data.impressions ?? 0,
     clicks: data.clicks ?? 0,
   }

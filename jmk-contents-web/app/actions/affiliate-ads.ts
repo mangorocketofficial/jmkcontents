@@ -14,6 +14,7 @@ export interface AffiliateAdFormData {
   startDate?: string
   endDate?: string
   appIds: string[] // ['all'] 또는 특정 앱 IDs
+  experimentGroup?: string // A/B 테스트 그룹
 }
 
 export interface AffiliateAdActionResult {
@@ -43,6 +44,7 @@ export async function createAffiliateAd(
       impressions: 0,
       clicks: 0,
       appIds: data.appIds.length > 0 ? data.appIds : ['all'],
+      experimentGroup: data.experimentGroup || null,
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString(),
     }

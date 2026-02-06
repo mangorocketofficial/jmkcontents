@@ -73,6 +73,7 @@ export interface AffiliateAd {
   impressions: number // 노출 수
   clicks: number // 클릭 수
   appIds: string[] // 타겟 앱 ID 목록 (['all'] 또는 ['indsafety', 'gigecha'])
+  experimentGroup?: string // A/B 테스트 그룹명 (예: 'book-promo-2024', variant: 'A', 'B', 'C')
   created_at?: Date
   updated_at?: Date
 }
