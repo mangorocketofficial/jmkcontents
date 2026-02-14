@@ -224,12 +224,15 @@ export async function getLecturesByAppId(appId: string): Promise<Lecture[]> {
       .orderBy('created_at', 'desc')
       .get()
 
-    return snapshot.docs.map(doc => ({
-      ...doc.data(),
-      id: doc.id,
-      created_at: doc.data().created_at?.toDate() || new Date(),
-      updated_at: doc.data().updated_at?.toDate() || new Date(),
-    })) as Lecture[]
+    return snapshot.docs.map(doc => {
+      const d = doc.data()
+      return {
+        ...d,
+        id: doc.id,
+        created_at: d.created_at?.toDate?.() || (typeof d.created_at === 'string' ? new Date(d.created_at) : new Date()),
+        updated_at: d.updated_at?.toDate?.() || (typeof d.updated_at === 'string' ? new Date(d.updated_at) : new Date()),
+      }
+    }) as Lecture[]
   } catch (error) {
     console.error('Error fetching lectures from Firestore:', error)
     return []
@@ -252,12 +255,15 @@ export async function getLecturesByCategory(
       .orderBy('created_at', 'desc')
       .get()
 
-    return snapshot.docs.map(doc => ({
-      ...doc.data(),
-      id: doc.id,
-      created_at: doc.data().created_at?.toDate() || new Date(),
-      updated_at: doc.data().updated_at?.toDate() || new Date(),
-    })) as Lecture[]
+    return snapshot.docs.map(doc => {
+      const d = doc.data()
+      return {
+        ...d,
+        id: doc.id,
+        created_at: d.created_at?.toDate?.() || (typeof d.created_at === 'string' ? new Date(d.created_at) : new Date()),
+        updated_at: d.updated_at?.toDate?.() || (typeof d.updated_at === 'string' ? new Date(d.updated_at) : new Date()),
+      }
+    }) as Lecture[]
   } catch (error) {
     console.error('Error fetching lectures by category from Firestore:', error)
     return []

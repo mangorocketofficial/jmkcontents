@@ -179,9 +179,9 @@ export default async function AppPage({ params }: AppPageProps) {
           </Card>
           <Card>
             <CardHeader>
-              <CardTitle className="text-lg">🎧 음성 듣기</CardTitle>
+              <CardTitle className="text-lg">🎬 강의보기</CardTitle>
               <CardDescription>
-                이동 중에도 문제와 해설을 들으며 학습할 수 있습니다
+                핵심 개념을 영상 강의로 효과적으로 학습하세요
               </CardDescription>
             </CardHeader>
           </Card>
