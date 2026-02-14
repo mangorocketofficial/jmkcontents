@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "JMK Contents - 한국 자격증 시험 준비 앱",
-  description: "30개 이상의 한국 자격증 시험 준비 iOS 앱을 제공하는 플랫폼",
+  title: "JMK Contents - 자격증 시험 핵심개념 & 영상강의",
+  description: "한국 자격증 시험 준비를 위한 핵심개념 정리와 영상강의 학습 플랫폼",
 };
 
 export default function RootLayout({

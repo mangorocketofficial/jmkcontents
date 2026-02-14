@@ -271,6 +271,100 @@ export async function getLecturesByCategory(
 }
 
 /**
+ * 모든 앱의 학습 개념 가져오기 (전체 과목 모아보기)
+ */
+export async function getAllConcepts(): Promise<(Concept & { app_name: string })[]> {
+  try {
+    const db = getFirestoreDb()
+    const [conceptsSnapshot, apps] = await Promise.all([
+      db.collection(COLLECTIONS.CONCEPTS)
+        .orderBy('created_at', 'desc')
+        .get(),
+      getApps(),
+    ])
+
+    const appMap = new Map(apps.map(a => [a.bundle_id, a.app_name]))
+
+    return conceptsSnapshot.docs.map(doc => ({
+      ...doc.data(),
+      id: doc.id,
+      app_name: appMap.get(doc.data().app_id) || doc.data().app_id,
+      created_at: doc.data().created_at?.toDate?.() || new Date(),
+      updated_at: doc.data().updated_at?.toDate?.() || new Date(),
+    })) as (Concept & { app_name: string })[]
+  } catch (error) {
+    console.error('Error fetching all concepts:', error)
+    return []
+  }
+}
+
+/**
+ * 모든 앱의 강의 가져오기 (전체 과목 모아보기)
+ */
+export async function getAllLectures(): Promise<(Lecture & { app_name: string })[]> {
+  try {
+    const db = getFirestoreDb()
+    const [lecturesSnapshot, apps] = await Promise.all([
+      db.collection(COLLECTIONS.LECTURES)
+        .orderBy('created_at', 'desc')
+        .get(),
+      getApps(),
+    ])
+
+    const appMap = new Map(apps.map(a => [a.bundle_id, a.app_name]))
+
+    return lecturesSnapshot.docs.map(doc => {
+      const d = doc.data()
+      return {
+        ...d,
+        id: doc.id,
+        app_name: appMap.get(d.app_id) || d.app_id,
+        created_at: d.created_at?.toDate?.() || new Date(),
+        updated_at: d.updated_at?.toDate?.() || new Date(),
+      }
+    }) as (Lecture & { app_name: string })[]
+  } catch (error) {
+    console.error('Error fetching all lectures:', error)
+    return []
+  }
+}
+
+/**
+ * 모든 앱 + 콘텐츠 개수 한번에 가져오기
+ */
+export async function getAppsWithContentCounts(): Promise<(App & { conceptCount: number; lectureCount: number })[]> {
+  try {
+    const db = getFirestoreDb()
+    const [apps, conceptsSnapshot, lecturesSnapshot] = await Promise.all([
+      getApps(),
+      db.collection(COLLECTIONS.CONCEPTS).select('app_id').get(),
+      db.collection(COLLECTIONS.LECTURES).select('app_id').get(),
+    ])
+
+    const conceptCounts = new Map<string, number>()
+    conceptsSnapshot.docs.forEach(doc => {
+      const appId = doc.data().app_id
+      conceptCounts.set(appId, (conceptCounts.get(appId) || 0) + 1)
+    })
+
+    const lectureCounts = new Map<string, number>()
+    lecturesSnapshot.docs.forEach(doc => {
+      const appId = doc.data().app_id
+      lectureCounts.set(appId, (lectureCounts.get(appId) || 0) + 1)
+    })
+
+    return apps.map(app => ({
+      ...app,
+      conceptCount: conceptCounts.get(app.bundle_id) || 0,
+      lectureCount: lectureCounts.get(app.bundle_id) || 0,
+    }))
+  } catch (error) {
+    console.error('Error fetching apps with content counts:', error)
+    return []
+  }
+}
+
+/**
  * 앱 다운로드 수 증가
  */
 export async function incrementDownloadCount(bundleId: string): Promise<void> {

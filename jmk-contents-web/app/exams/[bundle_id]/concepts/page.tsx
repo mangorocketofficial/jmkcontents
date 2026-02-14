@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: ConceptsPageProps) {
 
   if (!app) {
     return {
-      title: '앱을 찾을 수 없습니다',
+      title: '시험을 찾을 수 없습니다',
     }
   }
 
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: ConceptsPageProps) {
     openGraph: {
       title: `${app.app_name} 핵심 개념`,
       description,
-      url: `https://jmkcontents.com/apps/${bundle_id}/concepts`,
+      url: `https://jmkcontents.com/exams/${bundle_id}/concepts`,
       type: 'website',
     },
   }
@@ -51,11 +51,11 @@ export default async function ConceptsPage({ params }: ConceptsPageProps) {
     <div className="container mx-auto px-4 py-12">
       {/* Breadcrumb */}
       <div className="mb-6 text-sm text-muted-foreground">
-        <Link href="/apps" className="hover:text-foreground">
-          앱 목록
+        <Link href="/exams" className="hover:text-foreground">
+          자격증 과목
         </Link>
         {' / '}
-        <Link href={`/apps/${bundle_id}`} className="hover:text-foreground">
+        <Link href={`/exams/${bundle_id}`} className="hover:text-foreground">
           {app.app_name}
         </Link>
         {' / '}
@@ -78,8 +78,8 @@ export default async function ConceptsPage({ params }: ConceptsPageProps) {
           <p className="text-lg text-muted-foreground mb-4">
             등록된 개념이 아직 없습니다.
           </p>
-          <Link href={`/apps/${bundle_id}`}>
-            <Button>앱 상세로 돌아가기</Button>
+          <Link href={`/exams/${bundle_id}`}>
+            <Button>과목으로 돌아가기</Button>
           </Link>
         </div>
       )}

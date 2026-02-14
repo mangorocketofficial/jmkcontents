@@ -9,7 +9,7 @@ export function Footer() {
             <h3 className="font-bold mb-4">JMK Contents</h3>
             <p className="text-sm text-muted-foreground">
               한국 자격증 시험 준비를 위한<br />
-              모바일 앱 플랫폼
+              학습 플랫폼
             </p>
           </div>
           <div>

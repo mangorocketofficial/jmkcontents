@@ -18,19 +18,19 @@ export async function generateMetadata({ params }: LecturesPageProps) {
 
   if (!app) {
     return {
-      title: '앱을 찾을 수 없습니다',
+      title: '시험을 찾을 수 없습니다',
     }
   }
 
-  const description = `${app.app_name_full || app.app_name} 시험 대비 음성 강의를 들어보세요.`
+  const description = `${app.app_name_full || app.app_name} 시험 대비 영상 강의를 시청하세요.`
 
   return {
-    title: `음성 강의 - ${app.app_name} - JMK Contents`,
+    title: `영상 강의 - ${app.app_name} - JMK Contents`,
     description,
     openGraph: {
-      title: `${app.app_name} 음성 강의`,
+      title: `${app.app_name} 영상 강의`,
       description,
-      url: `https://jmkcontents.com/apps/${bundle_id}/lectures`,
+      url: `https://jmkcontents.com/exams/${bundle_id}/lectures`,
       type: 'website',
     },
   }
@@ -51,22 +51,22 @@ export default async function LecturesPage({ params }: LecturesPageProps) {
     <div className="container mx-auto px-4 py-12">
       {/* Breadcrumb */}
       <div className="mb-6 text-sm text-muted-foreground">
-        <Link href="/apps" className="hover:text-foreground">
-          앱 목록
+        <Link href="/exams" className="hover:text-foreground">
+          자격증 과목
         </Link>
         {' / '}
-        <Link href={`/apps/${bundle_id}`} className="hover:text-foreground">
+        <Link href={`/exams/${bundle_id}`} className="hover:text-foreground">
           {app.app_name}
         </Link>
         {' / '}
-        <span className="text-foreground">음성 강의</span>
+        <span className="text-foreground">영상 강의</span>
       </div>
 
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-2">🎙️ 음성 강의</h1>
+        <h1 className="text-4xl font-bold mb-2">🎬 영상 강의</h1>
         <p className="text-xl text-muted-foreground">
-          {app.app_name_full || app.app_name} 시험 대비 음성 강의를 들어보세요
+          {app.app_name_full || app.app_name} 시험 대비 영상 강의를 시청하세요
         </p>
       </div>
 
@@ -78,8 +78,8 @@ export default async function LecturesPage({ params }: LecturesPageProps) {
           <p className="text-lg text-muted-foreground mb-4">
             등록된 강의가 아직 없습니다.
           </p>
-          <Link href={`/apps/${bundle_id}`}>
-            <Button>앱 상세로 돌아가기</Button>
+          <Link href={`/exams/${bundle_id}`}>
+            <Button>과목으로 돌아가기</Button>
           </Link>
         </div>
       )}

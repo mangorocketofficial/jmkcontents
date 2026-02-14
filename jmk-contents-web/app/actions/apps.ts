@@ -53,7 +53,7 @@ export async function createApp(data: AppFormData): Promise<AppActionResult> {
       is_featured: data.is_featured,
       rating: data.rating || 0,
       download_count: data.download_count || 0,
-      marketing_url: `https://jmkcontents.com/apps/${data.bundle_id}`,
+      marketing_url: `https://jmkcontents.com/exams/${data.bundle_id}`,
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString(),
     }
@@ -64,8 +64,10 @@ export async function createApp(data: AppFormData): Promise<AppActionResult> {
 
     await db.collection(COLLECTIONS.APPS).doc(data.bundle_id).set(appData)
 
-    revalidatePath('/apps')
+    revalidatePath('/exams')
     revalidatePath('/')
+    revalidatePath('/concepts')
+    revalidatePath('/lectures')
     revalidatePath('/admin/apps')
 
     return {
@@ -117,9 +119,11 @@ export async function updateApp(
 
     await docRef.update(updateData)
 
-    revalidatePath('/apps')
-    revalidatePath(`/apps/${bundleId}`)
+    revalidatePath('/exams')
+    revalidatePath(`/exams/${bundleId}`)
     revalidatePath('/')
+    revalidatePath('/concepts')
+    revalidatePath('/lectures')
     revalidatePath('/admin/apps')
 
     return {
@@ -180,8 +184,10 @@ export async function deleteApp(bundleId: string): Promise<AppActionResult> {
 
     const deletedCount = conceptsSnapshot.size + lecturesSnapshot.size
 
-    revalidatePath('/apps')
+    revalidatePath('/exams')
     revalidatePath('/')
+    revalidatePath('/concepts')
+    revalidatePath('/lectures')
     revalidatePath('/admin/apps')
     revalidatePath('/admin/concepts')
     revalidatePath('/admin/lectures')

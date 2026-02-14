@@ -42,7 +42,8 @@ export async function createConcept(data: ConceptFormData): Promise<ConceptActio
     await db.collection(COLLECTIONS.CONCEPTS).doc(conceptId).set(conceptData)
 
     revalidatePath('/admin/concepts')
-    revalidatePath(`/apps/${data.app_id}/concepts`)
+    revalidatePath(`/exams/${data.app_id}/concepts`)
+    revalidatePath('/concepts')
 
     return {
       success: true,
@@ -85,8 +86,9 @@ export async function updateConcept(
 
     const appId = data.app_id || doc.data()?.app_id
     revalidatePath('/admin/concepts')
+    revalidatePath('/concepts')
     if (appId) {
-      revalidatePath(`/apps/${appId}/concepts`)
+      revalidatePath(`/exams/${appId}/concepts`)
     }
 
     return {
@@ -120,8 +122,9 @@ export async function deleteConcept(conceptId: string): Promise<ConceptActionRes
     await docRef.delete()
 
     revalidatePath('/admin/concepts')
+    revalidatePath('/concepts')
     if (appId) {
-      revalidatePath(`/apps/${appId}/concepts`)
+      revalidatePath(`/exams/${appId}/concepts`)
     }
 
     return {

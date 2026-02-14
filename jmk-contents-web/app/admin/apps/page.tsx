@@ -88,7 +88,7 @@ export default async function AdminAppsPage() {
 
                 {/* Actions */}
                 <div className="flex gap-2">
-                  <Link href={`/apps/${app.bundle_id}`} className="flex-1">
+                  <Link href={`/exams/${app.bundle_id}`} className="flex-1">
                     <Button variant="outline" size="sm" className="w-full gap-2">
                       <ExternalLink className="w-4 h-4" />
                       보기

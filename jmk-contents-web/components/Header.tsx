@@ -8,14 +8,17 @@ export function Header() {
           JMK Contents
         </Link>
         <nav className="flex gap-6">
-          <Link href="/apps" className="hover:text-primary transition-colors">
-            앱 목록
+          <Link href="/exams" className="hover:text-primary transition-colors">
+            자격증 과목
+          </Link>
+          <Link href="/concepts" className="hover:text-primary transition-colors">
+            핵심개념
+          </Link>
+          <Link href="/lectures" className="hover:text-primary transition-colors">
+            영상강의
           </Link>
           <Link href="/support" className="hover:text-primary transition-colors">
             지원
-          </Link>
-          <Link href="/about" className="hover:text-primary transition-colors">
-            소개
           </Link>
         </nav>
       </div>

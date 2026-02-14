@@ -43,7 +43,8 @@ export async function createLecture(data: LectureFormData): Promise<LectureActio
     await db.collection(COLLECTIONS.LECTURES).doc(lectureId).set(lectureData)
 
     revalidatePath('/admin/lectures')
-    revalidatePath(`/apps/${data.app_id}/lectures`)
+    revalidatePath(`/exams/${data.app_id}/lectures`)
+    revalidatePath('/lectures')
 
     return {
       success: true,
@@ -86,8 +87,9 @@ export async function updateLecture(
 
     const appId = data.app_id || doc.data()?.app_id
     revalidatePath('/admin/lectures')
+    revalidatePath('/lectures')
     if (appId) {
-      revalidatePath(`/apps/${appId}/lectures`)
+      revalidatePath(`/exams/${appId}/lectures`)
     }
 
     return {
@@ -122,7 +124,7 @@ export async function deleteLecture(lectureId: string): Promise<LectureActionRes
 
     revalidatePath('/admin/lectures')
     if (appId) {
-      revalidatePath(`/apps/${appId}/lectures`)
+      revalidatePath(`/exams/${appId}/lectures`)
     }
 
     return {
