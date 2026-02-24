@@ -105,7 +105,7 @@ export default async function ExamPage({ params }: ExamPageProps) {
       {/* Learning Content - Primary */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-6">학습 자료</h2>
-        <div className={`grid grid-cols-1 ${lectures.length > 0 ? 'md:grid-cols-2' : ''} gap-6`}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Link href={`/exams/${bundle_id}/concepts`}>
             <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full border-2 hover:border-primary/50">
               <CardHeader>
@@ -122,22 +122,22 @@ export default async function ExamPage({ params }: ExamPageProps) {
               </CardContent>
             </Card>
           </Link>
-          {lectures.length > 0 && (
-            <Link href={`/exams/${bundle_id}/lectures`}>
-              <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full border-2 hover:border-primary/50">
-                <CardHeader>
-                  <div className="text-4xl mb-2">🎬</div>
-                  <CardTitle className="text-xl">영상 강의</CardTitle>
-                  <CardDescription className="text-base">
-                    {lectures.length}개의 영상 강의로 효과적으로 학습하세요
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button className="w-full">영상강의 보기</Button>
-                </CardContent>
-              </Card>
-            </Link>
-          )}
+          <Link href={`/exams/${bundle_id}/lectures`}>
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full border-2 hover:border-primary/50">
+              <CardHeader>
+                <div className="text-4xl mb-2">🎬</div>
+                <CardTitle className="text-xl">영상 강의</CardTitle>
+                <CardDescription className="text-base">
+                  {lectures.length > 0
+                    ? `${lectures.length}개의 영상 강의로 효과적으로 학습하세요`
+                    : '시험 대비 영상 강의를 시청하세요'}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Button className="w-full">영상강의 보기</Button>
+              </CardContent>
+            </Card>
+          </Link>
         </div>
       </section>
 
