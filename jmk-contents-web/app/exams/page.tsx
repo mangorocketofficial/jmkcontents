@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: '자격증 과목 - JMK Contents',
-  description: '자격증 시험 준비를 위한 핵심개념과 영상강의를 제공합니다.',
+  description: '자격증 시험 준비를 위한 핵심개념을 제공합니다.',
 }
 
 export const revalidate = 3600
@@ -17,7 +17,7 @@ export default async function ExamsPage() {
       <div className="mb-8">
         <h1 className="text-4xl font-bold mb-4">자격증 과목</h1>
         <p className="text-xl text-muted-foreground">
-          {examsWithCounts.length}개 자격증 시험의 핵심개념과 영상강의
+          {examsWithCounts.length}개 자격증 시험의 핵심개념
         </p>
       </div>
 

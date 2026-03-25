@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import { getAppByBundleId, getConceptsByAppId, getLecturesByAppId } from '@/lib/firebase/apps'
+import { getAppByBundleId, getConceptsByAppId } from '@/lib/firebase/apps'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { extractAppLegalInfo, getStoreLinkMetadata } from '@/lib/utils'
@@ -22,11 +22,11 @@ export async function generateMetadata({ params }: ExamPageProps) {
   }
 
   return {
-    title: `${app.app_name} - 핵심개념 & 영상강의 - JMK Contents`,
-    description: `${app.app_name_full || app.app_name} 자격증 시험 핵심개념과 영상강의`,
+    title: `${app.app_name} - 핵심개념 - JMK Contents`,
+    description: `${app.app_name_full || app.app_name} 자격증 시험 핵심개념`,
     openGraph: {
       title: `${app.app_name} 자격증 시험 학습`,
-      description: `${app.app_name_full || app.app_name} 핵심개념과 영상강의`,
+      description: `${app.app_name_full || app.app_name} 핵심개념`,
       url: `https://jmkcontents.com/exams/${bundle_id}`,
       type: 'website',
       ...(app.icon_url ? { images: [{ url: app.icon_url }] } : {}),
@@ -36,10 +36,9 @@ export async function generateMetadata({ params }: ExamPageProps) {
 
 export default async function ExamPage({ params }: ExamPageProps) {
   const { bundle_id } = await params
-  const [app, concepts, lectures] = await Promise.all([
+  const [app, concepts] = await Promise.all([
     getAppByBundleId(bundle_id),
     getConceptsByAppId(bundle_id),
-    getLecturesByAppId(bundle_id),
   ])
 
   if (!app) {
@@ -111,7 +110,7 @@ export default async function ExamPage({ params }: ExamPageProps) {
       {/* Learning Content - Primary */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-6">학습 자료</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="max-w-xl">
           <Link href={`/exams/${bundle_id}/concepts`}>
             <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full border-2 hover:border-primary/50">
               <CardHeader>
@@ -128,37 +127,6 @@ export default async function ExamPage({ params }: ExamPageProps) {
               </CardContent>
             </Card>
           </Link>
-          {lectures.length > 0 ? (
-            <Link href={`/exams/${bundle_id}/lectures`}>
-              <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full border-2 hover:border-primary/50">
-                <CardHeader>
-                  <div className="text-4xl mb-2">🎬</div>
-                  <CardTitle className="text-xl">영상 강의</CardTitle>
-                  <CardDescription className="text-base">
-                    {`${lectures.length}개의 영상 강의로 효과적으로 학습하세요`}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button className="w-full">영상강의 보기</Button>
-                </CardContent>
-              </Card>
-            </Link>
-          ) : (
-            <Card className="h-full border-2 border-dashed bg-muted/30">
-              <CardHeader>
-                <div className="text-4xl mb-2">🎬</div>
-                <CardTitle className="text-xl">영상 강의</CardTitle>
-                <CardDescription className="text-base">
-                  영상 강의는 아직 준비 중입니다. 먼저 핵심 개념으로 학습을 시작해 보세요.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button className="w-full" variant="outline" disabled>
-                  업데이트 예정
-                </Button>
-              </CardContent>
-            </Card>
-          )}
         </div>
       </section>
 

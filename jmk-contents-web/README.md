@@ -94,6 +94,9 @@ CONTACT_EMAIL=bombezzang100@gmail.com
 
 # Analytics (Optional)
 NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+
+# Google AdSense (Optional)
+NEXT_PUBLIC_GOOGLE_ADSENSE_CLIENT=ca-pub-2598779635969436
 ```
 
 ## 배포
@@ -111,6 +114,7 @@ vercel link
 vercel env add NEXT_PUBLIC_SUPABASE_URL
 vercel env add NEXT_PUBLIC_SUPABASE_ANON_KEY
 vercel env add SUPABASE_SERVICE_ROLE_KEY
+vercel env add NEXT_PUBLIC_GOOGLE_ADSENSE_CLIENT
 
 # 배포
 vercel --prod

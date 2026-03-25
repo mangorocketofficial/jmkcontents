@@ -6,7 +6,6 @@ import { ExamCard } from './ExamCard'
 
 interface ExamWithCounts extends App {
   conceptCount: number
-  lectureCount: number
 }
 
 interface ExamsClientProps {
@@ -64,7 +63,6 @@ export function ExamsClient({ exams }: ExamsClientProps) {
               key={exam.bundle_id}
               app={exam}
               conceptCount={exam.conceptCount}
-              lectureCount={exam.lectureCount}
             />
           ))}
         </div>

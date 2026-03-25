@@ -7,10 +7,9 @@ import { extractAppLegalInfo } from '@/lib/utils'
 interface ExamCardProps {
   app: App
   conceptCount: number
-  lectureCount: number
 }
 
-export function ExamCard({ app, conceptCount, lectureCount }: ExamCardProps) {
+export function ExamCard({ app, conceptCount }: ExamCardProps) {
   const description = extractAppLegalInfo(app.description).cleanedText
 
   return (
@@ -56,7 +55,6 @@ export function ExamCard({ app, conceptCount, lectureCount }: ExamCardProps) {
         </CardDescription>
         <div className="flex items-center gap-4 mt-4 text-sm text-muted-foreground">
           <span>핵심개념 {conceptCount}개</span>
-          {lectureCount > 0 && <span>영상강의 {lectureCount}개</span>}
         </div>
         <Link href={`/exams/${app.bundle_id}`} className="mt-4">
           <Button className="w-full">학습하기</Button>

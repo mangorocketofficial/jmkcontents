@@ -14,9 +14,6 @@ export function Header() {
           <Link href="/concepts" className="hover:text-primary transition-colors">
             핵심개념
           </Link>
-          <Link href="/lectures" className="hover:text-primary transition-colors">
-            영상강의
-          </Link>
           <Link href="/support" className="hover:text-primary transition-colors">
             지원
           </Link>

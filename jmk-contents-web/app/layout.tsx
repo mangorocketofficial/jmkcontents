@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { AdSenseHead } from "@/components/ads/AdSenseScript";
+import { SITE_URL } from "@/lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,8 +17,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "JMK Contents - 자격증 시험 핵심개념 & 영상강의",
-  description: "한국 자격증 시험 준비를 위한 핵심개념 정리와 영상강의 학습 플랫폼",
+  metadataBase: new URL(SITE_URL),
+  title: "JMK Contents - 자격증 시험 핵심개념",
+  description: "한국 자격증 시험 준비를 위한 핵심개념 정리와 기출문제 앱 정보 플랫폼",
 };
 
 export default function RootLayout({
@@ -26,6 +29,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
+      <head>
+        <AdSenseHead />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
