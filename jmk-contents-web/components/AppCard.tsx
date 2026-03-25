@@ -2,12 +2,15 @@ import Link from 'next/link'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { App } from '@/lib/firebase/types'
+import { extractAppLegalInfo } from '@/lib/utils'
 
 interface AppCardProps {
   app: App
 }
 
 export function AppCard({ app }: AppCardProps) {
+  const description = extractAppLegalInfo(app.description).cleanedText
+
   return (
     <Card className="h-full flex flex-col">
       <CardHeader>
@@ -47,7 +50,7 @@ export function AppCard({ app }: AppCardProps) {
       </CardHeader>
       <CardContent className="flex-1 flex flex-col">
         <CardDescription className="flex-1 line-clamp-3">
-          {app.description || '자격증 시험 준비를 위한 앱'}
+          {description || '자격증 시험 준비를 위한 앱'}
         </CardDescription>
         {app.rating && (
           <div className="flex items-center gap-1 mt-4 text-sm text-muted-foreground">

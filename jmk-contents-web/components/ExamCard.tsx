@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { App } from '@/lib/firebase/types'
+import { extractAppLegalInfo } from '@/lib/utils'
 
 interface ExamCardProps {
   app: App
@@ -10,6 +11,8 @@ interface ExamCardProps {
 }
 
 export function ExamCard({ app, conceptCount, lectureCount }: ExamCardProps) {
+  const description = extractAppLegalInfo(app.description).cleanedText
+
   return (
     <Card className="h-full flex flex-col">
       <CardHeader>
@@ -49,7 +52,7 @@ export function ExamCard({ app, conceptCount, lectureCount }: ExamCardProps) {
       </CardHeader>
       <CardContent className="flex-1 flex flex-col">
         <CardDescription className="flex-1 line-clamp-2">
-          {app.description || '자격증 시험 학습 자료'}
+          {description || '자격증 시험 학습 자료'}
         </CardDescription>
         <div className="flex items-center gap-4 mt-4 text-sm text-muted-foreground">
           <span>핵심개념 {conceptCount}개</span>

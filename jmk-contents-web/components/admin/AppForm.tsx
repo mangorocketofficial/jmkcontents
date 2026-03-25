@@ -184,14 +184,14 @@ export function AppForm({ mode, initialData }: AppFormProps) {
           {/* URLs */}
           <div>
             <label htmlFor="app_store_url" className="block text-sm font-medium mb-2">
-              App Store URL
+              스토어 URL (App Store / Google Play)
             </label>
             <Input
               id="app_store_url"
               type="url"
               value={formData.app_store_url}
               onChange={(e) => setFormData({ ...formData, app_store_url: e.target.value })}
-              placeholder="https://apps.apple.com/..."
+              placeholder="https://apps.apple.com/... 또는 https://play.google.com/..."
               disabled={isSubmitting}
             />
           </div>

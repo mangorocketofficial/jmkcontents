@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import { getAppByBundleId, getConceptsByAppId, getLecturesByAppId } from '@/lib/firebase/apps'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { extractAppLegalInfo, getStoreLinkMetadata } from '@/lib/utils'
 import Link from 'next/link'
 
 interface ExamPageProps {
@@ -47,6 +48,11 @@ export default async function ExamPage({ params }: ExamPageProps) {
 
   const appStoreUrl = app.app_store_url
     || `https://apps.apple.com/search?term=${encodeURIComponent(app.app_name_full || app.app_name)}`
+  const storeLinkMetadata = getStoreLinkMetadata(app.app_store_url || appStoreUrl)
+  const descriptionInfo = extractAppLegalInfo(app.description)
+  const fullDescriptionInfo = extractAppLegalInfo(app.description_full)
+  const termsOfUseUrl = descriptionInfo.termsOfUseUrl || fullDescriptionInfo.termsOfUseUrl
+  const privacyPolicyUrl = descriptionInfo.privacyPolicyUrl || fullDescriptionInfo.privacyPolicyUrl
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -95,8 +101,8 @@ export default async function ExamPage({ params }: ExamPageProps) {
               ))}
             </div>
 
-            {app.description && (
-              <p className="text-muted-foreground">{app.description}</p>
+            {descriptionInfo.cleanedText && (
+              <p className="text-muted-foreground whitespace-pre-wrap">{descriptionInfo.cleanedText}</p>
             )}
           </div>
         </div>
@@ -122,27 +128,42 @@ export default async function ExamPage({ params }: ExamPageProps) {
               </CardContent>
             </Card>
           </Link>
-          <Link href={`/exams/${bundle_id}/lectures`}>
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full border-2 hover:border-primary/50">
+          {lectures.length > 0 ? (
+            <Link href={`/exams/${bundle_id}/lectures`}>
+              <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full border-2 hover:border-primary/50">
+                <CardHeader>
+                  <div className="text-4xl mb-2">🎬</div>
+                  <CardTitle className="text-xl">영상 강의</CardTitle>
+                  <CardDescription className="text-base">
+                    {`${lectures.length}개의 영상 강의로 효과적으로 학습하세요`}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Button className="w-full">영상강의 보기</Button>
+                </CardContent>
+              </Card>
+            </Link>
+          ) : (
+            <Card className="h-full border-2 border-dashed bg-muted/30">
               <CardHeader>
                 <div className="text-4xl mb-2">🎬</div>
                 <CardTitle className="text-xl">영상 강의</CardTitle>
                 <CardDescription className="text-base">
-                  {lectures.length > 0
-                    ? `${lectures.length}개의 영상 강의로 효과적으로 학습하세요`
-                    : '시험 대비 영상 강의를 시청하세요'}
+                  영상 강의는 아직 준비 중입니다. 먼저 핵심 개념으로 학습을 시작해 보세요.
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button className="w-full">영상강의 보기</Button>
+                <Button className="w-full" variant="outline" disabled>
+                  업데이트 예정
+                </Button>
               </CardContent>
             </Card>
-          </Link>
+          )}
         </div>
       </section>
 
       {/* App Description */}
-      {app.description_full && (
+      {fullDescriptionInfo.cleanedText && (
         <section className="mb-12">
           <Card>
             <CardHeader>
@@ -150,7 +171,7 @@ export default async function ExamPage({ params }: ExamPageProps) {
             </CardHeader>
             <CardContent>
               <p className="text-base leading-relaxed whitespace-pre-wrap text-muted-foreground">
-                {app.description_full}
+                {fullDescriptionInfo.cleanedText}
               </p>
             </CardContent>
           </Card>
@@ -166,23 +187,51 @@ export default async function ExamPage({ params }: ExamPageProps) {
               {app.app_name} 기출문제를 앱에서 풀어보세요
             </CardDescription>
           </CardHeader>
-          <CardContent className="flex flex-wrap items-center gap-4">
-            {app.icon_url && (
-              <img src={app.icon_url} alt="" className="w-12 h-12 rounded-lg" />
-            )}
-            <a href={appStoreUrl} target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" className="gap-2">
-                <span>🍎</span>
-                App Store에서 다운로드
-              </Button>
-            </a>
-            {app.rating !== undefined && app.rating > 0 && (
-              <span className="text-sm text-muted-foreground">
-                ⭐ {app.rating.toFixed(1)}
-                {app.review_count !== undefined && app.review_count > 0 && (
-                  <span> ({app.review_count.toLocaleString()})</span>
+          <CardContent className="space-y-4">
+            <div className="flex flex-wrap items-center gap-4">
+              {app.icon_url && (
+                <img src={app.icon_url} alt="" className="w-12 h-12 rounded-lg" />
+              )}
+              <a href={appStoreUrl} target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="gap-2">
+                  <span>{storeLinkMetadata.icon}</span>
+                  {storeLinkMetadata.label}
+                </Button>
+              </a>
+              {app.rating !== undefined && app.rating > 0 && (
+                <span className="text-sm text-muted-foreground">
+                  ⭐ {app.rating.toFixed(1)}
+                  {app.review_count !== undefined && app.review_count > 0 && (
+                    <span> ({app.review_count.toLocaleString()})</span>
+                  )}
+                </span>
+              )}
+            </div>
+
+            {(termsOfUseUrl || privacyPolicyUrl) && (
+              <div className="border-t pt-4 text-sm text-muted-foreground flex flex-wrap items-center gap-4">
+                <span className="font-medium">법률 안내</span>
+                {termsOfUseUrl && (
+                  <a
+                    href={termsOfUseUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline underline-offset-4 hover:text-foreground"
+                  >
+                    이용약관 (EULA)
+                  </a>
                 )}
-              </span>
+                {privacyPolicyUrl && (
+                  <a
+                    href={privacyPolicyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline underline-offset-4 hover:text-foreground"
+                  >
+                    개인정보 처리방침
+                  </a>
+                )}
+              </div>
             )}
           </CardContent>
         </Card>
