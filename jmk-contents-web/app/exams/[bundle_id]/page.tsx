@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import { getAppByBundleId, getConceptsByAppId } from '@/lib/firebase/apps'
+import { getAppByBundleId, getConceptsByAppId } from '@/lib/local-content'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { extractAppLegalInfo, getStoreLinkMetadata } from '@/lib/utils'

@@ -1,4 +1,4 @@
-import { getAllConcepts, getApps } from '@/lib/firebase/apps'
+import { getAllConcepts, getApps } from '@/lib/local-content'
 import { AllConceptsClient } from '@/components/AllConceptsClient'
 import type { Metadata } from 'next'
 

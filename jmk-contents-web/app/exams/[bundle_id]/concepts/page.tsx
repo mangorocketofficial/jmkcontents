@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getAppByBundleId, getConceptsByAppId } from '@/lib/firebase/apps'
+import { getAppByBundleId, getConceptsByAppId } from '@/lib/local-content'
 import { ConceptsClient } from '@/components/ConceptsClient'
 import { Button } from '@/components/ui/button'
 

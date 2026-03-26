@@ -1,6 +1,6 @@
 import { ExamCard } from '@/components/ExamCard'
 import { Button } from '@/components/ui/button'
-import { getAppsWithContentCounts, getAllConcepts } from '@/lib/firebase/apps'
+import { getAppsWithContentCounts, getAllConcepts } from '@/lib/local-content'
 import { ConceptCard } from '@/components/ConceptCard'
 import Link from 'next/link'
 

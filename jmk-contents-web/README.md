@@ -6,7 +6,7 @@
 
 - **Frontend**: Next.js 15, React 19, TypeScript
 - **Styling**: Tailwind CSS, shadcn/ui
-- **Backend**: Supabase (PostgreSQL, Auth, Storage)
+- **Content Source**: Local JSON snapshot generated from external `concepts.db`
 - **Deployment**: Vercel
 - **DNS**: Cloudflare
 
@@ -22,6 +22,9 @@
 ```bash
 # 의존성 설치
 npm install
+
+# 외부 concepts.db -> 로컬 JSON 동기화
+npm run sync:content
 
 # 환경 변수 설정
 cp .env.example .env.local
@@ -75,7 +78,7 @@ jmk-contents-web/
 - ✅ 다크 모드 지원
 - ✅ 접근성 (WCAG 2.1 AA)
 - ✅ 법률 페이지 (Privacy, Terms, Support)
-- 🚧 Supabase 데이터베이스 연동
+- ✅ 외부 `concepts.db` 기반 콘텐츠 동기화
 - 🚧 관리자 대시보드
 - 🚧 분석 통합
 

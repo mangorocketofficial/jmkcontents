@@ -56,6 +56,13 @@ export async function submitContactForm(
       }
     }
 
+    if (!process.env.FIREBASE_SERVICE_ACCOUNT_KEY) {
+      return {
+        success: false,
+        message: '현재 웹 문의 저장 기능은 비활성화되어 있습니다. 아래 안내된 이메일로 직접 연락해주세요.',
+      }
+    }
+
     // Firestore에 저장
     const db = getFirestoreDb()
     const contactSubmissionsRef = db.collection('contact_submissions')

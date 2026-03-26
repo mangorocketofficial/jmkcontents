@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next'
-import { getApps } from '@/lib/firebase/apps'
+import { getApps } from '@/lib/local-content'
 import { SITE_URL } from '@/lib/site'
 
 export const revalidate = 3600
