@@ -1,4 +1,4 @@
-import { getAllConcepts, getApps } from '@/lib/local-content'
+import { getAllConcepts, getApps } from '@/lib/content'
 import { AllConceptsClient } from '@/components/AllConceptsClient'
 import type { Metadata } from 'next'
 

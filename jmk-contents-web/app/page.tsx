@@ -1,6 +1,6 @@
 import { ExamCard } from '@/components/ExamCard'
 import { Button } from '@/components/ui/button'
-import { getAppsWithContentCounts, getAllConcepts } from '@/lib/local-content'
+import { getAppsWithContentCounts, getAllConcepts, getHomepageExamPreview } from '@/lib/content'
 import { ConceptCard } from '@/components/ConceptCard'
 import Link from 'next/link'
 
@@ -12,13 +12,7 @@ export default async function Home() {
     getAllConcepts(),
   ])
 
-  const featuredExams = examsWithCounts
-    .filter(e => e.is_featured)
-    .slice(0, 3)
-
-  const displayExams = featuredExams.length > 0
-    ? featuredExams
-    : examsWithCounts.slice(0, 3)
+  const displayExams = getHomepageExamPreview(examsWithCounts)
 
   const totalConcepts = recentConcepts.length
 

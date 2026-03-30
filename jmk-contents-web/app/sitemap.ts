@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next'
-import { getApps } from '@/lib/local-content'
+import { getApps } from '@/lib/content'
 import { SITE_URL } from '@/lib/site'
 
 export const revalidate = 3600

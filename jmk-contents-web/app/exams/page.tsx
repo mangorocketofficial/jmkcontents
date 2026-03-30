@@ -1,4 +1,4 @@
-import { getAppsWithContentCounts } from '@/lib/local-content'
+import { getAppsWithContentCounts } from '@/lib/content'
 import { ExamsClient } from '@/components/ExamsClient'
 import type { Metadata } from 'next'
 
