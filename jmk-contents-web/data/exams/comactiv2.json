@@ -3,7 +3,7 @@
     "repo_url": "https://github.com/mangorocketofficial/exam-pipeline-generator.git",
     "branch": "comactiv2_pipeline",
     "db_path": "output/comactiv2_pipeline/database/concepts.db",
-    "generated_at": "2026-03-26T07:55:07.415Z",
+    "generated_at": "2026-03-30T01:27:42.211Z",
     "concept_count": 60,
     "note": "App metadata is normalized in this repository because the upstream branch currently has mismatched app config values."
   },

@@ -1,0 +1,1725 @@
+{
+  "source": {
+    "repo_url": "https://github.com/mangorocketofficial/exam-pipeline-generator.git",
+    "branch": "comactiv1_pipeline",
+    "db_path": "output/comactiv1_pipeline/database/concepts.db",
+    "generated_at": "2026-03-30T01:27:40.035Z",
+    "concept_count": 90,
+    "note": "App metadata is normalized in this repository because the upstream branch currently has mismatched app config values."
+  },
+  "app": {
+    "bundle_id": "comactiv1",
+    "app_name": "컴활 1급",
+    "app_name_full": "컴퓨터활용능력 1급",
+    "description": "컴퓨터활용능력 1급 필기 핵심개념을 과목별로 빠르게 복습할 수 있도록 정리했습니다.",
+    "description_full": "컴퓨터활용능력 1급 필기 시험의 핵심개념을 DB 원본 기준으로 정리한 학습 자료입니다. 데이터베이스 일반, 스프레드시트 일반, 컴퓨터 일반 과목을 빠르게 훑고 시험 직전에 복습할 수 있도록 구성했습니다.",
+    "app_category": "컴퓨터자격증",
+    "status": "published",
+    "is_featured": false,
+    "rating": 0,
+    "review_count": 0,
+    "download_count": 0,
+    "categories": [
+      "데이터베이스 일반",
+      "스프레드시트 일반",
+      "컴퓨터 일반"
+    ],
+    "marketing_url": "https://jmkcontents.com/exams/comactiv1",
+    "created_at": "2026-03-24T05:13:19.000Z",
+    "updated_at": "2026-03-24T05:13:19.000Z"
+  },
+  "concepts": [
+    {
+      "id": "comactiv1_60",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "데이터베이스 개념과 DBMS",
+      "content": "데이터베이스는 통합, 공유, 운영, 저장된 데이터의 집합이며, DBMS는 이를 관리하는 소프트웨어이다.",
+      "importance": 5,
+      "keywords": "데이터베이스, DBMS, 통합, 공유, 운영, 저장",
+      "study_note": "• DB 특성: 실시간 접근성, 계속적 변화, 동시 공용, 내용 참조\n• DBMS 장점: 중복 최소화, 일관성, 무결성, 보안\n• DBMS 기능: 정의, 조작, 제어",
+      "related_question_ids": [
+        "224",
+        "164",
+        "41",
+        "107",
+        "172"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_61",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "스키마와 3단계 구조",
+      "content": "데이터베이스의 3단계 구조는 외부 스키마, 개념 스키마, 내부 스키마로 구성되며, 각 단계 간 매핑으로 데이터 독립성을 보장한다.",
+      "importance": 5,
+      "keywords": "스키마, 외부, 개념, 내부, 데이터독립성, 매핑",
+      "study_note": "• 외부 스키마: 사용자 관점 (서브 스키마)\n• 개념 스키마: 전체 논리적 구조\n• 내부 스키마: 물리적 저장 구조\n• 논리적 독립성: 외부-개념 간\n• 물리적 독립성: 개념-내부 간",
+      "related_question_ids": [
+        "833",
+        "293",
+        "648",
+        "234",
+        "110"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_62",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "관계형 데이터 모델",
+      "content": "관계형 모델은 데이터를 2차원 테이블(릴레이션)로 표현하며, 속성(열), 튜플(행), 도메인으로 구성된다.",
+      "importance": 5,
+      "keywords": "릴레이션, 속성, 튜플, 도메인, 차수, 카디널리티",
+      "study_note": "• 릴레이션 = 테이블\n• 속성(Attribute) = 열, 차수(Degree) = 속성 수\n• 튜플(Tuple) = 행, 카디널리티 = 튜플 수\n• 도메인: 속성이 가질 수 있는 원자값 집합",
+      "related_question_ids": [
+        "114",
+        "115",
+        "51",
+        "116",
+        "59"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_63",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "키의 종류와 특성",
+      "content": "기본키, 후보키, 대체키, 외래키, 슈퍼키 등 관계형 데이터베이스의 다양한 키와 그 특성을 이해한다.",
+      "importance": 5,
+      "keywords": "기본키, 후보키, 대체키, 외래키, 슈퍼키, 유일성, 최소성",
+      "study_note": "• 슈퍼키: 유일성 O, 최소성 X 가능\n• 후보키: 유일성 O, 최소성 O\n• 기본키: 후보키 중 선택, NULL 불가\n• 대체키: 후보키 - 기본키\n• 외래키: 다른 릴레이션의 기본키 참조",
+      "related_question_ids": [
+        "235"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_64",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "정규화 (1NF ~ BCNF)",
+      "content": "정규화는 데이터 중복과 이상 현상을 제거하기 위해 릴레이션을 분해하는 과정이다.",
+      "importance": 5,
+      "keywords": "정규화, 1NF, 2NF, 3NF, BCNF, 함수적종속, 이상현상",
+      "study_note": "• 1NF: 원자값만 허용\n• 2NF: 부분 함수 종속 제거\n• 3NF: 이행 함수 종속 제거\n• BCNF: 모든 결정자가 후보키\n• 이상 현상: 삽입, 삭제, 갱신 이상",
+      "related_question_ids": [
+        "291",
+        "649",
+        "717",
+        "464",
+        "341"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_65",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "SQL SELECT 문",
+      "content": "SELECT 문은 데이터베이스에서 데이터를 조회하는 DML 명령으로, WHERE, ORDER BY, GROUP BY 등 다양한 절과 함께 사용한다.",
+      "importance": 5,
+      "keywords": "SELECT, FROM, WHERE, ORDER BY, GROUP BY, HAVING, DISTINCT",
+      "study_note": "• 기본: SELECT 열 FROM 테이블 WHERE 조건\n• DISTINCT: 중복 제거\n• ORDER BY: ASC(기본)/DESC\n• GROUP BY + HAVING: 그룹 조건\n• BETWEEN, IN, LIKE, IS NULL",
+      "related_question_ids": [
+        "352",
+        "102",
+        "654",
+        "178",
+        "50"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_66",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "SQL DML (INSERT, UPDATE, DELETE)",
+      "content": "데이터 조작어로 INSERT(삽입), UPDATE(수정), DELETE(삭제) 명령을 사용하여 테이블 데이터를 변경한다.",
+      "importance": 5,
+      "keywords": "INSERT, UPDATE, DELETE, SET, VALUES, DML",
+      "study_note": "• INSERT INTO 테이블 VALUES(...)\n• UPDATE 테이블 SET 열=값 WHERE 조건\n• DELETE FROM 테이블 WHERE 조건\n• WHERE 생략 시 전체 행 영향\n• DELETE는 구조 유지, DROP은 구조 삭제",
+      "related_question_ids": [
+        "292",
+        "711"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_68",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "JOIN 연산",
+      "content": "두 개 이상의 테이블을 연결하여 데이터를 조회하는 연산으로, INNER JOIN, LEFT/RIGHT/FULL OUTER JOIN 등이 있다.",
+      "importance": 5,
+      "keywords": "JOIN, INNER, LEFT, RIGHT, FULL, OUTER, 교차, 자연",
+      "study_note": "• INNER JOIN: 양쪽 일치 행만\n• LEFT OUTER JOIN: 왼쪽 전체 + 오른쪽 일치\n• RIGHT OUTER JOIN: 오른쪽 전체 + 왼쪽 일치\n• CROSS JOIN: 카티션 곱\n• NATURAL JOIN: 동일 열명 자동 조인",
+      "related_question_ids": [
+        "524",
+        "773",
+        "838"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_71",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "트랜잭션과 ACID 속성",
+      "content": "트랜잭션은 하나의 논리적 작업 단위이며, 원자성, 일관성, 격리성, 지속성(ACID)을 보장해야 한다.",
+      "importance": 5,
+      "keywords": "트랜잭션, ACID, 원자성, 일관성, 격리성, 지속성, COMMIT, ROLLBACK",
+      "study_note": "• 원자성(Atomicity): All or Nothing\n• 일관성(Consistency): 전후 일관된 상태\n• 격리성(Isolation): 동시 실행 간섭 없음\n• 지속성(Durability): COMMIT 후 영구 반영\n• SAVEPOINT: 부분 ROLLBACK 가능",
+      "related_question_ids": [],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_31",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "VLOOKUP과 HLOOKUP 함수",
+      "content": "VLOOKUP은 수직으로, HLOOKUP은 수평으로 데이터를 검색하는 참조 함수이다. 범위의 첫 번째 열/행에서 값을 찾아 지정한 위치의 값을 반환한다.",
+      "importance": 5,
+      "keywords": "VLOOKUP, HLOOKUP, 검색, 참조, 범위_찾기",
+      "study_note": "• VLOOKUP(찾을값, 범위, 열번호, [유형])\n• range_lookup: TRUE(근사일치), FALSE(정확히 일치)\n• 근사일치 사용 시 반드시 오름차순 정렬 필요\n• HLOOKUP은 행 방향 검색",
+      "related_question_ids": [
+        "216",
+        "864",
+        "575"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_32",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "INDEX와 MATCH 함수 조합",
+      "content": "INDEX 함수는 범위에서 행/열 위치의 값을 반환하고, MATCH 함수는 값의 상대 위치를 반환한다. 두 함수를 조합하면 VLOOKUP의 한계를 극복할 수 있다.",
+      "importance": 5,
+      "keywords": "INDEX, MATCH, 배열, 참조, 위치",
+      "study_note": "• INDEX(범위, 행번호, [열번호])\n• MATCH(찾을값, 범위, [유형])\n• VLOOKUP과 달리 왼쪽 열 참조 가능\n• 대용량 데이터에서 더 빠른 성능",
+      "related_question_ids": [
+        "753",
+        "396"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_33",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "조건부 함수 (SUMIF, COUNTIF, AVERAGEIF)",
+      "content": "조건을 만족하는 셀만 대상으로 합계, 개수, 평균을 구하는 함수이다. SUMIFS, COUNTIFS 등 다중 조건 버전도 있다.",
+      "importance": 5,
+      "keywords": "SUMIF, COUNTIF, AVERAGEIF, SUMIFS, COUNTIFS, 조건부",
+      "study_note": "• SUMIF(조건범위, 조건, [합계범위])\n• COUNTIF(범위, 조건)\n• 다중조건: SUMIFS(합계범위, 조건범위1, 조건1, ...)\n• 와일드카드 사용 가능: *(여러문자), ?(한문자)",
+      "related_question_ids": [],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_34",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "논리 함수 (IF, AND, OR, IFERROR)",
+      "content": "조건에 따라 다른 값을 반환하는 함수이다. IF 함수는 중첩하여 다중 조건 처리가 가능하며, IFERROR로 오류를 처리한다.",
+      "importance": 5,
+      "keywords": "IF, AND, OR, NOT, IFERROR, 논리, 조건",
+      "study_note": "• IF(조건, 참값, 거짓값)\n• 중첩 IF로 다중 조건 처리\n• AND: 모든 조건 참, OR: 하나라도 참\n• IFERROR: 오류 시 대체값 반환",
+      "related_question_ids": [
+        "96",
+        "332"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_38",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "셀 참조 방식 (상대/절대/혼합/3차원)",
+      "content": "상대 참조(A1)는 수식 복사 시 변경되고, 절대 참조($A$1)는 고정된다. 혼합 참조($A1, A$1)는 행/열 하나만 고정한다.",
+      "importance": 5,
+      "keywords": "상대참조, 절대참조, 혼합참조, 3차원참조, $, F4",
+      "study_note": "• F4키로 참조 방식 전환\n• $A$1: 절대(행열 고정)\n• $A1: 열 고정, A$1: 행 고정\n• 3차원: Sheet1:Sheet3!A1 (여러 시트 참조)\n• 3차원 참조는 배열 수식에서 사용 불가",
+      "related_question_ids": [
+        "513",
+        "34",
+        "682",
+        "398",
+        "151"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_40",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "매크로와 VBA 기초",
+      "content": "매크로는 반복 작업을 자동화하는 기능이며, VBA(Visual Basic for Applications)로 프로그래밍할 수 있다.",
+      "importance": 5,
+      "keywords": "매크로, VBA, 모듈, 프로시저, Sub, Function",
+      "study_note": "• 매크로 파일: .xlsm으로 저장\n• 상대/절대 참조 기록 가능\n• Sub: 값 반환 없음, Function: 값 반환\n• Alt+F11: VBA 편집기 열기\n• 매크로 보안: 디지털 서명, 신뢰할 수 있는 위치",
+      "related_question_ids": [
+        "32",
+        "451",
+        "388",
+        "329",
+        "330"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_43",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "VBA 셀 참조 (Range, Cells, Offset)",
+      "content": "VBA에서 Range, Cells, Offset 속성으로 워크시트의 셀을 참조하고 조작할 수 있다.",
+      "importance": 5,
+      "keywords": "Range, Cells, Offset, ActiveCell, Value, Formula",
+      "study_note": "• Range(\"A1\") 또는 Range(\"A1:B5\")\n• Cells(행, 열): Cells(1,1) = A1\n• Offset(행이동, 열이동)\n• ActiveCell: 현재 선택 셀\n• FormulaR1C1: R1C1 수식 입력",
+      "related_question_ids": [
+        "809",
+        "207"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_44",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "피벗 테이블",
+      "content": "대량의 데이터를 요약, 분석, 탐색하는 도구이다. 행, 열, 값, 필터 영역으로 구성되며 드래그 앤 드롭으로 구성을 변경할 수 있다.",
+      "importance": 5,
+      "keywords": "피벗테이블, 요약, 분석, 행레이블, 열레이블, 값",
+      "study_note": "• 원본 변경 시 '새로 고침' 필요\n• 값 영역: 합계, 평균, 개수 등\n• 같은 필드 여러 번 추가 가능\n• 그룹화: 날짜, 숫자 범위별 그룹\n• 계산 필드/항목 추가 가능",
+      "related_question_ids": [
+        "321",
+        "97",
+        "741",
+        "623",
+        "689"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_2",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "데이터 표현과 코드 체계",
+      "content": "컴퓨터에서 데이터를 표현하는 코드 체계로 ASCII, EBCDIC, 유니코드 등이 있다. 각 코드의 비트 수, 표현 가능한 문자 수, 용도를 구분할 수 있어야 한다.",
+      "importance": 5,
+      "keywords": "ASCII, EBCDIC, 유니코드, BCD, 문자 코드, 비트",
+      "study_note": "• ASCII: 7비트(128문자), 통신용 표준 코드\n• EBCDIC: 8비트(256문자), IBM 대형 컴퓨터용\n• 유니코드: 16비트(65,536문자), 전 세계 문자 표현\n• BCD: 6비트(64문자)\n• 데이터 단위: 비트→니블→바이트→워드→필드→레코드→파일→데이터베이스",
+      "related_question_ids": [
+        "253",
+        "301",
+        "372",
+        "373",
+        "491",
+        "663",
+        "731",
+        "791"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_3",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "중앙처리장치(CPU)와 레지스터",
+      "content": "CPU는 제어장치, 연산장치, 레지스터로 구성된다. 레지스터는 CPU 내부의 고속 기억장치로 프로그램 카운터(PC), 명령 레지스터(IR), 누산기(ACC) 등이 있다.",
+      "importance": 5,
+      "keywords": "CPU, 레지스터, 프로그램 카운터, 명령 레지스터, 누산기, 제어장치, 연산장치, 마이크로프로세서",
+      "study_note": "• 프로그램 카운터(PC): 다음 실행할 명령어 주소 저장\n• 명령 레지스터(IR): 현재 실행 중인 명령어 저장\n• 누산기(ACC): 연산 결과 임시 저장\n• MAR: 메모리 주소 레지스터\n• MBR: 메모리 버퍼 레지스터\n• 부호기(Encoder): 제어 신호 생성",
+      "related_question_ids": [
+        "134",
+        "375",
+        "376",
+        "436",
+        "601",
+        "602",
+        "736",
+        "793",
+        "853"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_4",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "기억장치 계층 구조",
+      "content": "기억장치는 속도와 용량에 따라 레지스터, 캐시, 주기억장치(RAM/ROM), 보조기억장치로 계층화된다. 상위 계층일수록 속도가 빠르고 용량이 작으며 비용이 높다.",
+      "importance": 5,
+      "keywords": "RAM, ROM, 캐시 메모리, SRAM, DRAM, 가상 메모리, 보조기억장치",
+      "study_note": "• SRAM: 빠르고 비쌈, 캐시 메모리용, 리프레시 불필요\n• DRAM: 느리고 저렴, 주기억장치용, 주기적 리프레시 필요\n• 캐시 메모리: CPU와 주기억장치 사이 속도 차이 해결\n• 가상 메모리: 보조기억장치를 주기억장치처럼 사용\n• ROM 종류: Mask ROM, PROM, EPROM, EEPROM",
+      "related_question_ids": [
+        "18",
+        "75",
+        "192",
+        "304",
+        "306",
+        "435",
+        "494",
+        "661",
+        "857"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_7",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "운영체제의 개념과 종류",
+      "content": "운영체제는 하드웨어와 사용자 사이의 중재자로 자원 관리, 프로세스 관리, 메모리 관리 등을 수행한다. 처리량 극대화, 반환시간 최소화, 신뢰도 향상이 주요 목표이다.",
+      "importance": 5,
+      "keywords": "운영체제, 처리량, 반환시간, 신뢰도, 일괄처리, 시분할, 실시간, 다중처리",
+      "study_note": "• 운영체제 목적: 처리량 극대화, 반환시간 최소화, 신뢰도 향상, 사용 가능도 극대화\n• 일괄처리: 데이터를 모아서 한꺼번에 처리\n• 시분할: CPU 시간을 분할하여 여러 사용자에게 할당\n• 실시간: 즉각적인 응답 요구 (미사일 제어 등)\n• 다중처리: 여러 CPU로 동시에 처리\n• 분산처리: 여러 컴퓨터를 네트워크로 연결",
+      "related_question_ids": [
+        "77",
+        "130",
+        "190",
+        "252",
+        "489",
+        "552",
+        "609",
+        "612",
+        "792"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_8",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "Windows 운영체제 기본 관리",
+      "content": "Windows의 제어판, 탐색기, 작업 관리자, 시스템 설정 등 기본 관리 기능을 이해해야 한다. 바로 가기 키, 파일 관리, 사용자 계정 설정 등이 빈출 주제이다.",
+      "importance": 5,
+      "keywords": "Windows, 제어판, 탐색기, 작업 관리자, 바로 가기 키, 사용자 계정",
+      "study_note": "• 작업 관리자: Ctrl+Shift+Esc 또는 Ctrl+Alt+Del\n• 제어판: 시스템 설정, 프로그램 관리, 네트워크 설정\n• 탐색기: 파일/폴더 관리, 검색 기능\n• 사용자 계정: 관리자, 표준 사용자 구분\n• UAC(사용자 계정 컨트롤): 시스템 변경 시 알림",
+      "related_question_ids": [
+        "5",
+        "15",
+        "79",
+        "80",
+        "123",
+        "126",
+        "250",
+        "305",
+        "309",
+        "604"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_14",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "OSI 7계층 참조 모델",
+      "content": "OSI 모델은 네트워크 통신을 7개 계층으로 분류한 표준 모델이다. 물리, 데이터링크, 네트워크, 전송, 세션, 표현, 응용 계층으로 구성되며 각 계층의 역할과 장비를 알아야 한다.",
+      "importance": 5,
+      "keywords": "OSI, 물리 계층, 데이터링크, 네트워크, 전송, 세션, 표현, 응용",
+      "study_note": "• 물리 계층: 전기 신호 전달 (리피터, 허브)\n• 데이터링크 계층: 프레임 전송, 오류 검출 (브리지, 스위치)\n• 네트워크 계층: 라우팅, IP주소 (라우터)\n• 전송 계층: 종단간 신뢰성 (TCP/UDP)\n• 세션 계층: 대화 관리, 동기점\n• 표현 계층: 데이터 변환, 암호화, 압축\n• 응용 계층: 사용자 인터페이스 (HTTP, FTP, SMTP)",
+      "related_question_ids": [
+        "8",
+        "486"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_15",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "TCP/IP 프로토콜",
+      "content": "TCP/IP는 인터넷의 기본 프로토콜로 4계층(네트워크 액세스, 인터넷, 전송, 응용)으로 구성된다. TCP는 연결형 신뢰성 전송, IP는 비연결형 데이터그램 전송을 담당한다.",
+      "importance": 5,
+      "keywords": "TCP, IP, UDP, ICMP, ARP, 프로토콜, 패킷",
+      "study_note": "• TCP: 연결형, 신뢰성 보장, 흐름 제어, 순서 보장\n• UDP: 비연결형, 빠른 전송, 신뢰성 보장 없음\n• IP: 비연결형, 데이터그램 방식, 경로 설정\n• ICMP: 오류 보고, Ping 명령어 사용\n• ARP: IP주소 → MAC주소 변환\n• RARP: MAC주소 → IP주소 변환",
+      "related_question_ids": [
+        "245",
+        "315",
+        "428",
+        "545",
+        "618",
+        "728",
+        "787",
+        "849"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_16",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "IP 주소 체계(IPv4, IPv6)",
+      "content": "IPv4는 32비트 주소 체계로 약 43억 개의 주소를 지원하며, IPv6는 128비트로 사실상 무한한 주소를 제공한다. IPv6의 특징과 전환 기술이 자주 출제된다.",
+      "importance": 5,
+      "keywords": "IPv4, IPv6, IP주소, 서브넷, DNS, 도메인",
+      "study_note": "• IPv4: 32비트, 8비트씩 4개 옥텟, 점(.)으로 구분\n• IPv6: 128비트, 16비트씩 8그룹, 콜론(:)으로 구분\n• IPv6 특징: 주소 공간 확장, 보안 기능 내장(IPSec), 이동성 지원\n• IPv6 전환: 듀얼 스택, 터널링, 헤더 변환\n• DNS: 도메인 이름 → IP 주소 변환\n• 클래스: A(대규모), B(중규모), C(소규모), D(멀티캐스트)",
+      "related_question_ids": [
+        "4",
+        "76",
+        "138",
+        "313",
+        "427",
+        "548",
+        "617",
+        "726",
+        "789"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_20",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "정보 보안 위협과 공격 유형",
+      "content": "컴퓨터 보안 위협에는 바이러스, 웜, 트로이 목마, 스파이웨어, DDoS 공격, 스니핑, 피싱 등이 있다. 각 위협의 특징과 대응 방법을 알아야 한다.",
+      "importance": 5,
+      "keywords": "바이러스, 웜, 트로이 목마, DDoS, 스니핑, 피싱, 랜섬웨어, 악성코드",
+      "study_note": "• 바이러스: 자기 복제, 다른 프로그램에 기생\n• 웜: 네트워크를 통해 자체 전파, 독립 실행\n• 트로이 목마: 정상 프로그램으로 위장, 자기 복제 없음\n• DDoS: 여러 컴퓨터에서 동시에 공격하여 서비스 마비\n• 스니핑: 네트워크 패킷을 도청\n• 디렉토리 바이러스: 파일 시작 위치를 바이러스로 변경",
+      "related_question_ids": [
+        "62",
+        "131",
+        "186",
+        "317",
+        "424",
+        "483",
+        "543",
+        "616",
+        "679",
+        "724",
+        "784"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_21",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "암호화 기법과 방화벽",
+      "content": "정보 보안을 위한 암호화 기법으로 대칭키(비밀키)와 비대칭키(공개키) 방식이 있다. 방화벽은 내부 네트워크를 외부 공격으로부터 보호하는 시스템이다.",
+      "importance": 5,
+      "keywords": "대칭키, 비대칭키, 공개키, 비밀키, DES, RSA, 방화벽, SSL",
+      "study_note": "• 비밀키(대칭키): 암호화/복호화에 같은 키 사용 (DES, AES)\n• 공개키(비대칭키): 공개키로 암호화, 개인키로 복호화 (RSA)\n• 비밀키: 속도 빠름, 키 배포 문제\n• 공개키: 속도 느림, 키 배포 용이\n• 방화벽: 패킷 필터링, 프록시 서버, 내부 네트워크 보호\n• SSL/TLS: 웹 통신 암호화 (HTTPS)",
+      "related_question_ids": [
+        "67",
+        "127",
+        "243",
+        "364",
+        "367",
+        "423",
+        "484",
+        "544",
+        "619",
+        "678",
+        "783",
+        "843",
+        "844"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_67",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "SQL DDL (CREATE, ALTER, DROP)",
+      "content": "데이터 정의어로 테이블, 뷰, 인덱스 등의 데이터베이스 객체를 생성, 변경, 삭제한다.",
+      "importance": 4,
+      "keywords": "CREATE, ALTER, DROP, DDL, 테이블, 제약조건",
+      "study_note": "• CREATE TABLE 테이블명 (열 정의...)\n• ALTER TABLE ADD/MODIFY/DROP\n• DROP TABLE: 자동 커밋, 복구 불가\n• 제약 조건: PRIMARY KEY, FOREIGN KEY, NOT NULL, UNIQUE, CHECK",
+      "related_question_ids": [],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_69",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "서브쿼리 (하위 질의)",
+      "content": "SQL 문 내에 포함된 또 다른 SELECT 문으로, WHERE 절, FROM 절, SELECT 절 등에서 사용할 수 있다.",
+      "importance": 4,
+      "keywords": "서브쿼리, 하위질의, IN, EXISTS, ANY, ALL",
+      "study_note": "• 단일 행: =, >, < 등\n• 다중 행: IN, ANY, ALL, EXISTS\n• 인라인 뷰: FROM 절의 서브쿼리\n• 상관 서브쿼리: 외부 쿼리 참조",
+      "related_question_ids": [
+        "288",
+        "167",
+        "360",
+        "44",
+        "413"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_70",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "뷰 (View)",
+      "content": "하나 이상의 기본 테이블로부터 유도된 가상 테이블로, 보안과 편의를 위해 사용한다.",
+      "importance": 4,
+      "keywords": "뷰, 가상테이블, CREATE VIEW, 보안, DML제한",
+      "study_note": "• CREATE VIEW 뷰명 AS SELECT문\n• 물리적 데이터 저장 없음\n• 장점: 보안, 편의성, 논리적 독립성\n• DML 제한: 집계함수, GROUP BY, DISTINCT 포함 시\n• 뷰 삭제 시 원본 무영향",
+      "related_question_ids": [],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_72",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "인덱스",
+      "content": "데이터 검색 속도를 향상시키기 위한 데이터 구조로, B-트리 등을 사용하여 구현한다.",
+      "importance": 4,
+      "keywords": "인덱스, 검색, B트리, 클러스터드, 넌클러스터드",
+      "study_note": "• 검색 성능 향상, DML 성능 저하 가능\n• 클러스터드: 물리적 정렬, 테이블당 1개\n• 넌클러스터드: 별도 인덱스 구조\n• OLE 개체 필드: 인덱스 불가\n• CREATE INDEX문으로 생성",
+      "related_question_ids": [
+        "358",
+        "300",
+        "45",
+        "48",
+        "51"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_73",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "E-R 다이어그램",
+      "content": "개체-관계 모델을 그림으로 표현한 것으로, 개체(사각형), 관계(마름모), 속성(타원) 등의 기호를 사용한다.",
+      "importance": 4,
+      "keywords": "ER, 개체, 관계, 속성, 사각형, 마름모, 타원, 카디널리티",
+      "study_note": "• 사각형: 개체(Entity) 타입\n• 마름모: 관계(Relationship) 타입\n• 타원: 속성(Attribute)\n• 밑줄 타원: 키 속성\n• 이중 타원: 다중값 속성\n• 이중 사각형: 약한 개체",
+      "related_question_ids": [
+        "289",
+        "102",
+        "585",
+        "172",
+        "50"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_74",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "관계 대수",
+      "content": "릴레이션을 처리하기 위한 연산의 집합으로, SELECT, PROJECT, JOIN, DIVISION 등의 연산이 있다.",
+      "importance": 4,
+      "keywords": "관계대수, SELECT, PROJECT, JOIN, DIVISION, 합집합, 교집합, 차집합",
+      "study_note": "• SELECT(σ): 조건 만족 튜플 선택 (수평)\n• PROJECT(π): 특정 속성만 추출 (수직)\n• JOIN(⋈): 두 릴레이션 결합\n• DIVISION(÷): 특정 조건 모두 만족하는 튜플\n• 집합 연산: 합집합, 교집합, 차집합, 카티션곱",
+      "related_question_ids": [
+        "101",
+        "172",
+        "109",
+        "111",
+        "179"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_76",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "무결성 제약 조건",
+      "content": "데이터의 정확성과 일관성을 보장하기 위한 규칙으로, 개체 무결성, 참조 무결성, 도메인 무결성 등이 있다.",
+      "importance": 4,
+      "keywords": "무결성, 개체무결성, 참조무결성, 도메인무결성, NOT NULL, CHECK",
+      "study_note": "• 개체 무결성: 기본키 NOT NULL, 유일\n• 참조 무결성: 외래키는 참조 테이블의 기본키 값 또는 NULL\n• 도메인 무결성: 속성값이 도메인 범위 내\n• CHECK: 값 범위 제한\n• UNIQUE: 중복 불허",
+      "related_question_ids": [
+        "832",
+        "822",
+        "343",
+        "345",
+        "702"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_77",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "Access 쿼리 유형",
+      "content": "Access에서는 선택 쿼리, 매개 변수 쿼리, 크로스탭 쿼리, 실행 쿼리(추가/업데이트/삭제/테이블 만들기) 등을 제공한다.",
+      "importance": 4,
+      "keywords": "선택쿼리, 매개변수, 크로스탭, 추가쿼리, 삭제쿼리, 테이블만들기",
+      "study_note": "• 선택 쿼리: 기본, 데이터 조회\n• 매개 변수: 실행 시 조건 입력\n• 크로스탭: 행/열 교차 요약\n• 실행 쿼리: 데이터 변경 (추가/업데이트/삭제)\n• 테이블 만들기: SELECT 결과로 새 테이블 생성",
+      "related_question_ids": [
+        "228",
+        "165",
+        "710",
+        "231",
+        "300"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_78",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "Access 폼과 컨트롤",
+      "content": "폼은 데이터 입력/수정을 위한 화면이며, 바운드, 언바운드, 계산 컨트롤로 구성된다.",
+      "importance": 4,
+      "keywords": "폼, 바운드, 언바운드, 계산, 컨트롤, 텍스트상자, 콤보상자",
+      "study_note": "• 바운드: 테이블 필드에 연결\n• 언바운드: 데이터 원본 없음\n• 계산: 식으로 값 계산 (=Now())\n• 하위 폼: 일대다 관계 표시\n• 탭 순서: Tab키 이동 순서 설정",
+      "related_question_ids": [
+        "104",
+        "105",
+        "106",
+        "43",
+        "44"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_79",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "Access 보고서",
+      "content": "데이터를 인쇄 형태로 출력하기 위한 개체로, 그룹화, 정렬, 요약 기능을 제공한다.",
+      "importance": 4,
+      "keywords": "보고서, 그룹머리글, 페이지머리글, 본문, 보고서보기, 디자인보기",
+      "study_note": "• 보고서 머리글: 맨 앞 1회 출력\n• 페이지 머리글: 매 페이지 상단\n• 그룹 머리글: 각 그룹 시작\n• 본문: 각 레코드마다 출력\n• 중복 내용 숨기기 속성\n• 레이아웃 보기: 데이터 보면서 편집",
+      "related_question_ids": [
+        "104",
+        "42",
+        "714",
+        "46",
+        "47"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_83",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "SQL 집계 함수",
+      "content": "COUNT, SUM, AVG, MAX, MIN 등 그룹 데이터에 대한 통계를 계산하는 함수이다.",
+      "importance": 4,
+      "keywords": "COUNT, SUM, AVG, MAX, MIN, 집계, GROUP BY",
+      "study_note": "• COUNT(*): 전체 행 수 (NULL 포함)\n• COUNT(열): NULL 제외 행 수\n• SUM, AVG: 숫자만 계산\n• MAX, MIN: 모든 데이터 타입 가능\n• GROUP BY와 함께 사용",
+      "related_question_ids": [
+        "770",
+        "222",
+        "767"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_35",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "텍스트 함수",
+      "content": "문자열을 처리하는 함수로 LEFT, RIGHT, MID, LEN, TRIM, SUBSTITUTE, CONCATENATE 등이 있다.",
+      "importance": 4,
+      "keywords": "LEFT, RIGHT, MID, LEN, TRIM, SUBSTITUTE, TEXT",
+      "study_note": "• LEFT(텍스트, 글자수), RIGHT(텍스트, 글자수)\n• MID(텍스트, 시작위치, 글자수)\n• TRIM: 불필요한 공백 제거\n• TEXT: 숫자를 서식 문자열로 변환",
+      "related_question_ids": [
+        "143",
+        "752",
+        "624",
+        "148",
+        "383"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_36",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "날짜/시간 함수",
+      "content": "날짜와 시간을 처리하는 함수로 TODAY, NOW, YEAR, MONTH, DAY, DATE, DATEDIF 등이 있다.",
+      "importance": 4,
+      "keywords": "TODAY, NOW, YEAR, MONTH, DAY, DATE, DATEDIF",
+      "study_note": "• TODAY(): 현재 날짜 (자동 갱신)\n• NOW(): 현재 날짜+시간\n• DATEDIF: 두 날짜 사이의 기간 계산\n• 엑셀 날짜는 일련번호(1900-01-01 = 1)로 저장",
+      "related_question_ids": [
+        "563",
+        "211",
+        "868",
+        "747"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_37",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "배열 수식과 SUMPRODUCT",
+      "content": "배열 수식은 여러 값을 동시에 계산하여 하나 또는 여러 결과를 반환한다. Ctrl+Shift+Enter로 입력하며 중괄호로 표시된다.",
+      "importance": 4,
+      "keywords": "배열수식, CSE, SUMPRODUCT, 중괄호, 배열",
+      "study_note": "• Ctrl+Shift+Enter로 입력 (CSE 수식)\n• 수동 중괄호 입력 불가\n• SUMPRODUCT는 CSE 없이 배열 계산 가능\n• 배열 상수: {1,2,3} (열 구분: 쉼표, 행 구분: 세미콜론)",
+      "related_question_ids": [
+        "40",
+        "333",
+        "219",
+        "151",
+        "155"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_39",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "차트 종류와 설정",
+      "content": "엑셀에서는 세로 막대형, 꺾은선형, 원형, 분산형 등 다양한 차트를 제공하며, 보조 축 설정으로 스케일이 다른 데이터를 비교할 수 있다.",
+      "importance": 4,
+      "keywords": "차트, 막대형, 원형, 꺾은선형, 보조축, 데이터계열",
+      "study_note": "• 원형 차트: 하나의 데이터 계열만 가능\n• 보조 축: 값 범위가 크게 다른 계열 비교 시\n• 차트는 원본 데이터와 연결 (자동 반영)\n• 차트 시트로 이동 가능",
+      "related_question_ids": [
+        "37",
+        "38",
+        "154",
+        "90",
+        "93"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_41",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "VBA 변수와 데이터 형식",
+      "content": "VBA에서 Dim 문으로 변수를 선언하며, Integer, String, Boolean, Variant 등의 데이터 형식을 지정할 수 있다.",
+      "importance": 4,
+      "keywords": "Dim, Integer, String, Variant, 변수, 데이터형",
+      "study_note": "• Dim 변수명 As 데이터형\n• 형식 미지정 시 Variant\n• Integer: 정수, Long: 긴 정수\n• String: 문자열, Boolean: 참/거짓\n• Option Explicit: 변수 선언 강제",
+      "related_question_ids": [],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_42",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "VBA 제어 구조 (반복문/조건문)",
+      "content": "VBA에서 If~Then~Else, Select Case, For~Next, For Each~Next, Do~Loop 등의 제어 구조를 사용할 수 있다.",
+      "importance": 4,
+      "keywords": "If, Select Case, For Next, Do Loop, While, 반복문",
+      "study_note": "• If 조건 Then ~ ElseIf ~ Else ~ End If\n• Select Case: 다중 조건 분기\n• For i = 시작 To 끝 Step 증가값\n• For Each: 컬렉션 순회\n• Do While/Until ~ Loop",
+      "related_question_ids": [
+        "208"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_45",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "조건부 서식",
+      "content": "셀 값이나 수식 결과에 따라 셀의 서식을 자동으로 변경하는 기능이다. 데이터 막대, 색조, 아이콘 집합 등을 사용할 수 있다.",
+      "importance": 4,
+      "keywords": "조건부서식, 데이터막대, 색조, 아이콘, 규칙",
+      "study_note": "• 셀 값, 수식, 상위/하위 규칙\n• 데이터 막대: 값 크기를 막대로 표현\n• 여러 규칙 적용 시 우선순위 설정\n• 수식 사용: =MOD(ROW(),2)=0",
+      "related_question_ids": [
+        "387",
+        "37",
+        "204",
+        "143",
+        "82"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_46",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "데이터 유효성 검사",
+      "content": "셀에 입력할 수 있는 데이터를 제한하여 잘못된 데이터 입력을 방지하는 기능이다.",
+      "importance": 4,
+      "keywords": "유효성검사, 목록, 제한, 입력규칙, 오류메시지",
+      "study_note": "• 정수, 소수, 목록, 날짜, 시간, 텍스트 길이\n• 목록 유형: 드롭다운 표시\n• 설명 메시지: 셀 선택 시 표시\n• 오류 메시지: 잘못된 입력 시 표시\n• IME 모드 설정 가능",
+      "related_question_ids": [
+        "323"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_47",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "필터와 정렬",
+      "content": "자동 필터와 고급 필터로 조건에 맞는 데이터를 표시하고, 정렬 기능으로 데이터를 원하는 순서로 배열한다.",
+      "importance": 4,
+      "keywords": "자동필터, 고급필터, 정렬, 오름차순, 내림차순",
+      "study_note": "• 자동 필터: 각 열에 드롭다운 필터\n• 고급 필터: 별도 조건 범위 사용\n• 같은 행 조건 = AND, 다른 행 = OR\n• 정렬: 최대 64개 수준\n• 빈 셀은 항상 마지막에 위치",
+      "related_question_ids": [
+        "33",
+        "322",
+        "801",
+        "446",
+        "263"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_48",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "사용자 지정 표시 형식",
+      "content": "셀의 표시 형식을 사용자가 직접 지정하여 숫자, 날짜, 시간 등의 표시 방식을 커스터마이즈할 수 있다.",
+      "importance": 4,
+      "keywords": "표시형식, 서식코드, #, 0, 세미콜론, 날짜서식",
+      "study_note": "• #: 유효하지 않은 0 생략\n• 0: 유효하지 않은 0도 표시\n• 세미콜론(;)으로 4구역 분리: 양수;음수;0;텍스트\n• 날짜: yyyy-mm-dd, 시간: hh:mm:ss\n• 조건부: [빨강]#,##0",
+      "related_question_ids": [
+        "37",
+        "38",
+        "745",
+        "143",
+        "82"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_49",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "부분합과 윤곽(개요)",
+      "content": "그룹화된 데이터에 소계를 자동으로 삽입하고, 윤곽을 사용하여 데이터를 축소/확장할 수 있다.",
+      "importance": 4,
+      "keywords": "부분합, 윤곽, 개요, 소계, 그룹화",
+      "study_note": "• 부분합 전 반드시 정렬 필요\n• 중첩 부분합 가능 (새값 대치 해제)\n• 부분합 제거 시 윤곽도 함께 제거\n• 윤곽 수준: 최대 8단계\n• SUBTOTAL 함수 자동 삽입",
+      "related_question_ids": [
+        "385",
+        "742",
+        "688",
+        "21",
+        "22"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_85",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "OFFSET과 INDIRECT 함수",
+      "content": "OFFSET은 기준 셀에서 이동한 위치의 참조를, INDIRECT는 텍스트 문자열을 셀 참조로 변환하는 동적 참조 함수이다.",
+      "importance": 4,
+      "keywords": "OFFSET, INDIRECT, 동적참조, 범위",
+      "study_note": "• OFFSET(기준셀, 행, 열, 높이, 너비)\n• INDIRECT(\"A1\"): 텍스트를 셀 참조로\n• 동적 범위 만들기에 활용\n• 이름 정의와 함께 사용",
+      "related_question_ids": [],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_1",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "컴퓨터의 세대별 발전 과정",
+      "content": "컴퓨터는 진공관(1세대), 트랜지스터(2세대), IC(3세대), LSI/VLSI(4세대), 인공지능(5세대)으로 발전해왔다. 각 세대별 주요 소자와 특징, 프로그래밍 언어의 변화를 이해하는 것이 중요하다.",
+      "importance": 4,
+      "keywords": "컴퓨터 세대, 진공관, 트랜지스터, IC, LSI, VLSI, 폰 노이만",
+      "study_note": "• 1세대: 진공관, 기계어/어셈블리어\n• 2세대: 트랜지스터, FORTRAN/COBOL\n• 3세대: IC(집적회로), 고급언어, 다중 프로그래밍\n• 4세대: LSI/VLSI, 개인용 컴퓨터 등장\n• 5세대: 인공지능, 자연어 처리\n• EDVAC: 폰 노이만이 프로그램 내장 방식 적용",
+      "related_question_ids": [
+        "71",
+        "121",
+        "432",
+        "553"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_5",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "보조기억장치(HDD, SSD)",
+      "content": "HDD는 자기 디스크를 이용한 대용량 저장장치이고, SSD는 반도체 기반의 저장장치이다. SATA, SCSI 등의 인터페이스 표준과 RAID 기술도 함께 출제된다.",
+      "importance": 4,
+      "keywords": "HDD, SSD, SATA, SCSI, RAID, 파티션, 블루레이",
+      "study_note": "• SSD: 반도체 기반, 소음 없음, 충격에 강함, 저전력, HDD보다 빠름\n• SATA: 직렬 방식, 핫플러그 지원\n• RAID: 여러 디스크를 하나로 묶어 성능/안정성 향상\n• 파티션: 하나의 물리적 디스크를 논리적으로 분할\n• 블루레이: 405nm 청색 레이저, 25GB(단층)/50GB(이중층)",
+      "related_question_ids": [
+        "65",
+        "78",
+        "193",
+        "254",
+        "370",
+        "380",
+        "433",
+        "610",
+        "734",
+        "796"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_9",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "Windows 파일 시스템과 디스크 관리",
+      "content": "Windows에서 사용하는 FAT32, NTFS 파일 시스템의 특징과 디스크 관리, 조각 모음, 오류 검사 등의 기능을 이해해야 한다.",
+      "importance": 4,
+      "keywords": "NTFS, FAT32, 디스크 관리, 조각 모음, 오류 검사, 파티션, 포맷",
+      "study_note": "• NTFS: 파일 암호화, 압축, 디스크 할당량, 대용량 지원\n• FAT32: 호환성 좋으나 4GB 이상 파일 불가\n• 디스크 조각 모음: 파일 조각을 연속 배치하여 성능 향상 (SSD 불필요)\n• 오류 검사: 디스크의 논리적/물리적 오류 검사\n• 포맷: 빠른 포맷(파일 테이블만 삭제), 전체 포맷(불량 섹터 검사)",
+      "related_question_ids": [
+        "377",
+        "430",
+        "557",
+        "671",
+        "737",
+        "738"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_10",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "Windows 백업, 복원 및 보안 기능",
+      "content": "Windows의 시스템 복원, 백업/복원, 방화벽, 파일 암호화 등의 보안 및 복구 기능을 이해하는 것이 중요하다.",
+      "importance": 4,
+      "keywords": "시스템 복원, 백업, 방화벽, 암호화, 레지스트리, 복원 지점",
+      "study_note": "• 시스템 복원: 복원 지점으로 시스템 상태 되돌리기\n• 백업: 시스템 이미지, 파일 백업 구분\n• Windows 방화벽: 네트워크 트래픽 필터링\n• 파일 암호화(EFS): NTFS에서만 가능\n• 레지스트리: 시스템 설정 정보 데이터베이스 (regedit)",
+      "related_question_ids": [
+        "197",
+        "198",
+        "307",
+        "378",
+        "603",
+        "607",
+        "740",
+        "799",
+        "845"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_11",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "소프트웨어의 분류와 저작권",
+      "content": "소프트웨어는 시스템 소프트웨어와 응용 소프트웨어로 나뉘며, 사용권에 따라 프리웨어, 셰어웨어, 오픈소스, 상용 소프트웨어 등으로 분류된다.",
+      "importance": 4,
+      "keywords": "프리웨어, 셰어웨어, 오픈소스, 애드웨어, 저작권, 알파버전, 베타버전, 패치",
+      "study_note": "• 프리웨어: 무료 배포, 저작권은 개발자에게\n• 셰어웨어: 일정 기간 무료 사용 후 구매\n• 오픈소스: 소스 코드 공개, 자유롭게 수정 가능\n• 애드웨어: 광고를 보는 대가로 무료 사용\n• 알파 버전: 내부 테스트용\n• 베타 버전: 외부 공개 테스트용\n• 패치: 버그 수정을 위한 업데이트",
+      "related_question_ids": [
+        "2",
+        "13",
+        "70",
+        "128",
+        "184",
+        "191",
+        "248",
+        "249",
+        "366",
+        "492",
+        "666",
+        "858"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_12",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "프로그래밍 언어와 웹 프로그래밍",
+      "content": "프로그래밍 언어는 저급언어(기계어, 어셈블리어)와 고급언어(C, Java 등)로 구분된다. 웹 프로그래밍에서는 HTML, CSS, JavaScript, JSP, PHP, ASP 등이 사용된다.",
+      "importance": 4,
+      "keywords": "프로그래밍 언어, 웹 프로그래밍, JavaScript, JSP, PHP, ASP, 객체지향",
+      "study_note": "• JavaScript: 클라이언트 측 스크립트 언어, 입력값 검증\n• JSP: Java 기반 서버 측 스크립트\n• PHP: 서버 측 스크립트, 오픈소스\n• ASP: Microsoft 서버 측 스크립트\n• 객체지향: 캡슐화, 상속, 다형성, 추상화\n• 인터프리터: 한 줄씩 번역 실행\n• 컴파일러: 전체 번역 후 실행",
+      "related_question_ids": [
+        "124",
+        "311",
+        "429",
+        "550",
+        "608",
+        "672",
+        "729",
+        "790"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_13",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "네트워크 토폴로지(구성 형태)",
+      "content": "네트워크 토폴로지는 컴퓨터와 통신 장비의 물리적 연결 형태를 말한다. 성형, 버스형, 링형, 트리형, 망형 등이 있으며 각각의 장단점을 비교할 수 있어야 한다.",
+      "importance": 4,
+      "keywords": "성형, 버스형, 링형, 트리형, 망형, 네트워크 토폴로지",
+      "study_note": "• 성형(Star): 중앙 허브에 모든 노드 연결, 중앙 장애 시 전체 마비\n• 버스형(Bus): 하나의 회선에 모든 노드 연결, 설치 쉬움\n• 링형(Ring): 원형으로 연결, 토큰 패싱 방식\n• 트리형(Tree): 계층적 구조, 확장 용이\n• 망형(Mesh): 모든 노드 상호 연결, 신뢰성 높음, 비용 높음",
+      "related_question_ids": [
+        "69",
+        "188",
+        "488"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_17",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "인터넷 서비스(FTP, 이메일, 웹)",
+      "content": "인터넷의 주요 서비스로 FTP(파일 전송), 이메일(SMTP/POP3/IMAP), 웹(HTTP/HTTPS), DNS(도메인 이름 해석) 등이 있다.",
+      "importance": 4,
+      "keywords": "FTP, SMTP, POP3, IMAP, HTTP, URL, DNS, Telnet",
+      "study_note": "• FTP: 파일 전송 프로토콜, 포트 20(데이터)/21(제어)\n• SMTP: 메일 송신 프로토콜\n• POP3: 메일 수신 프로토콜, 서버에서 로컬로 다운로드\n• IMAP: 메일을 서버에 보관한 채 관리\n• URL 구조: 프로토콜://호스트/경로\n• Tracert: 경로 추적 명령어",
+      "related_question_ids": [
+        "3",
+        "64",
+        "135",
+        "185",
+        "244",
+        "365",
+        "369",
+        "485",
+        "487",
+        "547",
+        "670",
+        "727",
+        "788"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_18",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "네트워크 장비와 연결 방식",
+      "content": "네트워크 장비에는 리피터, 허브, 브리지, 스위치, 라우터, 게이트웨이 등이 있으며, 클라이언트/서버 방식과 P2P 방식의 차이를 이해해야 한다.",
+      "importance": 4,
+      "keywords": "리피터, 허브, 브리지, 스위치, 라우터, 게이트웨이, 클라이언트/서버, P2P",
+      "study_note": "• 리피터: 신호 증폭/재생 (물리 계층)\n• 허브: 여러 장치 연결 (물리 계층)\n• 브리지: MAC주소 기반 필터링 (데이터링크 계층)\n• 스위치: 고속 브리지 (데이터링크 계층)\n• 라우터: IP 기반 경로 설정 (네트워크 계층)\n• 게이트웨이: 서로 다른 프로토콜 간 변환\n• 프록시 서버: 캐시 기능, 보안 강화",
+      "related_question_ids": [
+        "125",
+        "246",
+        "318",
+        "361",
+        "620",
+        "665",
+        "723",
+        "847"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_19",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "무선 통신 기술",
+      "content": "블루투스, Wi-Fi, 테더링, NFC 등 다양한 무선 통신 기술의 특징과 용도를 구분할 수 있어야 한다. 이동통신 세대별 특징도 출제된다.",
+      "importance": 4,
+      "keywords": "블루투스, Wi-Fi, 테더링, NFC, LTE, 5G, 근거리 통신",
+      "study_note": "• 블루투스: 2.4GHz, 10~100m, PAN(개인 영역 네트워크)\n• Wi-Fi: IEEE 802.11 표준, WLAN\n• 테더링: 스마트폰을 모뎀으로 활용하여 인터넷 공유\n• NFC: 10cm 이내 근거리 무선 통신\n• 4G(LTE): 100Mbps~1Gbps\n• 베이스밴드 전송: 디지털 신호를 변조 없이 직접 전송",
+      "related_question_ids": [
+        "9",
+        "187",
+        "189",
+        "247",
+        "314",
+        "368",
+        "546",
+        "676",
+        "846"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_23",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "그래픽 표현 방식(비트맵 vs 벡터)",
+      "content": "비트맵 방식은 픽셀 단위로 이미지를 표현하고, 벡터 방식은 수학적 함수로 이미지를 표현한다. 각 방식의 장단점과 대표 파일 형식을 구분해야 한다.",
+      "importance": 4,
+      "keywords": "비트맵, 벡터, 래스터, 픽셀, BMP, JPEG, GIF, PNG, SVG",
+      "study_note": "• 비트맵: 픽셀로 구성, 확대 시 계단 현상, 사진에 적합\n• 벡터: 수학 공식으로 표현, 확대해도 깨지지 않음, 로고에 적합\n• BMP: 비압축, 용량 큼\n• JPEG: 손실 압축, 사진에 적합, 투명 배경 불가\n• GIF: 무손실 압축, 256색, 애니메이션 지원\n• PNG: 무손실 압축, 투명 배경 지원",
+      "related_question_ids": [
+        "63",
+        "133",
+        "181",
+        "320",
+        "363",
+        "482",
+        "542",
+        "614",
+        "851"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_26",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "CMOS와 BIOS",
+      "content": "BIOS는 기본 입출력 시스템으로 POST, 부팅 과정을 관리한다. CMOS는 BIOS 설정값을 저장하는 반도체 메모리로 배터리로 유지된다.",
+      "importance": 4,
+      "keywords": "BIOS, CMOS, POST, 부팅, 펌웨어, UEFI",
+      "study_note": "• BIOS: ROM에 저장, 하드웨어 초기화, POST 수행\n• CMOS: BIOS 설정값 저장, 배터리로 유지\n• POST(Power-On Self-Test): 전원 시 하드웨어 자가 진단\n• 부팅 순서: POST → CMOS 읽기 → 부트로더 → OS 로드\n• CMOS 설정: 날짜/시간, 부팅 순서, 비밀번호 등\n• 펌웨어: 하드웨어에 내장된 소프트웨어 (ROM에 저장)",
+      "related_question_ids": [
+        "132",
+        "310",
+        "554",
+        "680",
+        "732",
+        "795",
+        "841"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_75",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "데이터 모델의 종류",
+      "content": "데이터 모델에는 계층형, 네트워크형, 관계형, 객체지향형 등이 있으며, 현재 관계형이 가장 널리 사용된다.",
+      "importance": 3,
+      "keywords": "계층형, 네트워크형, 관계형, 객체지향, 데이터모델",
+      "study_note": "• 계층형: 트리 구조, 1:N 관계\n• 네트워크형: 그래프 구조, N:M 관계\n• 관계형: 테이블 구조, SQL 사용\n• 객체지향: 객체와 클래스 기반",
+      "related_question_ids": [
+        "584",
+        "764",
+        "111"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_80",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "Access 매크로",
+      "content": "Access에서 반복 작업을 자동화하는 기능으로, 이벤트에 매크로를 연결하여 특정 동작을 실행할 수 있다.",
+      "importance": 3,
+      "keywords": "매크로, 자동화, 이벤트, OpenForm, MsgBox, 조건부",
+      "study_note": "• 매크로 함수: OpenForm, MsgBox, SetValue 등\n• 이벤트: OnClick, OnLoad, BeforeUpdate 등\n• 조건부 매크로: If~Then 구조\n• AutoExec: DB 열 때 자동 실행\n• 독립 매크로/내장 매크로",
+      "related_question_ids": [
+        "834",
+        "583",
+        "521",
+        "530",
+        "341"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_81",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "Access 테이블 필드 속성",
+      "content": "테이블 필드의 데이터 형식, 크기, 기본값, 유효성 검사 등 다양한 속성을 설정할 수 있다.",
+      "importance": 3,
+      "keywords": "필드속성, 데이터형식, 필드크기, 기본값, 유효성, 입력마스크",
+      "study_note": "• 데이터 형식: 텍스트, 숫자, 예/아니오, OLE 등\n• 필드 크기: 바이트(0~255), 정수형, 실수형\n• 기본값: 새 레코드 자동 입력값\n• 입력 마스크: 입력 형식 지정\n• 인덱스: OLE 개체에는 불가",
+      "related_question_ids": [
+        "41",
+        "107",
+        "45",
+        "110",
+        "48"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_82",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "Access 관계 설정",
+      "content": "테이블 간의 관계(일대일, 일대다, 다대다)를 설정하여 데이터의 참조 무결성을 보장한다.",
+      "importance": 3,
+      "keywords": "관계, 일대일, 일대다, 다대다, 참조무결성, 연쇄",
+      "study_note": "• 일대일: 양쪽 기본키 연결\n• 일대다: 기본키-외래키 연결\n• 다대다: 중간 테이블 필요\n• 참조 무결성 적용: 관련 레코드 자동 삭제/변경\n• 연쇄 업데이트/연쇄 삭제 옵션",
+      "related_question_ids": [
+        "832",
+        "289",
+        "101",
+        "172",
+        "109"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_84",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "레이블 보고서와 우편물",
+      "content": "Access의 레이블 마법사를 사용하여 우편물 레이블 형태의 보고서를 자동으로 생성할 수 있다.",
+      "importance": 3,
+      "keywords": "레이블, 우편물, 마법사, 보고서, 인쇄",
+      "study_note": "• 레이블 마법사: 레이블 크기/형식 선택\n• 낱장/연속 용지 선택 가능\n• 사용자 정의 레이블 크기 가능\n• 우편번호 필드 필수 아님\n• 일괄 문구 추가 가능 (귀하 등)",
+      "related_question_ids": [
+        "167",
+        "297",
+        "42",
+        "404",
+        "56"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_86",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "데이터베이스 설계 과정",
+      "content": "데이터베이스 설계는 요구사항 분석, 개념적 설계, 논리적 설계, 물리적 설계, 구현의 순서로 진행된다.",
+      "importance": 3,
+      "keywords": "설계, 요구사항, 개념적, 논리적, 물리적",
+      "study_note": "• 요구사항 분석: 사용자 요구 파악\n• 개념적 설계: ER 다이어그램 작성\n• 논리적 설계: 릴레이션 스키마 변환\n• 물리적 설계: 저장 구조, 인덱스 결정\n• 정규화는 논리적 설계 단계에서 수행",
+      "related_question_ids": [],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_87",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "저장 프로시저",
+      "content": "미리 컴파일된 SQL문의 집합으로, 데이터베이스에 저장되어 호출 시 실행된다. 성능과 보안 면에서 유리하다.",
+      "importance": 3,
+      "keywords": "저장프로시저, 프로시저, EXECUTE, 성능",
+      "study_note": "• 미리 컴파일되어 실행 속도 빠름\n• 네트워크 트래픽 감소\n• 보안: 직접 테이블 접근 제한\n• 매개변수 입출력 가능\n• EXECUTE/EXEC로 호출",
+      "related_question_ids": [],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_88",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "동시성 제어",
+      "content": "여러 트랜잭션이 동시에 실행될 때 데이터 일관성을 보장하기 위한 기법으로, 로킹, 타임스탬프, 다중 버전 등이 있다.",
+      "importance": 3,
+      "keywords": "동시성, 로킹, 교착상태, 타임스탬프, 잠금",
+      "study_note": "• 로킹: 공유 잠금(읽기), 배타적 잠금(쓰기)\n• 교착 상태(Deadlock): 상호 대기\n• 타임스탬프: 시간 순서로 직렬화\n• 낙관적/비관적 동시성 제어",
+      "related_question_ids": [],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_89",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "회복 기법",
+      "content": "시스템 장애 발생 시 데이터베이스를 일관된 상태로 복구하는 기법으로, 로그 기반 회복, 체크포인트 등이 있다.",
+      "importance": 3,
+      "keywords": "회복, 로그, 체크포인트, REDO, UNDO",
+      "study_note": "• REDO: 커밋된 트랜잭션 재실행\n• UNDO: 미완료 트랜잭션 취소\n• 체크포인트: 회복 시작점 설정\n• 즉시 갱신/지연 갱신 방식\n• WAL(Write-Ahead Logging)",
+      "related_question_ids": [],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_90",
+      "app_id": "comactiv1",
+      "category": "데이터베이스 일반",
+      "title": "데이터 사전과 카탈로그",
+      "content": "데이터베이스에 저장된 모든 객체의 정보를 관리하는 시스템 테이블로, 메타데이터를 저장한다.",
+      "importance": 3,
+      "keywords": "데이터사전, 카탈로그, 메타데이터, 시스템테이블",
+      "study_note": "• 시스템 카탈로그: 메타데이터 저장\n• 테이블, 열, 인덱스, 사용자 정보 등\n• DBMS가 자동 관리\n• 사용자는 조회만 가능 (읽기전용)",
+      "related_question_ids": [],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_50",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "인쇄 설정",
+      "content": "페이지 설정에서 용지 방향, 여백, 머리글/바닥글, 인쇄 영역, 반복할 행/열 등을 설정할 수 있다.",
+      "importance": 3,
+      "keywords": "인쇄, 페이지설정, 머리글, 바닥글, 인쇄영역",
+      "study_note": "• 반복할 행/열: 매 페이지 인쇄\n• 인쇄 영역 설정/해제\n• 페이지 나누기: 자동(점선)/수동(실선)\n• 자동 맞춤: 용지 크기에 맞추기\n• 머리글/바닥글: &[페이지], &[날짜]",
+      "related_question_ids": [
+        "514",
+        "35",
+        "98",
+        "395",
+        "400"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_51",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "워크시트 관리",
+      "content": "워크시트의 이름 변경, 이동/복사, 숨기기, 그룹 편집, 시트 보호 등 워크시트를 관리하는 기능이다.",
+      "importance": 3,
+      "keywords": "워크시트, 시트탭, 이름, 이동, 복사, 숨기기",
+      "study_note": "• 시트 이름: 최대 31자\n• Ctrl+클릭: 여러 시트 선택 (그룹)\n• 그룹 편집: 동시 입력/편집\n• Ctrl+PageUp/Down: 시트 전환\n• 시트 보호: 특정 셀만 편집 허용",
+      "related_question_ids": [
+        "40",
+        "82",
+        "83",
+        "21",
+        "30"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_52",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "목표값 찾기와 시나리오",
+      "content": "목표값 찾기는 원하는 결과를 만드는 입력값을 역산하고, 시나리오 관리자는 여러 가정을 비교 분석한다.",
+      "importance": 3,
+      "keywords": "목표값찾기, 시나리오, 가상분석, 변경셀",
+      "study_note": "• 목표값 찾기: 수식 셀→목표값→변경 셀\n• 시나리오: 최대 32개 변경 셀\n• 시나리오 요약 보고서 작성 가능\n• 변경 셀 ≠ 수식 셀 (값만 변경)",
+      "related_question_ids": [
+        "386",
+        "700",
+        "264",
+        "83",
+        "85"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_53",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "통합 문서 공유와 보호",
+      "content": "통합 문서를 여러 사용자가 동시에 편집할 수 있도록 공유하거나, 시트/통합 문서를 보호하여 무단 수정을 방지한다.",
+      "importance": 3,
+      "keywords": "공유, 보호, 암호, 시트보호, 통합문서보호",
+      "study_note": "• 공유 문서 제한: 셀 병합, 차트, 조건부 서식 등 불가\n• 시트 보호: 특정 셀 잠금 해제 가능\n• 통합 문서 보호: 시트 구조 보호\n• 변경 내용 추적 기능",
+      "related_question_ids": [
+        "454",
+        "327",
+        "394",
+        "152",
+        "26"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_54",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "데이터 통합",
+      "content": "여러 시트나 통합 문서의 데이터를 하나로 합치는 기능으로, 위치 기준 또는 범주 기준으로 통합할 수 있다.",
+      "importance": 3,
+      "keywords": "통합, 위치, 범주, 합계, 여러시트",
+      "study_note": "• 위치 기준: 같은 위치의 셀 통합\n• 범주 기준: 행/열 레이블로 통합\n• 원본 데이터에 연결 옵션\n• 합계, 평균, 개수 등 함수 선택",
+      "related_question_ids": [
+        "97",
+        "327",
+        "40",
+        "394",
+        "144"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_55",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "R1C1 참조 스타일",
+      "content": "R1C1 스타일은 행(R)과 열(C) 번호로 셀을 참조하는 방식으로, VBA에서 주로 사용된다.",
+      "importance": 3,
+      "keywords": "R1C1, 참조스타일, 행번호, 열번호, FormulaR1C1",
+      "study_note": "• R1C1: 1행 1열 (절대)\n• R[-1]C[2]: 상대 참조 (1행 위, 2열 우)\n• 대괄호 없으면 절대, 있으면 상대\n• VBA: FormulaR1C1 속성으로 사용",
+      "related_question_ids": [
+        "513",
+        "34",
+        "682",
+        "398",
+        "151"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_56",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "이름 정의와 관리",
+      "content": "셀이나 범위에 이름을 정의하여 수식에서 직관적으로 참조할 수 있다. 이름 관리자에서 생성, 수정, 삭제한다.",
+      "importance": 3,
+      "keywords": "이름정의, 이름관리자, 범위이름, 수식",
+      "study_note": "• 첫 글자: 문자, 밑줄, 백슬래시만 가능\n• 공백 사용 불가, 최대 255자\n• 통합 문서/시트 범위 지정 가능\n• 수식에서 셀 주소 대신 이름 사용",
+      "related_question_ids": [
+        "36",
+        "815",
+        "275",
+        "629",
+        "216"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_57",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "DB 함수 (DSUM, DAVERAGE, DCOUNT)",
+      "content": "데이터베이스 함수는 지정한 조건을 만족하는 레코드에 대해 합계, 평균, 개수 등을 계산한다.",
+      "importance": 3,
+      "keywords": "DSUM, DAVERAGE, DCOUNT, DMAX, DMIN, 데이터베이스함수",
+      "study_note": "• DSUM(데이터베이스, 필드, 조건범위)\n• 조건 범위: 필드명+조건 (고급 필터와 동일)\n• DCOUNT: 숫자 셀 개수, DCOUNTA: 비어있지 않은 셀\n• 조건 행이 여러 개면 OR 조건",
+      "related_question_ids": [
+        "147"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_58",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "RANK와 LARGE/SMALL 함수",
+      "content": "RANK 함수는 데이터의 순위를 구하고, LARGE/SMALL 함수는 K번째로 큰/작은 값을 반환한다.",
+      "importance": 3,
+      "keywords": "RANK, LARGE, SMALL, 순위, 정렬",
+      "study_note": "• RANK(값, 범위, [순서]): 0/생략=내림차순, 1=오름차순\n• LARGE(범위, K): K번째 큰 값\n• SMALL(범위, K): K번째 작은 값\n• RANK.EQ: 동일값 같은 순위, RANK.AVG: 평균 순위",
+      "related_question_ids": [],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_59",
+      "app_id": "comactiv1",
+      "category": "스프레드시트 일반",
+      "title": "메모와 메모 관리",
+      "content": "셀에 메모를 추가하여 추가 정보를 제공할 수 있다. 메모가 있는 셀은 빨간 삼각형 표시가 나타난다.",
+      "importance": 3,
+      "keywords": "메모, 주석, 삼각형, Shift+F2",
+      "study_note": "• Shift+F2: 새 메모 삽입\n• 셀 이동 시 메모도 함께 이동\n• 메모 인쇄: 시트에 표시된 대로/시트 끝에\n• 이전/다음 메모로 이동 가능",
+      "related_question_ids": [
+        "392",
+        "266",
+        "27"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_6",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "인터럽트와 채널",
+      "content": "인터럽트는 CPU에 긴급 상황을 알려 현재 작업을 중단하고 우선 처리하게 하는 메커니즘이다. 외부/내부 인터럽트와 소프트웨어 인터럽트로 분류된다.",
+      "importance": 3,
+      "keywords": "인터럽트, 외부 인터럽트, 내부 인터럽트, 채널, 스풀링, 버퍼링",
+      "study_note": "• 외부 인터럽트: 전원 이상, 기계 오류, I/O 인터럽트\n• 내부 인터럽트: 오버플로우, 0으로 나눗셈, 잘못된 명령\n• 소프트웨어 인터럽트: SVC(감시 호출)\n• 채널: CPU 대신 입출력 제어 담당\n• 스풀링/버퍼링: CPU와 I/O 장치 속도 차이 해결",
+      "related_question_ids": [
+        "134",
+        "496",
+        "675",
+        "735"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_22",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "멀티미디어 개념과 특징",
+      "content": "멀티미디어는 텍스트, 그래픽, 오디오, 비디오, 애니메이션 등 다양한 매체를 통합하는 기술이다. 상호작용성, 비선형성, 디지털화가 핵심 특징이다.",
+      "importance": 3,
+      "keywords": "멀티미디어, 하이퍼미디어, 상호작용, 비선형, 디지털",
+      "study_note": "• 멀티미디어 특징: 디지털화, 상호작용성, 비선형성, 통합성\n• 하이퍼미디어: 하이퍼텍스트 + 멀티미디어, 비선형 구조\n• 하이퍼텍스트: 텍스트 간 비선형 연결\n• MPEG: 동영상 압축 표준 (MPEG-1, MPEG-2, MPEG-4, MPEG-21)\n• 스트리밍: 데이터를 받으면서 동시에 재생",
+      "related_question_ids": [
+        "1",
+        "242",
+        "319",
+        "362",
+        "662",
+        "782",
+        "850"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_24",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "그래픽 기법(렌더링, 모핑 등)",
+      "content": "3D 그래픽에서 사용되는 렌더링, 모핑, 워핑, 블렌딩 등의 기법을 이해해야 한다. 각 기법의 정의와 특징이 출제된다.",
+      "importance": 3,
+      "keywords": "렌더링, 모핑, 워핑, 블렌딩, 안티앨리어싱, 디더링, 텍스처 매핑",
+      "study_note": "• 렌더링: 3D 모델에 명암, 색상, 질감을 입히는 과정\n• 모핑: 한 이미지에서 다른 이미지로 자연스럽게 변환\n• 워핑: 이미지의 일부를 변형\n• 안티앨리어싱: 계단 현상 제거\n• 디더링: 제한된 색상으로 중간색 표현\n• 텍스처 매핑: 3D 표면에 질감/패턴 입히기",
+      "related_question_ids": [
+        "61",
+        "422",
+        "613",
+        "664",
+        "721"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_25",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "오디오 및 동영상 파일 형식",
+      "content": "오디오 파일(MP3, WAV, MIDI, WMA 등)과 동영상 파일(AVI, MP4, WMV, MOV 등)의 형식별 특징을 구분할 수 있어야 한다.",
+      "importance": 3,
+      "keywords": "MP3, WAV, MIDI, AVI, MP4, 코덱, 샘플링, 스트리밍",
+      "study_note": "• MP3: MPEG-1 Layer 3, 손실 압축, 1/10~1/12 압축\n• WAV: 비압축 오디오, 용량 큼\n• MIDI: 악기 연주 정보 저장, 음성 녹음 불가\n• AVI: Microsoft 동영상 형식\n• MP4: MPEG-4 기반, 스트리밍 지원\n• 샘플링: 아날로그→디지털 변환, 샘플링 주파수 높을수록 고음질\n• 코덱(CODEC): 인코딩/디코딩 소프트웨어",
+      "related_question_ids": [
+        "11",
+        "129",
+        "183",
+        "241",
+        "421",
+        "481",
+        "541",
+        "722",
+        "781"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_27",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "컴퓨터 메인보드와 버스",
+      "content": "메인보드는 CPU, 메모리, 확장 카드 등을 연결하는 핵심 기판이다. 버스는 데이터, 주소, 제어 버스로 나뉘며 칩셋이 데이터 흐름을 관리한다.",
+      "importance": 3,
+      "keywords": "메인보드, 버스, 칩셋, 데이터 버스, 주소 버스, 제어 버스, USB",
+      "study_note": "• 데이터 버스: CPU와 기억장치 간 데이터 전송 (양방향)\n• 주소 버스: 메모리 주소 지정 (단방향, CPU→메모리)\n• 제어 버스: 제어 신호 전달\n• 칩셋: 노스브리지(CPU/RAM), 사우스브리지(I/O)\n• USB: 범용 직렬 버스, 핫플러그, 최대 127대 연결\n• USB 3.0: 5Gbps, USB 3.1: 10Gbps",
+      "related_question_ids": [
+        "7",
+        "302",
+        "549",
+        "733"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_28",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "PC 업그레이드와 문제 해결",
+      "content": "PC 업그레이드 시 호환성, 전원 용량 등을 고려해야 하며, 하드디스크 인식 불가, 인쇄 오류 등 일반적인 문제 해결 방법을 알아야 한다.",
+      "importance": 3,
+      "keywords": "업그레이드, 하드디스크, 프린터, 문제 해결, 호환성",
+      "study_note": "• HDD 인식 불가: 케이블 연결 확인, CMOS 설정 확인, 점퍼 설정\n• 프린터 문제: 드라이버 재설치, 스풀러 재시작, 연결 확인\n• 업그레이드 고려사항: 호환성, 전원 용량, 슬롯 규격\n• 디스크 정리: 불필요한 파일 삭제로 공간 확보\n• 드라이버 업데이트: 장치 관리자에서 수행",
+      "related_question_ids": [
+        "10",
+        "136",
+        "194",
+        "256",
+        "434",
+        "495",
+        "555",
+        "605",
+        "677"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_29",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "유비쿼터스와 사물인터넷(IoT)",
+      "content": "유비쿼터스 컴퓨팅은 언제 어디서나 컴퓨팅 환경에 접속할 수 있는 기술 개념이다. 사물인터넷(IoT)은 사물에 센서와 통신 기능을 내장하여 인터넷으로 연결하는 기술이다.",
+      "importance": 3,
+      "keywords": "유비쿼터스, IoT, 사물인터넷, USN, 센서 네트워크, 임베디드",
+      "study_note": "• 유비쿼터스: 시간과 장소에 구애 없이 네트워크 접속\n• USN(유비쿼터스 센서 네트워크): 센서로 정보 수집/전달\n• IoT: 사물에 센서/통신 기능 내장, 상호 소통\n• 임베디드 시스템: 특정 기능을 수행하도록 내장된 시스템\n• 데이터 마이닝: 대량 데이터에서 패턴/정보 추출\n• 활용 분야: 물류, 환경 모니터링, 헬스케어",
+      "related_question_ids": [
+        "139",
+        "425",
+        "546",
+        "551",
+        "611",
+        "615",
+        "725",
+        "786"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    },
+    {
+      "id": "comactiv1_30",
+      "app_id": "comactiv1",
+      "category": "컴퓨터 일반",
+      "title": "Windows 프린터 및 주변장치 관리",
+      "content": "Windows에서 프린터 설치, 공유, 인쇄 관리 및 다양한 주변장치(키보드, 마우스, 디스플레이)의 설정 방법을 이해해야 한다. 장치 관리자를 통한 드라이버 관리도 중요한 출제 포인트이다.",
+      "importance": 3,
+      "keywords": "프린터, 장치 관리자, 디스플레이, 키보드, 마우스, 드라이버, 공유",
+      "study_note": "• 프린터 설치: USB 연결 시 자동 감지(PnP)\n• 기본 프린터: 체크 표시로 구분, 하나만 설정 가능\n• 인쇄 대기열: 인쇄 순서 변경, 일시 중지, 취소 가능\n• 프린터 공유: 네트워크를 통해 다른 PC에서 사용\n• 장치 관리자: 드라이버 업데이트, 장치 사용 안 함 설정\n• 디스플레이: 해상도, 색 품질, 주사율 설정",
+      "related_question_ids": [
+        "68",
+        "195",
+        "257",
+        "374",
+        "439",
+        "559",
+        "560",
+        "673",
+        "794",
+        "852",
+        "856"
+      ],
+      "created_at": "2026-03-24T05:13:19.000Z",
+      "updated_at": "2026-03-24T05:13:19.000Z"
+    }
+  ]
+}
