@@ -1,9 +1,24 @@
+import Link from 'next/link'
+
 export default function PrivacyPage() {
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
       <h1 className="text-4xl font-bold mb-8">개인정보 처리방침</h1>
 
       <div className="prose prose-lg max-w-none space-y-8">
+        <section className="not-prose rounded-lg border bg-card p-6">
+          <h2 className="mb-3 text-2xl font-bold">App Privacy Policies</h2>
+          <p className="mb-4 text-muted-foreground">
+            The privacy policy for The Sori / Inner Voice app is available at the page below.
+          </p>
+          <Link
+            href="/privacy/the-sori"
+            className="font-medium text-primary underline underline-offset-4"
+          >
+            Open The Sori / Inner Voice Privacy Policy
+          </Link>
+        </section>
+
         <section>
           <h2 className="text-2xl font-bold mb-4">1. 적용 범위</h2>
           <p className="text-muted-foreground">
