@@ -14,22 +14,9 @@ const sources = [
     app: {
       bundle_id: 'hansigjorigineungsa',
       app_name: '한식조리기능사',
-      app_name_full: '원펀: 한식조리기능사 필기 기출문제',
-      description: '한식조리기능사 필기 시험 대비를 위한 기출문제 학습 앱입니다. 최신 기출문제 20세트, 음성듣기, 상세 해설, 오답노트 기능으로 효율적으로 준비하세요.',
-      description_full: `한식조리기능사 자격증 합격? 이 앱 하나면 끝!
-
-주요 기능
-- 최신 기출문제 20세트
-- 연도별, 과목별 기출문제 풀기
-- 기출문제 음성듣기
-- 랜덤 문제 풀기
-- 모든 문제 해설 제공
-- 오답노트: 틀린 문제만 자동 저장
-- 즐겨찾기 기능: 내가 찜한 문제를 다시 복습
-- Wifi, 인터넷 없이도 사용 가능
-- 완전 무료
-
-지하철 및 이동 중에도 언제 어디서나 간편하게 기출문제를 풀고 실력을 완성하세요. 이 앱 하나면 한식조리기능사 자격증 준비를 효율적으로 할 수 있습니다.
+      app_name_full: '한식조리기능사 필기',
+      description: '한식조리기능사 필기 시험 대비 예상문제와 해설, 단원별 핵심요약을 정리했습니다.',
+      description_full: `한식조리기능사 필기 시험을 예상문제와 해설, 단원별 핵심요약으로 준비할 수 있습니다. 기출 회차별 풀이와 모의고사, 오답노트는 앱에서 쓸 수 있습니다.
 
 Terms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 Privacy Policy: https://jmkcontents.com/privacy`,
@@ -39,8 +26,9 @@ Privacy Policy: https://jmkcontents.com/privacy`,
       rating: 0,
       review_count: 0,
       download_count: 0,
-      icon_url: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/60/34/5e/60345e56-2ec6-ee3b-9255-6679803c90c7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg',
-      app_store_url: 'https://apps.apple.com/app/%EC%9B%90%ED%8E%80-%ED%95%9C%EC%8B%9D%EC%A1%B0%EB%A6%AC%EA%B8%B0%EB%8A%A5%EC%82%AC-%ED%95%84%EA%B8%B0-%EA%B8%B0%EC%B6%9C%EB%AC%B8%EC%A0%9C/id6761005380',
+      icon_url: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0f/16/a5/0f16a5a2-46d3-7c06-32e4-cd8e81f9dc8d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg',
+      // 9.2 앱 (구 앱 번들을 이어 쓴다). 원펀 한식 앱(id6761005380)에서 바꿨다 (2026-11-25).
+      app_store_url: 'https://apps.apple.com/kr/app/id6578423826',
     },
   },
   {
