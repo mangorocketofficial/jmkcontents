@@ -1,8 +1,9 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getAppByBundleId, getConceptsByAppId } from '@/lib/content'
-import { ConceptsClient } from '@/components/ConceptsClient'
-import { Button } from '@/components/ui/button'
+import { ConceptBoard } from '@/components/ConceptBoard'
+import { CertTabs } from '@/components/CertTabs'
+import { getCertContent } from '@/lib/cert-content'
 
 interface ConceptsPageProps {
   params: Promise<{
@@ -38,9 +39,10 @@ export async function generateMetadata({ params }: ConceptsPageProps) {
 
 export default async function ConceptsPage({ params }: ConceptsPageProps) {
   const { bundle_id } = await params
-  const [app, concepts] = await Promise.all([
+  const [app, concepts, cert] = await Promise.all([
     getAppByBundleId(bundle_id),
     getConceptsByAppId(bundle_id),
+    getCertContent(bundle_id),
   ])
 
   if (!app) {
@@ -48,41 +50,22 @@ export default async function ConceptsPage({ params }: ConceptsPageProps) {
   }
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      {/* Breadcrumb */}
-      <div className="mb-6 text-sm text-muted-foreground">
-        <Link href="/exams" className="hover:text-foreground">
-          자격증 과목
-        </Link>
-        {' / '}
-        <Link href={`/exams/${bundle_id}`} className="hover:text-foreground">
-          {app.app_name}
-        </Link>
-        {' / '}
-        <span className="text-foreground">핵심 개념</span>
+    <div>
+      <div className="mb-3 text-xs text-muted-foreground">
+        <Link href="/exams" className="hover:underline">종목 목록</Link>
+        {' › '}
+        <Link href={`/exams/${bundle_id}`} className="hover:underline">{app.app_name}</Link>
+        {' › '}
+        <span>핵심개념</span>
       </div>
 
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-2">💡 핵심 개념</h1>
-        <p className="text-xl text-muted-foreground">
-          {app.app_name_full || app.app_name} 시험의 핵심 개념을 정리했습니다
-        </p>
-      </div>
+      {cert && <CertTabs slug={bundle_id} active="concepts" />}
 
-      {/* Client Component with Filtering */}
-      {concepts.length > 0 ? (
-        <ConceptsClient concepts={concepts} />
-      ) : (
-        <div className="text-center py-12">
-          <p className="text-lg text-muted-foreground mb-4">
-            등록된 개념이 아직 없습니다.
-          </p>
-          <Link href={`/exams/${bundle_id}`}>
-            <Button>과목으로 돌아가기</Button>
-          </Link>
-        </div>
-      )}
+      <h1 className="border-b border-foreground pb-2 text-lg font-bold">
+        {app.app_name} 핵심개념{' '}
+        <span className="text-sm font-normal text-muted-foreground">{concepts.length.toLocaleString()}개</span>
+      </h1>
+      <ConceptBoard concepts={concepts} />
     </div>
   )
 }

@@ -2,12 +2,12 @@ import Link from 'next/link'
 
 export default function PrivacyPage() {
   return (
-    <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <h1 className="text-4xl font-bold mb-8">개인정보 처리방침</h1>
+    <div className="max-w-3xl text-[15px]">
+      <h1 className="mb-4 border-b border-foreground pb-2 text-lg font-bold">개인정보 처리방침</h1>
 
       <div className="prose prose-lg max-w-none space-y-8">
         <section className="not-prose rounded-lg border bg-card p-6">
-          <h2 className="mb-3 text-2xl font-bold">App Privacy Policies</h2>
+          <h2 className="mb-3 text-base font-bold">App Privacy Policies</h2>
           <p className="mb-4 text-muted-foreground">
             The privacy policy for The Sori / Inner Voice app is available at the page below.
           </p>
@@ -20,7 +20,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4">1. 적용 범위</h2>
+          <h2 className="text-base font-bold mb-4">1. 적용 범위</h2>
           <p className="text-muted-foreground">
             본 개인정보 처리방침은 JMK Contents 웹사이트에서 제공하는 콘텐츠 열람,
             문의 접수, 광고 노출 과정에 적용됩니다.
@@ -28,7 +28,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4">2. 수집하는 정보</h2>
+          <h2 className="text-base font-bold mb-4">2. 수집하는 정보</h2>
           <p className="text-muted-foreground">
             당사는 다음 정보를 수집하거나 자동으로 처리할 수 있습니다:
           </p>
@@ -40,7 +40,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4">3. 정보 사용 목적</h2>
+          <h2 className="text-base font-bold mb-4">3. 정보 사용 목적</h2>
           <p className="text-muted-foreground">
             수집된 정보는 다음 목적으로 사용됩니다:
           </p>
@@ -53,7 +53,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4">4. Google AdSense 및 제3자 광고</h2>
+          <h2 className="text-base font-bold mb-4">4. Google AdSense 및 제3자 광고</h2>
           <p className="text-muted-foreground">
             본 사이트는 Google AdSense를 포함한 광고 서비스를 사용할 수 있습니다.
             Google 및 제3자 광고 파트너는 쿠키, 웹 비콘 또는 유사 기술을 사용하여
@@ -93,7 +93,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4">5. 쿠키 및 동의</h2>
+          <h2 className="text-base font-bold mb-4">5. 쿠키 및 동의</h2>
           <p className="text-muted-foreground">
             사용자는 브라우저 설정에서 쿠키를 차단하거나 삭제할 수 있습니다. 다만,
             일부 기능이나 광고 개인화 설정이 정상적으로 동작하지 않을 수 있습니다.
@@ -103,7 +103,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4">6. 데이터 보안 및 보관</h2>
+          <h2 className="text-base font-bold mb-4">6. 데이터 보안 및 보관</h2>
           <p className="text-muted-foreground">
             당사는 합리적인 수준의 기술적, 관리적 보호 조치를 적용하고 있습니다.
             다만 인터넷을 통한 전송이나 전자 저장 방식은 100% 안전을 보장할 수 없으며,
@@ -113,7 +113,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4">7. 아동의 개인정보</h2>
+          <h2 className="text-base font-bold mb-4">7. 아동의 개인정보</h2>
           <p className="text-muted-foreground">
             본 사이트는 만 13세 미만 아동을 대상으로 하지 않으며, 만 13세 미만 아동의
             개인 식별 정보를 고의로 수집하지 않습니다.
@@ -121,7 +121,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4">8. 개인정보 처리방침 변경</h2>
+          <h2 className="text-base font-bold mb-4">8. 개인정보 처리방침 변경</h2>
           <p className="text-muted-foreground">
             본 방침은 법령, 서비스 변경, 광고 정책 변경에 따라 수정될 수 있으며,
             중요한 변경이 있는 경우 이 페이지를 통해 안내합니다.
@@ -129,7 +129,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4">9. 문의하기</h2>
+          <h2 className="text-base font-bold mb-4">9. 문의하기</h2>
           <p className="text-muted-foreground">
             개인정보 처리방침 또는 광고 운영 관련 문의는 아래로 연락해 주세요:
           </p>

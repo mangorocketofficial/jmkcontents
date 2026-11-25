@@ -73,12 +73,12 @@ const koreanSummary = [
 
 export default function TheSoriPrivacyPolicyPage() {
   return (
-    <div className="container mx-auto max-w-4xl px-4 py-12">
+    <div className="max-w-3xl text-[15px]">
       <div className="mb-8 rounded-lg border bg-card p-6">
         <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-primary">
           Privacy Policy
         </p>
-        <h1 className="mb-3 text-4xl font-bold">
+        <h1 className="mb-4 border-b border-foreground pb-2 text-lg font-bold">
           The Sori / Inner Voice Privacy Policy
         </h1>
         <p className="text-sm text-muted-foreground">
@@ -94,7 +94,7 @@ export default function TheSoriPrivacyPolicyPage() {
       <div className="space-y-6">
         {sections.map((section) => (
           <section key={section.heading} className="rounded-lg border bg-card p-6">
-            <h2 className="mb-4 text-2xl font-bold">{section.heading}</h2>
+            <h2 className="mb-4 text-base font-bold">{section.heading}</h2>
             <div className="space-y-3 text-muted-foreground">
               {section.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
@@ -104,7 +104,7 @@ export default function TheSoriPrivacyPolicyPage() {
         ))}
 
         <section className="rounded-lg border bg-card p-6">
-          <h2 className="mb-4 text-2xl font-bold">한국어 요약</h2>
+          <h2 className="mb-4 text-base font-bold">한국어 요약</h2>
           <div className="space-y-3 text-muted-foreground">
             {koreanSummary.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>

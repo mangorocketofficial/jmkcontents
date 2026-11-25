@@ -31,17 +31,17 @@ export default function SupportPage() {
   ]
 
   return (
-    <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">고객 지원</h1>
-        <p className="text-xl text-muted-foreground">
+    <div className="max-w-3xl text-[15px]">
+      <div className="mb-6">
+        <h1 className="mb-4 border-b border-foreground pb-2 text-lg font-bold">고객 지원</h1>
+        <p className="text-sm text-muted-foreground">
           자주 묻는 질문과 답변을 확인하세요
         </p>
       </div>
 
       {/* FAQ Section */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6">자주 묻는 질문 (FAQ)</h2>
+        <h2 className="text-base font-bold mb-6">자주 묻는 질문 (FAQ)</h2>
         <div className="space-y-4">
           {faqs.map((faq, index) => (
             <Card key={index}>
@@ -86,7 +86,7 @@ export default function SupportPage() {
 
       {/* Additional Resources */}
       <section>
-        <h2 className="text-2xl font-bold mb-6">추가 자료</h2>
+        <h2 className="text-base font-bold mb-6">추가 자료</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Link href="/privacy">
             <Card className="hover:bg-muted/50 transition-colors cursor-pointer">

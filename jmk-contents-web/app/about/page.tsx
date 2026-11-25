@@ -2,17 +2,17 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 
 export default function AboutPage() {
   return (
-    <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">JMK Contents 소개</h1>
-        <p className="text-xl text-muted-foreground">
+    <div className="max-w-3xl text-[15px]">
+      <div className="mb-6">
+        <h1 className="mb-4 border-b border-foreground pb-2 text-lg font-bold">JMK Contents 소개</h1>
+        <p className="text-sm text-muted-foreground">
           한국 자격증 시험 준비를 위한 최고의 파트너
         </p>
       </div>
 
       <div className="space-y-8">
         <section>
-          <h2 className="text-2xl font-bold mb-4">우리의 미션</h2>
+          <h2 className="text-base font-bold mb-4">우리의 미션</h2>
           <p className="text-lg text-muted-foreground">
             JMK Contents는 자격증 시험을 준비하는 모든 분들이 언제 어디서나
             효과적으로 학습할 수 있도록 돕는 것을 목표로 합니다.
@@ -21,7 +21,7 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-6">제공 서비스</h2>
+          <h2 className="text-base font-bold mb-6">제공 서비스</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Card>
               <CardHeader>
@@ -86,7 +86,7 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4">지원 분야</h2>
+          <h2 className="text-base font-bold mb-4">지원 분야</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               '산업안전',
@@ -109,7 +109,7 @@ export default function AboutPage() {
         </section>
 
         <section className="bg-muted rounded-lg p-8">
-          <h2 className="text-2xl font-bold mb-4">연락하기</h2>
+          <h2 className="text-base font-bold mb-4">연락하기</h2>
           <div className="space-y-2 text-muted-foreground">
             <p>📧 이메일: bombezzang100@gmail.com</p>
             <p>🌐 웹사이트: jmkcontents.com</p>

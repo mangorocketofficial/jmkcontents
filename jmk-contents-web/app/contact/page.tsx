@@ -58,10 +58,10 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-12 max-w-2xl">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">문의하기</h1>
-        <p className="text-xl text-muted-foreground">
+    <div className="max-w-3xl text-[15px]">
+      <div className="mb-6">
+        <h1 className="mb-4 border-b border-foreground pb-2 text-lg font-bold">문의하기</h1>
+        <p className="text-sm text-muted-foreground">
           궁금하신 사항이 있으시면 언제든지 문의해 주세요
         </p>
       </div>
