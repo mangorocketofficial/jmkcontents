@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { extractAppLegalInfo, getStoreLinkMetadata } from '@/lib/utils'
 import Link from 'next/link'
+import { countQuestions, getCertContent } from '@/lib/cert-content'
 
 interface ExamPageProps {
   params: Promise<{
@@ -21,9 +22,15 @@ export async function generateMetadata({ params }: ExamPageProps) {
     return { title: '시험을 찾을 수 없습니다' }
   }
 
+  const cert = await getCertContent(bundle_id)
+
   return {
-    title: `${app.app_name} - 핵심개념 - JMK Contents`,
-    description: `${app.app_name_full || app.app_name} 자격증 시험 핵심개념`,
+    title: cert
+      ? `${cert.name} 필기 예상문제·핵심요약·시험 정보 - JMK Contents`
+      : `${app.app_name} - 핵심개념 - JMK Contents`,
+    description: cert
+      ? `${cert.name} 필기 예상문제 ${countQuestions(cert).toLocaleString()}문항과 해설, 단원별 핵심요약, 시험 정보`
+      : `${app.app_name_full || app.app_name} 자격증 시험 핵심개념`,
     openGraph: {
       title: `${app.app_name} 자격증 시험 학습`,
       description: `${app.app_name_full || app.app_name} 핵심개념`,
@@ -36,9 +43,10 @@ export async function generateMetadata({ params }: ExamPageProps) {
 
 export default async function ExamPage({ params }: ExamPageProps) {
   const { bundle_id } = await params
-  const [app, concepts] = await Promise.all([
+  const [app, concepts, cert] = await Promise.all([
     getAppByBundleId(bundle_id),
     getConceptsByAppId(bundle_id),
+    getCertContent(bundle_id),
   ])
 
   if (!app) {
@@ -110,7 +118,54 @@ export default async function ExamPage({ params }: ExamPageProps) {
       {/* Learning Content - Primary */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-6">학습 자료</h2>
-        <div className="max-w-xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {cert && (
+            <>
+              <Link href={`/exams/${bundle_id}/questions`}>
+                <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full border-2 hover:border-primary/50">
+                  <CardHeader>
+                    <div className="text-4xl mb-2">📝</div>
+                    <CardTitle className="text-xl">예상문제</CardTitle>
+                    <CardDescription className="text-base">
+                      단원별 예상문제 {countQuestions(cert).toLocaleString()}문항과 해설
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Button className="w-full">예상문제 풀기</Button>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href={`/exams/${bundle_id}/summary`}>
+                <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full border-2 hover:border-primary/50">
+                  <CardHeader>
+                    <div className="text-4xl mb-2">📌</div>
+                    <CardTitle className="text-xl">핵심요약</CardTitle>
+                    <CardDescription className="text-base">
+                      시험 직전에 훑어보는 단원별 암기 포인트
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Button className="w-full" variant="outline">핵심요약 보기</Button>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href={`/exams/${bundle_id}/info`}>
+                <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full border-2 hover:border-primary/50">
+                  <CardHeader>
+                    <div className="text-4xl mb-2">🗓️</div>
+                    <CardTitle className="text-xl">시험 정보</CardTitle>
+                    <CardDescription className="text-base">
+                      문항 수, 합격 기준, 출제기준 단원
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Button className="w-full" variant="outline">시험 정보 보기</Button>
+                  </CardContent>
+                </Card>
+              </Link>
+            </>
+          )}
+          {(concepts.length > 0 || !cert) && (
           <Link href={`/exams/${bundle_id}/concepts`}>
             <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full border-2 hover:border-primary/50">
               <CardHeader>
@@ -123,10 +178,11 @@ export default async function ExamPage({ params }: ExamPageProps) {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button className="w-full">핵심개념 보기</Button>
+                <Button className="w-full" variant={cert ? 'outline' : 'default'}>핵심개념 보기</Button>
               </CardContent>
             </Card>
           </Link>
+          )}
         </div>
       </section>
 

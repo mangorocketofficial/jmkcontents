@@ -1,0 +1,20 @@
+{
+  "app": {
+    "bundle_id": "miyongsa-pibu",
+    "app_name": "미용사(피부)",
+    "app_name_full": "미용사(피부) 필기",
+    "description": "미용사(피부) 필기 시험 대비 예상문제와 해설, 단원별 핵심요약을 정리했습니다.",
+    "app_category": "기능사",
+    "status": "published",
+    "is_featured": false,
+    "rating": 0,
+    "review_count": 0,
+    "download_count": 0,
+    "categories": [],
+    "app_store_url": "https://apps.apple.com/kr/app/id6737160974",
+    "marketing_url": "https://jmkcontents.com/exams/miyongsa-pibu",
+    "created_at": "2026-11-25T00:00:00.000Z",
+    "updated_at": "2026-11-25T00:00:00.000Z"
+  },
+  "concepts": []
+}
