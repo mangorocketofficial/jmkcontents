@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { CertTabs } from '@/components/CertTabs'
 import { CertAppBanner } from '@/components/CertAppBanner'
 import { getCertContent, getCertSlugs } from '@/lib/cert-content'
 import { getExamInfo } from '@/lib/exam-info'
@@ -38,20 +39,22 @@ export default async function ExamInfoPage({ params }: PageProps) {
   const subjects = cert.subjects.length > 1 ? cert.subjects : ['']
 
   return (
-    <div className="container mx-auto px-4 py-12 max-w-3xl">
-      <div className="mb-6 text-sm text-muted-foreground">
-        <Link href="/exams" className="hover:text-foreground">자격증 과목</Link>
-        {' / '}
-        <Link href={`/exams/${bundle_id}`} className="hover:text-foreground">{cert.name}</Link>
-        {' / '}
-        <span className="text-foreground">시험 정보</span>
+    <div>
+      <div className="mb-3 text-xs text-muted-foreground">
+        <Link href="/exams" className="hover:underline">종목 목록</Link>
+        {' › '}
+        <Link href={`/exams/${bundle_id}`} className="hover:underline">{cert.name}</Link>
+        {' › '}
+        <span>시험 정보</span>
       </div>
 
-      <h1 className="text-3xl font-bold mb-8">{cert.name} 필기 시험 정보</h1>
+      <CertTabs slug={bundle_id} active="info" />
+
+      <h1 className="mb-6 border-b border-foreground pb-3 text-lg font-bold">{cert.name} 필기 시험 정보</h1>
 
       <section className="mb-10">
-        <h2 className="text-xl font-bold mb-4">시험 형식</h2>
-        <dl className="grid grid-cols-[8rem_1fr] gap-y-2 rounded-xl border p-5">
+        <h2 className="text-base font-bold mb-3">시험 형식</h2>
+        <dl className="grid grid-cols-[8rem_1fr] gap-y-2 border p-5">
           <dt className="text-muted-foreground">문항 수</dt>
           <dd>{exam.question_count}문항 (객관식)</dd>
           <dt className="text-muted-foreground">시험 시간</dt>
@@ -72,10 +75,10 @@ export default async function ExamInfoPage({ params }: PageProps) {
       </section>
 
       <section className="mb-10">
-        <h2 className="text-xl font-bold mb-4">시험 일정과 접수</h2>
+        <h2 className="text-base font-bold mb-3">시험 일정과 접수</h2>
         {info && info.schedules.length > 0 ? (
           <>
-            <div className="overflow-x-auto rounded-xl border">
+            <div className="overflow-x-auto border">
               <table className="w-full text-sm">
                 <thead className="bg-muted/50 text-left">
                   <tr>
@@ -106,7 +109,7 @@ export default async function ExamInfoPage({ params }: PageProps) {
             </p>
           </>
         ) : (
-          <p className="rounded-xl border p-5 text-muted-foreground">
+          <p className="border p-5 text-muted-foreground">
             시험 일정과 원서 접수 기간은{' '}
             <a href={cert.authority.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">
               {cert.authority.name}
@@ -123,7 +126,7 @@ export default async function ExamInfoPage({ params }: PageProps) {
       </section>
 
       <section className="mb-10">
-        <h2 className="text-xl font-bold mb-4">출제기준 단원</h2>
+        <h2 className="text-base font-bold mb-3">출제기준 단원</h2>
         {subjects.map((subject) => {
           const outline = cert.outline.filter((unit) => !subject || unit.subject === subject)
           if (outline.length === 0) return null
@@ -131,7 +134,7 @@ export default async function ExamInfoPage({ params }: PageProps) {
           return (
             <div key={subject || 'all'} className="mb-6">
               {subject && <h3 className="font-semibold mb-2">{subject}</h3>}
-              <ul className="divide-y rounded-xl border">
+              <ul className="divide-y border">
                 {outline.map((unit) => {
                   const hasQuestions = cert.units.some((entry) => entry.id === unit.id)
 

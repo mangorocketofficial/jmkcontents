@@ -1,105 +1,98 @@
-import { ExamCard } from '@/components/ExamCard'
-import { Button } from '@/components/ui/button'
-import { getAppsWithContentCounts, getAllConcepts, getHomepageExamPreview } from '@/lib/content'
-import { ConceptCard } from '@/components/ConceptCard'
 import Link from 'next/link'
+import { getCertContent } from '@/lib/cert-content'
+import { getSiteExams } from '@/lib/site-menu'
 
 export const revalidate = 3600
 
+const PREVIEW_ROWS = 6
+
 export default async function Home() {
-  const [examsWithCounts, recentConcepts] = await Promise.all([
-    getAppsWithContentCounts(),
-    getAllConcepts(),
-  ])
-
-  const displayExams = getHomepageExamPreview(examsWithCounts)
-
-  const totalConcepts = recentConcepts.length
+  const exams = await getSiteExams()
+  const questionExams = exams.filter((exam) => exam.questionCount > 0)
+  const conceptExams = exams.filter((exam) => exam.conceptCount > 0)
+  const boards = await Promise.all(
+    questionExams.map(async (exam) => ({ exam, cert: await getCertContent(exam.slug) }))
+  )
+  const totalQuestions = questionExams.reduce((sum, exam) => sum + exam.questionCount, 0)
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      {/* Hero Section */}
-      <section className="text-center py-16 space-y-4">
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-          자격증 시험 핵심개념
-        </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          {examsWithCounts.length}개 자격증 시험의 핵심개념 {totalConcepts}개를 체계적으로 정리했습니다
-        </p>
-        <div className="flex gap-4 justify-center pt-4">
-          <Link href="/exams">
-            <Button size="lg">자격증 과목 보기</Button>
-          </Link>
-          <Link href="/concepts">
-            <Button size="lg" variant="outline">핵심개념 보기</Button>
-          </Link>
-        </div>
-      </section>
+    <div>
+      <h1 className="border-b border-foreground pb-2 text-lg font-bold">전체 자료</h1>
 
-      {/* Featured Exams Section */}
-      <section className="py-12">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-3xl font-bold">인기 자격증 과목</h2>
-          <Link href="/exams">
-            <Button variant="ghost">전체 보기 →</Button>
-          </Link>
-        </div>
-        {displayExams.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {displayExams.map((exam) => (
-              <ExamCard
-                key={exam.bundle_id}
-                app={exam}
-                conceptCount={exam.conceptCount}
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-12">
-            <p className="text-muted-foreground">
-              등록된 자격증 과목이 아직 없습니다. 곧 업데이트될 예정입니다.
-            </p>
-          </div>
+      <ul className="border-b bg-muted/40 text-sm">
+        <li className="flex gap-3 border-b px-3 py-2 last:border-b-0">
+          <span className="shrink-0 font-bold text-emerald-700">공지</span>
+          <span>
+            {questionExams.length}개 종목 예상문제 {totalQuestions.toLocaleString()}문항을 단원별로 올렸습니다.
+            모든 문항에 정답과 해설이 있습니다.
+          </span>
+        </li>
+        <li className="flex gap-3 px-3 py-2">
+          <span className="shrink-0 font-bold text-emerald-700">안내</span>
+          <span>왼쪽 메뉴에서 종목을 고르면 예상문제, 핵심요약, 시험 정보를 볼 수 있습니다.</span>
+        </li>
+      </ul>
+
+      <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-8 lg:grid-cols-2">
+        {boards.map(({ exam, cert }) =>
+          cert ? (
+            <section key={exam.slug}>
+              <div className="flex items-baseline justify-between border-b border-foreground pb-1.5">
+                <h2 className="text-sm font-bold">
+                  <Link href={`/exams/${exam.slug}`} className="hover:underline">
+                    {exam.name} 예상문제
+                  </Link>
+                </h2>
+                <Link href={`/exams/${exam.slug}`} className="text-xs text-muted-foreground hover:underline">
+                  더보기 ›
+                </Link>
+              </div>
+              <ul className="text-sm">
+                {cert.units.slice(0, PREVIEW_ROWS).map((unit) => (
+                  <li key={unit.id} className="flex items-baseline gap-2 border-b px-1 py-1.5">
+                    <Link
+                      href={`/exams/${exam.slug}/questions/${unit.id}`}
+                      className="min-w-0 truncate hover:underline"
+                    >
+                      {unit.name}
+                    </Link>
+                    <span className="shrink-0 text-xs font-bold text-emerald-700">
+                      [{unit.questions.length}]
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-1.5 px-1 text-xs text-muted-foreground">
+                <Link href={`/exams/${exam.slug}/summary`} className="hover:underline">핵심요약</Link>
+                {' · '}
+                <Link href={`/exams/${exam.slug}/info`} className="hover:underline">시험 정보</Link>
+                {' · '}단원 {exam.unitCount}개, {exam.questionCount.toLocaleString()}문항
+              </p>
+            </section>
+          ) : null
         )}
-      </section>
+      </div>
 
-      {/* Recent Concepts Preview */}
-      {recentConcepts.length > 0 && (
-        <section className="py-12">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl font-bold">최신 핵심개념</h2>
-            <Link href="/concepts">
-              <Button variant="ghost">전체 보기 →</Button>
+      {conceptExams.length > 0 && (
+        <section className="mt-10">
+          <div className="flex items-baseline justify-between border-b border-foreground pb-1.5">
+            <h2 className="text-sm font-bold">핵심개념 자료</h2>
+            <Link href="/concepts" className="text-xs text-muted-foreground hover:underline">
+              더보기 ›
             </Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {recentConcepts.slice(0, 3).map((concept) => (
-              <div key={concept.id}>
-                <div className="text-xs text-muted-foreground mb-1 px-1">{concept.app_name}</div>
-                <ConceptCard concept={concept} />
-              </div>
+          <ul className="grid grid-cols-1 text-sm sm:grid-cols-2">
+            {conceptExams.map((exam) => (
+              <li key={exam.slug} className="flex items-baseline gap-2 border-b px-1 py-1.5">
+                <Link href={`/exams/${exam.slug}/concepts`} className="min-w-0 truncate hover:underline">
+                  {exam.name} 핵심개념
+                </Link>
+                <span className="shrink-0 text-xs font-bold text-emerald-700">[{exam.conceptCount}]</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </section>
       )}
-
-      {/* Features Section */}
-      <section className="py-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="text-center space-y-2">
-          <div className="text-4xl mb-4">💡</div>
-          <h3 className="text-xl font-bold">핵심개념 정리</h3>
-          <p className="text-muted-foreground">
-            시험에 자주 나오는 핵심 개념을 체계적으로 정리했습니다
-          </p>
-        </div>
-        <div className="text-center space-y-2">
-          <div className="text-4xl mb-4">📱</div>
-          <h3 className="text-xl font-bold">기출문제 앱</h3>
-          <p className="text-muted-foreground">
-            실제 시험 기출문제를 앱으로 풀어볼 수 있습니다
-          </p>
-        </div>
-      </section>
     </div>
   )
 }

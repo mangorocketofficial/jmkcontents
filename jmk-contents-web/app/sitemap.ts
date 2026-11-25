@@ -71,7 +71,6 @@ async function createCertEntries(): Promise<MetadataRoute.Sitemap> {
     const base = `${SITE_URL}/exams/${cert.slug}`
 
     return [
-      { url: `${base}/questions`, lastModified, changeFrequency: 'monthly' as const, priority: 0.8 },
       { url: `${base}/summary`, lastModified, changeFrequency: 'monthly' as const, priority: 0.8 },
       { url: `${base}/info`, lastModified, changeFrequency: 'monthly' as const, priority: 0.7 },
       ...cert.units.map((unit) => ({

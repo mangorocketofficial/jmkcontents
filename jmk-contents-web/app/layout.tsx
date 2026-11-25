@@ -5,6 +5,9 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { AdSenseHead } from "@/components/ads/AdSenseScript";
 import { SITE_URL } from "@/lib/site";
+import { SiteShell } from "@/components/SiteShell";
+import { SiteSidebar } from "@/components/SiteSidebar";
+import { getSidebarGroups, getSiteExams } from "@/lib/site-menu";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,15 +21,27 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "JMK Contents - 자격증 시험 핵심개념",
-  description: "한국 자격증 시험 준비를 위한 핵심개념 정리와 기출문제 앱 정보 플랫폼",
+  title: "JMK Contents - 자격증 필기 공부방",
+  description: "자격증 필기 예상문제와 해설, 단원별 핵심요약, 시험 정보를 종목별로 모은 공부 사이트",
 };
 
-export default function RootLayout({
+export const revalidate = 3600;
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [groups, exams] = await Promise.all([getSidebarGroups(), getSiteExams()]);
+  const sidebar = (
+    <SiteSidebar
+      groups={groups}
+      examCount={exams.length}
+      questionCount={exams.reduce((sum, exam) => sum + exam.questionCount, 0)}
+      conceptCount={exams.reduce((sum, exam) => sum + exam.conceptCount, 0)}
+    />
+  );
+
   return (
     <html lang="ko">
       <head>
@@ -36,9 +51,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
         <Header />
-        <main className="flex-1">
-          {children}
-        </main>
+        <SiteShell sidebar={sidebar}>{children}</SiteShell>
         <Footer />
       </body>
     </html>

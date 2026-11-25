@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { CertTabs } from '@/components/CertTabs'
 import { CertAppBanner } from '@/components/CertAppBanner'
 import { buildUnitSummary, getCertContent, getCertSlugs } from '@/lib/cert-content'
 import { SITE_URL } from '@/lib/site'
@@ -37,21 +38,23 @@ export default async function SummaryPage({ params }: PageProps) {
     .filter(({ groups }) => groups.length > 0)
 
   return (
-    <div className="container mx-auto px-4 py-12 max-w-3xl">
-      <div className="mb-6 text-sm text-muted-foreground">
-        <Link href="/exams" className="hover:text-foreground">자격증 과목</Link>
-        {' / '}
-        <Link href={`/exams/${bundle_id}`} className="hover:text-foreground">{cert.name}</Link>
-        {' / '}
-        <span className="text-foreground">핵심요약</span>
+    <div>
+      <div className="mb-3 text-xs text-muted-foreground">
+        <Link href="/exams" className="hover:underline">종목 목록</Link>
+        {' › '}
+        <Link href={`/exams/${bundle_id}`} className="hover:underline">{cert.name}</Link>
+        {' › '}
+        <span>핵심요약</span>
       </div>
 
-      <h1 className="text-3xl font-bold mb-3">{cert.name} 필기 핵심요약</h1>
-      <p className="text-muted-foreground mb-8">
+      <CertTabs slug={bundle_id} active="summary" />
+
+      <h1 className="border-b border-foreground pb-3 text-lg font-bold">{cert.name} 필기 핵심요약</h1>
+      <p className="mb-6 mt-2 text-sm text-muted-foreground">
         예상문제 해설의 암기 포인트를 출제기준 단원별로 모았습니다.
       </p>
 
-      <nav className="mb-10 rounded-xl border p-5">
+      <nav className="mb-10 border p-5">
         <p className="mb-3 text-sm font-medium">단원 바로 가기</p>
         <ul className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
           {units.map(({ unit }) => (
@@ -63,8 +66,8 @@ export default async function SummaryPage({ params }: PageProps) {
       </nav>
 
       {units.map(({ unit, groups }) => (
-        <section key={unit.id} id={unit.id} className="mb-12 scroll-mt-6">
-          <h2 className="text-2xl font-bold mb-1">{unit.name}</h2>
+        <section key={unit.id} id={unit.id} className="mb-10 scroll-mt-6 text-[15px]">
+          <h2 className="text-base font-bold mb-1 border-b pb-1.5">{unit.name}</h2>
           <p className="mb-4 text-sm">
             <Link href={`/exams/${bundle_id}/questions/${unit.id}`} className="underline underline-offset-4">
               이 단원 예상문제 {unit.questions.length}문항 풀기

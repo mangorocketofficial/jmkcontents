@@ -4,7 +4,9 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { extractAppLegalInfo, getStoreLinkMetadata } from '@/lib/utils'
 import Link from 'next/link'
-import { countQuestions, getCertContent } from '@/lib/cert-content'
+import { CertTabs } from '@/components/CertTabs'
+import { countQuestions, getCertContent, type CertContent } from '@/lib/cert-content'
+import type { App } from '@/lib/firebase/types'
 
 interface ExamPageProps {
   params: Promise<{
@@ -14,15 +16,29 @@ interface ExamPageProps {
 
 export const revalidate = 3600
 
+// 종목 정보(Firestore)를 못 읽어도 콘텐츠 DB에 있는 종목은 게시판을 연다.
+function certAsApp(cert: CertContent | null): App | null {
+  if (!cert) return null
+  const now = new Date()
+
+  return {
+    bundle_id: cert.slug,
+    app_name: cert.name,
+    status: 'published',
+    app_store_url: cert.ios_url,
+    created_at: now,
+    updated_at: now,
+  }
+}
+
 export async function generateMetadata({ params }: ExamPageProps) {
   const { bundle_id } = await params
-  const app = await getAppByBundleId(bundle_id)
+  const cert = await getCertContent(bundle_id)
+  const app = (await getAppByBundleId(bundle_id)) || certAsApp(cert)
 
   if (!app) {
     return { title: '시험을 찾을 수 없습니다' }
   }
-
-  const cert = await getCertContent(bundle_id)
 
   return {
     title: cert
@@ -43,11 +59,13 @@ export async function generateMetadata({ params }: ExamPageProps) {
 
 export default async function ExamPage({ params }: ExamPageProps) {
   const { bundle_id } = await params
-  const [app, concepts, cert] = await Promise.all([
+  const [storedApp, concepts, cert] = await Promise.all([
     getAppByBundleId(bundle_id),
     getConceptsByAppId(bundle_id),
     getCertContent(bundle_id),
   ])
+
+  const app = storedApp || certAsApp(cert)
 
   if (!app) {
     notFound()
@@ -61,149 +79,90 @@ export default async function ExamPage({ params }: ExamPageProps) {
   const termsOfUseUrl = descriptionInfo.termsOfUseUrl || fullDescriptionInfo.termsOfUseUrl
   const privacyPolicyUrl = descriptionInfo.privacyPolicyUrl || fullDescriptionInfo.privacyPolicyUrl
 
+  const multiSubject = cert ? cert.subjects.length > 1 : false
+
   return (
-    <div className="container mx-auto px-4 py-12">
-      {/* Breadcrumb */}
-      <div className="mb-6 text-sm text-muted-foreground">
-        <Link href="/exams" className="hover:text-foreground">
-          자격증 과목
-        </Link>
-        {' / '}
-        <span className="text-foreground">{app.app_name}</span>
+    <div>
+      <div className="mb-3 text-xs text-muted-foreground">
+        <Link href="/exams" className="hover:underline">종목 목록</Link>
+        {' › '}
+        <span>{cert?.name || app.app_name}</span>
       </div>
 
-      {/* Exam Header */}
-      <div className="mb-12">
-        <div className="flex flex-col md:flex-row gap-6 items-start">
-          {app.icon_url && (
-            <div className="flex-shrink-0">
-              <img
-                src={app.icon_url}
-                alt={app.app_name}
-                className="w-20 h-20 rounded-xl shadow-md object-cover"
-              />
-            </div>
-          )}
-          <div className="flex-1">
-            <h1 className="text-4xl font-bold mb-2">{app.app_name}</h1>
-            {app.app_name_full && app.app_name_full !== app.app_name && (
-              <p className="text-xl text-muted-foreground mb-3">
-                {app.app_name_full}
-              </p>
-            )}
+      <div className="mb-4">
+        <h1 className="text-xl font-bold">{cert?.name || app.app_name} 필기 공부방</h1>
+        {descriptionInfo.cleanedText && (
+          <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{descriptionInfo.cleanedText}</p>
+        )}
+      </div>
 
-            <div className="flex flex-wrap gap-2 mb-4">
-              {app.app_category && (
-                <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
-                  {app.app_category}
-                </span>
+      {cert ? (
+        <>
+          <CertTabs slug={bundle_id} active="questions" />
+          <table className="w-full text-sm">
+            <thead className="border-b bg-muted/40 text-xs text-muted-foreground">
+              <tr>
+                <th className="w-12 px-2 py-2 font-normal">번호</th>
+                {multiSubject && (
+                  <th className="hidden w-48 px-2 py-2 text-left font-normal sm:table-cell">과목</th>
+                )}
+                <th className="px-2 py-2 text-left font-normal">단원</th>
+                <th className="w-20 px-2 py-2 text-right font-normal">문항</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cert.ios_url && (
+                <tr className="border-b bg-muted/30">
+                  <td className="px-2 py-2 text-center text-xs font-bold text-emerald-700">공지</td>
+                  <td colSpan={multiSubject ? 3 : 2} className="px-2 py-2">
+                    <a href={cert.ios_url} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                      기출 회차별 풀이와 모의고사는 {cert.name} 앱에서 볼 수 있습니다 (App Store)
+                    </a>
+                  </td>
+                </tr>
               )}
-              {app.categories && app.categories.map((category) => (
-                <span
-                  key={category}
-                  className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm"
-                >
-                  {category}
-                </span>
+              {cert.units.map((unit, index) => (
+                <tr key={unit.id} className="border-b hover:bg-muted/30">
+                  <td className="px-2 py-2 text-center text-xs text-muted-foreground tabular-nums">{index + 1}</td>
+                  {multiSubject && (
+                    <td className="hidden px-2 py-2 text-xs text-muted-foreground sm:table-cell">{unit.subject}</td>
+                  )}
+                  <td className="px-2 py-2">
+                    <Link href={`/exams/${bundle_id}/questions/${unit.id}`} className="hover:underline">
+                      {unit.name} 예상문제
+                    </Link>
+                  </td>
+                  <td className="px-2 py-2 text-right tabular-nums">{unit.questions.length}</td>
+                </tr>
               ))}
-            </div>
+            </tbody>
+          </table>
+          <p className="mt-2 text-xs text-muted-foreground">
+            단원 {cert.units.length}개, 예상문제 {countQuestions(cert).toLocaleString()}문항. 모든 문항에 정답과 해설이 있습니다.
+          </p>
+        </>
+      ) : (
+        <ul className="border-t border-foreground text-sm">
+          <li className="border-b px-2 py-2">
+            <Link href={`/exams/${bundle_id}/concepts`} className="hover:underline">
+              {app.app_name} 핵심개념
+            </Link>{' '}
+            <span className="text-xs font-bold text-emerald-700">[{concepts.length}]</span>
+          </li>
+        </ul>
+      )}
 
-            {descriptionInfo.cleanedText && (
-              <p className="text-muted-foreground whitespace-pre-wrap">{descriptionInfo.cleanedText}</p>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {/* Learning Content - Primary */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6">학습 자료</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {cert && (
-            <>
-              <Link href={`/exams/${bundle_id}/questions`}>
-                <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full border-2 hover:border-primary/50">
-                  <CardHeader>
-                    <div className="text-4xl mb-2">📝</div>
-                    <CardTitle className="text-xl">예상문제</CardTitle>
-                    <CardDescription className="text-base">
-                      단원별 예상문제 {countQuestions(cert).toLocaleString()}문항과 해설
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <Button className="w-full">예상문제 풀기</Button>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href={`/exams/${bundle_id}/summary`}>
-                <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full border-2 hover:border-primary/50">
-                  <CardHeader>
-                    <div className="text-4xl mb-2">📌</div>
-                    <CardTitle className="text-xl">핵심요약</CardTitle>
-                    <CardDescription className="text-base">
-                      시험 직전에 훑어보는 단원별 암기 포인트
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <Button className="w-full" variant="outline">핵심요약 보기</Button>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href={`/exams/${bundle_id}/info`}>
-                <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full border-2 hover:border-primary/50">
-                  <CardHeader>
-                    <div className="text-4xl mb-2">🗓️</div>
-                    <CardTitle className="text-xl">시험 정보</CardTitle>
-                    <CardDescription className="text-base">
-                      문항 수, 합격 기준, 출제기준 단원
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <Button className="w-full" variant="outline">시험 정보 보기</Button>
-                  </CardContent>
-                </Card>
-              </Link>
-            </>
-          )}
-          {(concepts.length > 0 || !cert) && (
-          <Link href={`/exams/${bundle_id}/concepts`}>
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full border-2 hover:border-primary/50">
-              <CardHeader>
-                <div className="text-4xl mb-2">💡</div>
-                <CardTitle className="text-xl">핵심 개념</CardTitle>
-                <CardDescription className="text-base">
-                  {concepts.length > 0
-                    ? `${concepts.length}개의 핵심 개념을 정리했습니다`
-                    : '시험에 자주 나오는 핵심 개념을 정리했습니다'}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button className="w-full" variant={cert ? 'outline' : 'default'}>핵심개념 보기</Button>
-              </CardContent>
-            </Card>
-          </Link>
-          )}
-        </div>
-      </section>
-
-      {/* App Description */}
-      {fullDescriptionInfo.cleanedText && (
-        <section className="mb-12">
-          <Card>
-            <CardHeader>
-              <CardTitle>시험 소개</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-base leading-relaxed whitespace-pre-wrap text-muted-foreground">
-                {fullDescriptionInfo.cleanedText}
-              </p>
-            </CardContent>
-          </Card>
+      {!cert && fullDescriptionInfo.cleanedText && (
+        <section className="mt-8">
+          <h2 className="border-b pb-1.5 text-sm font-bold">시험 소개</h2>
+          <p className="mt-3 whitespace-pre-wrap text-sm leading-relaxed text-muted-foreground">
+            {fullDescriptionInfo.cleanedText}
+          </p>
         </section>
       )}
 
       {/* App Download - Secondary CTA */}
-      <section className="border-t pt-8">
+      <section className="mt-10">
         <Card className="bg-muted/30">
           <CardHeader>
             <CardTitle>📱 기출문제 앱 다운받기</CardTitle>
@@ -261,25 +220,6 @@ export default async function ExamPage({ params }: ExamPageProps) {
         </Card>
       </section>
 
-      {/* Support Links */}
-      <section className="mt-8">
-        <Card>
-          <CardHeader>
-            <CardTitle>도움이 필요하신가요?</CardTitle>
-            <CardDescription>
-              문의사항이 있으시면 언제든지 연락해 주세요
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="flex gap-4">
-            <Link href="/support">
-              <Button variant="outline">고객 지원</Button>
-            </Link>
-            <Link href="/contact">
-              <Button variant="outline">문의하기</Button>
-            </Link>
-          </CardContent>
-        </Card>
-      </section>
     </div>
   )
 }

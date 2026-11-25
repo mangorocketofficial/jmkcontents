@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { CertTabs } from '@/components/CertTabs'
 import { CertAppBanner } from '@/components/CertAppBanner'
 import { getCertContent, getCertSlugs } from '@/lib/cert-content'
 import { SITE_URL } from '@/lib/site'
@@ -47,47 +48,49 @@ export default async function UnitQuestionsPage({ params }: PageProps) {
   const subunitNames = new Map(unit.subunits.map((sub) => [sub.id, sub.name]))
 
   return (
-    <div className="container mx-auto px-4 py-12 max-w-3xl">
-      <div className="mb-6 text-sm text-muted-foreground">
-        <Link href={`/exams/${bundle_id}`} className="hover:text-foreground">{cert.name}</Link>
-        {' / '}
-        <Link href={`/exams/${bundle_id}/questions`} className="hover:text-foreground">예상문제</Link>
-        {' / '}
-        <span className="text-foreground">{unit.name}</span>
+    <div>
+      <div className="mb-3 text-xs text-muted-foreground">
+        <Link href="/exams" className="hover:underline">종목 목록</Link>
+        {' › '}
+        <Link href={`/exams/${bundle_id}`} className="hover:underline">{cert.name}</Link>
+        {' › '}
+        <span>예상문제</span>
       </div>
 
-      <h1 className="text-3xl font-bold mb-3">
-        {cert.name} {unit.name} 예상문제
-      </h1>
-      <p className="text-muted-foreground mb-2">
-        {unit.subject && cert.subjects.length > 1 ? `${unit.subject} 과목 · ` : ''}
-        {unit.questions.length}문항. 「정답과 해설 보기」를 누르면 정답이 열립니다.
-      </p>
-      <p className="mb-8 text-sm">
-        <Link href={`/exams/${bundle_id}/summary#${unit.id}`} className="underline underline-offset-4">
-          이 단원 핵심요약 보기
-        </Link>
-      </p>
+      <CertTabs slug={bundle_id} active="questions" />
 
-      <ol className="space-y-8">
+      <div className="border-b border-foreground pb-3">
+        <h1 className="text-lg font-bold">
+          {cert.name} {unit.name} 예상문제
+        </h1>
+        <p className="mt-1 text-xs text-muted-foreground">
+          {unit.subject && cert.subjects.length > 1 ? `${unit.subject} · ` : ''}
+          {unit.questions.length}문항 ·{' '}
+          <Link href={`/exams/${bundle_id}/summary#${unit.id}`} className="underline underline-offset-2">
+            이 단원 핵심요약
+          </Link>
+        </p>
+      </div>
+
+      <ol className="text-[15px] leading-relaxed">
         {unit.questions.map((question, questionIndex) => (
-          <li key={question.id} id={question.id} className="rounded-xl border p-5">
+          <li key={question.id} id={question.id} className="border-b py-5">
             {subunitNames.has(question.unit_id) && (
-              <p className="mb-2 text-xs text-muted-foreground">{subunitNames.get(question.unit_id)}</p>
+              <p className="mb-1 text-xs text-muted-foreground">[{subunitNames.get(question.unit_id)}]</p>
             )}
             <p className="font-medium whitespace-pre-wrap">
-              {questionIndex + 1}. {question.stem}
+              <span className="text-emerald-700">{questionIndex + 1}.</span> {question.stem}
             </p>
-            <ul className="mt-3 space-y-1.5">
+            <ul className="mt-2 space-y-1 pl-1">
               {question.choices.map((choice, choiceIndex) => (
                 <li key={choiceIndex} className="whitespace-pre-wrap">
                   {CIRCLED[choiceIndex] || `${choiceIndex + 1}.`} {choice}
                 </li>
               ))}
             </ul>
-            <details className="mt-4 rounded-lg bg-muted/40 px-4 py-3">
+            <details className="mt-3 border bg-muted/40 px-3 py-2">
               <summary className="cursor-pointer text-sm font-medium">정답과 해설 보기</summary>
-              <div className="mt-3 space-y-3 text-sm leading-relaxed">
+              <div className="mt-2 space-y-2 text-sm leading-relaxed">
                 <p>
                   <strong>정답 {CIRCLED[question.answer - 1] || question.answer}</strong>
                 </p>
@@ -102,8 +105,8 @@ export default async function UnitQuestionsPage({ params }: PageProps) {
                   </ul>
                 )}
                 {question.point && (
-                  <p className="rounded-md border bg-background px-3 py-2">
-                    <strong>암기 포인트</strong> {question.point}
+                  <p className="border bg-background px-3 py-2">
+                    <strong className="text-emerald-700">암기 포인트</strong> {question.point}
                   </p>
                 )}
               </div>
@@ -114,18 +117,37 @@ export default async function UnitQuestionsPage({ params }: PageProps) {
 
       <CertAppBanner name={cert.name} iosUrl={cert.ios_url} />
 
-      <nav className="flex justify-between gap-4 text-sm">
-        {previous ? (
-          <Link href={`/exams/${bundle_id}/questions/${previous.id}`} className="underline underline-offset-4">
-            ← {previous.name}
-          </Link>
-        ) : <span />}
-        {next ? (
-          <Link href={`/exams/${bundle_id}/questions/${next.id}`} className="text-right underline underline-offset-4">
-            {next.name} →
-          </Link>
-        ) : <span />}
-      </nav>
+      <table className="w-full border-t border-foreground text-sm">
+        <tbody>
+          {next && (
+            <tr className="border-b">
+              <td className="w-16 px-2 py-2 text-xs text-muted-foreground">다음 단원</td>
+              <td className="px-2 py-2">
+                <Link href={`/exams/${bundle_id}/questions/${next.id}`} className="hover:underline">
+                  {next.name} 예상문제
+                </Link>{' '}
+                <span className="text-xs font-bold text-emerald-700">[{next.questions.length}]</span>
+              </td>
+            </tr>
+          )}
+          {previous && (
+            <tr className="border-b">
+              <td className="w-16 px-2 py-2 text-xs text-muted-foreground">이전 단원</td>
+              <td className="px-2 py-2">
+                <Link href={`/exams/${bundle_id}/questions/${previous.id}`} className="hover:underline">
+                  {previous.name} 예상문제
+                </Link>{' '}
+                <span className="text-xs font-bold text-emerald-700">[{previous.questions.length}]</span>
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+      <p className="mt-3">
+        <Link href={`/exams/${bundle_id}`} className="inline-block border px-3 py-1.5 text-sm hover:bg-muted/50">
+          목록
+        </Link>
+      </p>
     </div>
   )
 }
