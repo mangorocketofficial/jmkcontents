@@ -20,7 +20,9 @@
     "app_store_url": "https://apps.apple.com/kr/app/id6740614771",
     "marketing_url": "https://jmkcontents.com/exams/saneobanjeongisa",
     "created_at": "2026-11-25T00:00:00.000Z",
-    "updated_at": "2026-11-25T00:00:00.000Z"
+    "updated_at": "2026-11-25T00:00:00.000Z",
+    "description_full": "산업안전기사 필기 시험을 예상문제와 해설, 단원별 핵심요약으로 준비할 수 있습니다. 기출 회차별 풀이와 모의고사, 오답노트는 앱에서 쓸 수 있습니다.\n\nTerms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\nPrivacy Policy: https://jmkcontents.com/privacy",
+    "icon_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c4/92/8b/c4928b96-b50b-e924-500c-4a4d5a453e61/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg"
   },
   "concepts": []
 }

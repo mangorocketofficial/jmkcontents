@@ -16,18 +16,29 @@ const QNET = { name: '한국산업인력공단 Q-Net', url: 'https://www.q-net.o
 const KORCHAM = { name: '대한상공회의소 자격평가사업단', url: 'https://license.korcham.net' }
 
 // slug는 사이트 주소(/exams/<slug>)다. 한 번 정하면 바꾸지 않는다.
-// existing: 사이트(Firestore)에 이미 있는 종목. 없는 종목은 data/exams/<slug>.json을 새로 만든다.
+// existing: 사이트(Firestore)에 이미 있는 종목(참고용 표시). icon: 9.2 앱의 App Store 아이콘.
 const CERTS = [
-  { cert: 'forklift', slug: 'jigechaunjeongineungsa', name: '지게차운전기능사', category: '기능사', authority: QNET, existing: true },
-  { cert: 'excavator', slug: 'gulchakgiunjeongineungsa', name: '굴착기운전기능사', category: '기능사', authority: QNET },
-  { cert: 'hair', slug: 'miyongsa', name: '미용사(일반)', category: '기능사', authority: QNET, existing: true },
-  { cert: 'nail', slug: 'miyongsa-nail', name: '미용사(네일)', category: '기능사', authority: QNET },
-  { cert: 'skin', slug: 'miyongsa-pibu', name: '미용사(피부)', category: '기능사', authority: QNET },
-  { cert: 'makeup', slug: 'miyongsa-makeup', name: '미용사(메이크업)', category: '기능사', authority: QNET },
-  { cert: 'safety_eng', slug: 'saneobanjeongisa', name: '산업안전기사', category: '기사', authority: QNET },
-  { cert: 'safety_ind', slug: 'saneobanjeonsaneobgisa', name: '산업안전산업기사', category: '산업기사', authority: QNET, existing: true },
-  { cert: 'hansik', slug: 'hansigjorigineungsa', name: '한식조리기능사', category: '기능사', authority: QNET, existing: true },
-  { cert: 'comp1', slug: 'comactiv1', name: '컴퓨터활용능력 1급', category: '컴퓨터자격증', authority: KORCHAM, existing: true },
+  { cert: 'forklift', slug: 'jigechaunjeongineungsa', name: '지게차운전기능사', category: '기능사', authority: QNET, existing: true,
+    icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8e/e8/f3/8ee8f32c-e1db-95bd-0653-06369648b17e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg' },
+  { cert: 'excavator', slug: 'gulchakgiunjeongineungsa', name: '굴착기운전기능사', category: '기능사', authority: QNET,
+    icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/23/e0/15/23e0157f-3bbb-87b7-50b5-5a52e3629033/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg' },
+  { cert: 'hair', slug: 'miyongsa-ilban', name: '미용사(일반)', category: '기능사', authority: QNET,
+    icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ff/d5/e8/ffd5e8a0-161a-f1d2-d4ae-2e13eb8a04ab/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg' },
+  // 사이트의 기존 '미용사' 종목(miyongsa)은 네일 콘텐츠다(핵심개념이 네일 개론·네일미용 기술).
+  { cert: 'nail', slug: 'miyongsa', name: '미용사(네일)', category: '기능사', authority: QNET, existing: true,
+    icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/91/b1/7a/91b17ad5-7e31-d480-a7b3-70458a85fc9f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg' },
+  { cert: 'skin', slug: 'miyongsa-pibu', name: '미용사(피부)', category: '기능사', authority: QNET,
+    icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2a/31/25/2a312543-5937-90d3-bc3a-f4994e99e7c0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg' },
+  { cert: 'makeup', slug: 'miyongsa-makeup', name: '미용사(메이크업)', category: '기능사', authority: QNET,
+    icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8c/d7/13/8cd7134d-7630-a194-b9c9-97625bb95a6c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg' },
+  { cert: 'safety_eng', slug: 'saneobanjeongisa', name: '산업안전기사', category: '기사', authority: QNET,
+    icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c4/92/8b/c4928b96-b50b-e924-500c-4a4d5a453e61/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg' },
+  { cert: 'safety_ind', slug: 'saneobanjeonsaneobgisa', name: '산업안전산업기사', category: '산업기사', authority: QNET, existing: true,
+    icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/39/2c/ff/392cff1b-4cd8-e973-1223-984a39476a9e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg' },
+  { cert: 'hansik', slug: 'hansigjorigineungsa', name: '한식조리기능사', category: '기능사', authority: QNET, existing: true,
+    icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0f/16/a5/0f16a5a2-46d3-7c06-32e4-cd8e81f9dc8d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg' },
+  { cert: 'comp1', slug: 'comactiv1', name: '컴퓨터활용능력 1급', category: '컴퓨터자격증', authority: KORCHAM, existing: true,
+    icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b3/63/69/b36369da-8292-9762-1805-088edf3081e5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg' },
 ]
 
 const certAppsDir = process.argv[2]
@@ -157,28 +168,41 @@ for (const entry of CERTS) {
   const total = withQuestions.reduce((sum, unit) => sum + unit.questions.length, 0)
   console.log(`${entry.slug}: 단원 ${withQuestions.length}개, 문항 ${total}개${skipped ? `, 제외 ${skipped}개` : ''}`)
 
-  // 사이트에 없는 종목은 종목 목록에 보이도록 기본 정보 파일을 만든다 (이미 있으면 건드리지 않는다).
+  // 종목 기록(data/exams/<slug>.json)의 앱 정보를 9.2 앱 것으로 맞춘다.
+  // 이 파일의 값은 Firestore의 같은 종목 기록보다 우선한다(lib/content.ts의 mergeApps).
+  // 파일이 이미 있으면 핵심개념 등 나머지는 그대로 두고 앱 정보만 덮어쓴다.
   const examFile = path.join(examsDir, `${entry.slug}.json`)
-  if (!entry.existing && !existsSync(examFile)) {
-    const stamp = '2026-11-25T00:00:00.000Z'
-    const app = {
-      bundle_id: entry.slug,
-      app_name: entry.name,
-      app_name_full: `${entry.name} 필기`,
-      description: `${entry.name} 필기 시험 대비 예상문제와 해설, 단원별 핵심요약을 정리했습니다.`,
-      app_category: entry.category,
-      status: 'published',
-      is_featured: false,
-      rating: 0,
-      review_count: 0,
-      download_count: 0,
-      categories: data.subjects.length > 1 ? data.subjects : [],
-      app_store_url: data.ios_url,
-      marketing_url: `https://jmkcontents.com/exams/${entry.slug}`,
-      created_at: stamp,
-      updated_at: stamp,
-    }
-    writeFileSync(examFile, `${JSON.stringify({ app, concepts: [] }, null, 2)}\n`)
-    console.log(`  data/exams/${entry.slug}.json 생성`)
-  }
+  const stamp = '2026-11-25T00:00:00.000Z'
+  const stored = existsSync(examFile)
+    ? JSON.parse(readFileSync(examFile, 'utf8'))
+    : {
+        app: {
+          bundle_id: entry.slug,
+          app_category: entry.category,
+          status: 'published',
+          is_featured: false,
+          rating: 0,
+          review_count: 0,
+          download_count: 0,
+          categories: data.subjects.length > 1 ? data.subjects : [],
+          marketing_url: `https://jmkcontents.com/exams/${entry.slug}`,
+          created_at: stamp,
+        },
+        concepts: [],
+      }
+  Object.assign(stored.app, {
+    app_name: entry.name,
+    app_name_full: `${entry.name} 필기`,
+    description: `${entry.name} 필기 시험 대비 예상문제와 해설, 단원별 핵심요약을 정리했습니다.`,
+    description_full: [
+      `${entry.name} 필기 시험을 예상문제와 해설, 단원별 핵심요약으로 준비할 수 있습니다. 기출 회차별 풀이와 모의고사, 오답노트는 앱에서 쓸 수 있습니다.`,
+      '',
+      'Terms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/',
+      'Privacy Policy: https://jmkcontents.com/privacy',
+    ].join('\n'),
+    icon_url: entry.icon,
+    app_store_url: data.ios_url,
+    updated_at: stamp,
+  })
+  writeFileSync(examFile, `${JSON.stringify(stored, null, 2)}\n`)
 }

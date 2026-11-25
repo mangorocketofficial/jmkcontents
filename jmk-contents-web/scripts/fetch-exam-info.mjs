@@ -15,8 +15,8 @@ import process from 'node:process'
 const CERTS = [
   { slug: 'jigechaunjeongineungsa', name: '지게차운전기능사', jmCd: '7875', grdCd: '40' },
   { slug: 'gulchakgiunjeongineungsa', name: '굴착기운전기능사', jmCd: '7862', grdCd: '40' },
-  { slug: 'miyongsa', name: '미용사(일반)', jmCd: '7937', grdCd: '40' },
-  { slug: 'miyongsa-nail', name: '미용사(네일)', jmCd: '7957', grdCd: '40' },
+  { slug: 'miyongsa-ilban', name: '미용사(일반)', jmCd: '7937', grdCd: '40' },
+  { slug: 'miyongsa', name: '미용사(네일)', jmCd: '7957', grdCd: '40' },
   { slug: 'miyongsa-pibu', name: '미용사(피부)', jmCd: '7947', grdCd: '40' },
   { slug: 'miyongsa-makeup', name: '미용사(메이크업)', jmCd: '7967', grdCd: '40' },
   { slug: 'hansigjorigineungsa', name: '한식조리기능사', jmCd: '7910', grdCd: '40' },

@@ -14,7 +14,9 @@
     "app_store_url": "https://apps.apple.com/kr/app/id6743363480",
     "marketing_url": "https://jmkcontents.com/exams/miyongsa-makeup",
     "created_at": "2026-11-25T00:00:00.000Z",
-    "updated_at": "2026-11-25T00:00:00.000Z"
+    "updated_at": "2026-11-25T00:00:00.000Z",
+    "description_full": "미용사(메이크업) 필기 시험을 예상문제와 해설, 단원별 핵심요약으로 준비할 수 있습니다. 기출 회차별 풀이와 모의고사, 오답노트는 앱에서 쓸 수 있습니다.\n\nTerms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\nPrivacy Policy: https://jmkcontents.com/privacy",
+    "icon_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8c/d7/13/8cd7134d-7630-a194-b9c9-97625bb95a6c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg"
   },
   "concepts": []
 }

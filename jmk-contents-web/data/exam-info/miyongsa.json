@@ -1,7 +1,7 @@
 {
  "slug": "miyongsa",
- "name": "미용사(일반)",
- "jm_cd": "7937",
+ "name": "미용사(네일)",
+ "jm_cd": "7957",
  "fetched_on": "2026-11-25",
  "source": {
   "name": "한국산업인력공단 공개 API (공공데이터포털)",
@@ -786,100 +786,81 @@
     "exam_end": "",
     "result": ""
    }
-  },
-  {
-   "year": 2026,
-   "round": 201,
-   "description": "국가기술자격 기능사 (2026년도 제201회)",
-   "written": {
-    "apply_start": "2026-07-28",
-    "apply_end": "2026-07-29",
-    "exam_start": "2026-08-22",
-    "exam_end": "2026-08-22",
-    "result": "2026-09-02"
-   },
-   "practical": {
-    "apply_start": "2026-09-17",
-    "apply_end": "2026-09-18",
-    "exam_start": "2026-10-03",
-    "exam_end": "2026-10-03",
-    "result": "2026-10-15"
-   }
   }
  ],
  "pass_rates": [
   {
    "year": 2025,
    "written": {
-    "applicants": 53716,
-    "passed": 15907,
-    "rate": 29.6,
+    "applicants": 28034,
+    "passed": 10714,
+    "rate": 38.2,
     "rounds": 41
    },
    "practical": {
-    "applicants": 29054,
-    "passed": 10164,
-    "rate": 35,
+    "applicants": 18116,
+    "passed": 6245,
+    "rate": 34.5,
     "rounds": 23
    }
   },
   {
    "year": 2024,
    "written": {
-    "applicants": 53388,
-    "passed": 16011,
-    "rate": 30,
+    "applicants": 30685,
+    "passed": 11847,
+    "rate": 38.6,
     "rounds": 43
    },
    "practical": {
-    "applicants": 27690,
-    "passed": 10263,
-    "rate": 37.1,
+    "applicants": 20673,
+    "passed": 7302,
+    "rate": 35.3,
     "rounds": 22
    }
   },
   {
    "year": 2023,
    "written": {
-    "applicants": 50443,
-    "passed": 14961,
-    "rate": 29.7,
+    "applicants": 34803,
+    "passed": 14098,
+    "rate": 40.5,
     "rounds": 33
    },
    "practical": {
-    "applicants": 26648,
-    "passed": 10188,
-    "rate": 38.2,
+    "applicants": 22951,
+    "passed": 8343,
+    "rate": 36.4,
     "rounds": 23
    }
   },
   {
    "year": 2022,
    "written": {
-    "applicants": 45101,
-    "passed": 15215,
-    "rate": 33.7,
+    "applicants": 32452,
+    "passed": 13928,
+    "rate": 42.9,
     "rounds": 35
    },
    "practical": {
-    "applicants": 29583,
-    "passed": 11494,
-    "rate": 38.9,
+    "applicants": 24028,
+    "passed": 8867,
+    "rate": 36.9,
     "rounds": 24
    }
   },
   {
    "year": 2021,
    "written": {
-    "applicants": 54930,
-    "passed": 19892,
-    "rate": 36.2,
+    "applicants": 35220,
+    "passed": 17322,
+    "rate": 49.2,
     "rounds": 43
    },
    "practical": {
-    "applicants": 35798,
-    "passed": 13613,
-    "rate": 38,
+    "applicants": 27558,
+    "passed": 10377,
+    "rate": 37.7,
     "rounds": 24
    }
   }
@@ -887,11 +868,11 @@
  "how_to": [
   "시 행 처 : 한국산업인력공단",
   "시험과목",
-  "- 필기 : 헤어스타일연출 및 두피모발관리(공중위생관리학, 피부의 이해, 화장품 분류 포함)등에 관한 사항",
-  "- 실기 :미용실무",
+  "- 필기 : 네일화장품 적용 및 네일미용관리(공중위생관리학, 피부의 이해, 화장품 분류 포함) 등에 관한 사항",
+  "- 실기 :네일미용실무",
   "검정방법",
   "- 필기 : 객관식 4지 택일형, 60문항(60분)",
-  "- 실기 : 작업형(2시간 25분 정도, 100점)",
+  "- 실기 : 작업형(2시간 30분 정도, 100점)",
   "합격기준",
   "- 필기 :100점을 만점으로 하여 60점 이상",
   "- 실기 : 100점을 만점으로 하여 60점 이상"

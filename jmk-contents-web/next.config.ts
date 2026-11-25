@@ -3,6 +3,17 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   async redirects() {
     return [
+      // 미용사(네일)은 기존 '미용사' 종목(/exams/miyongsa)으로 합쳤다 (2026-11-25).
+      {
+        source: '/exams/miyongsa-nail',
+        destination: '/exams/miyongsa',
+        permanent: true,
+      },
+      {
+        source: '/exams/miyongsa-nail/:path*',
+        destination: '/exams/miyongsa/:path*',
+        permanent: true,
+      },
       // 예상문제 목록은 종목 게시판(/exams/<종목>) 첫 화면이다.
       {
         source: '/exams/:bundle_id/questions',

@@ -1,0 +1,22 @@
+{
+  "app": {
+    "bundle_id": "jigechaunjeongineungsa",
+    "app_category": "기능사",
+    "status": "published",
+    "is_featured": false,
+    "rating": 0,
+    "review_count": 0,
+    "download_count": 0,
+    "categories": [],
+    "marketing_url": "https://jmkcontents.com/exams/jigechaunjeongineungsa",
+    "created_at": "2026-11-25T00:00:00.000Z",
+    "app_name": "지게차운전기능사",
+    "app_name_full": "지게차운전기능사 필기",
+    "description": "지게차운전기능사 필기 시험 대비 예상문제와 해설, 단원별 핵심요약을 정리했습니다.",
+    "description_full": "지게차운전기능사 필기 시험을 예상문제와 해설, 단원별 핵심요약으로 준비할 수 있습니다. 기출 회차별 풀이와 모의고사, 오답노트는 앱에서 쓸 수 있습니다.\n\nTerms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\nPrivacy Policy: https://jmkcontents.com/privacy",
+    "icon_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8e/e8/f3/8ee8f32c-e1db-95bd-0653-06369648b17e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+    "app_store_url": "https://apps.apple.com/kr/app/id6657958756",
+    "updated_at": "2026-11-25T00:00:00.000Z"
+  },
+  "concepts": []
+}
