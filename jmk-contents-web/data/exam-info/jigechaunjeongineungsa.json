@@ -1,0 +1,880 @@
+{
+ "slug": "jigechaunjeongineungsa",
+ "name": "지게차운전기능사",
+ "jm_cd": "7875",
+ "fetched_on": "2026-11-25",
+ "source": {
+  "name": "한국산업인력공단 공개 API (공공데이터포털)",
+  "url": "https://www.q-net.or.kr"
+ },
+ "schedules": [
+  {
+   "year": 2026,
+   "round": 1,
+   "description": "국가기술자격 기능사 (2026년도 제1회)",
+   "written": {
+    "apply_start": "2026-01-06",
+    "apply_end": "2026-01-07",
+    "exam_start": "2026-01-12",
+    "exam_end": "2026-01-16",
+    "result": "2026-01-12"
+   },
+   "practical": {
+    "apply_start": "2026-01-08",
+    "apply_end": "2026-01-09",
+    "exam_start": "2026-01-19",
+    "exam_end": "2026-01-30",
+    "result": "2026-02-05"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 2,
+   "description": "국가기술자격 기능사 (2026년도 제2회)",
+   "written": {
+    "apply_start": "2026-01-13",
+    "apply_end": "2026-01-14",
+    "exam_start": "2026-01-19",
+    "exam_end": "2026-01-23",
+    "result": "2026-01-19"
+   },
+   "practical": {
+    "apply_start": "2026-01-22",
+    "apply_end": "2026-01-23",
+    "exam_start": "2026-02-02",
+    "exam_end": "2026-02-10",
+    "result": "2026-02-19"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 3,
+   "description": "국가기술자격 기능사 (2026년도 제3회)",
+   "written": {
+    "apply_start": "2026-01-20",
+    "apply_end": "2026-01-21",
+    "exam_start": "2026-01-26",
+    "exam_end": "2026-01-30",
+    "result": "2026-01-26"
+   },
+   "practical": {
+    "apply_start": "2026-02-05",
+    "apply_end": "2026-02-06",
+    "exam_start": "2026-02-23",
+    "exam_end": "2026-02-27",
+    "result": "2026-03-05"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 4,
+   "description": "국가기술자격 기능사 (2026년도 제4회)",
+   "written": {
+    "apply_start": "2026-01-27",
+    "apply_end": "2026-01-28",
+    "exam_start": "2026-02-02",
+    "exam_end": "2026-02-06",
+    "result": "2026-02-02"
+   },
+   "practical": {
+    "apply_start": "2026-02-19",
+    "apply_end": "2026-02-20",
+    "exam_start": "2026-03-03",
+    "exam_end": "2026-03-13",
+    "result": "2026-03-19"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 5,
+   "description": "국가기술자격 기능사 (2026년도 제5회)",
+   "written": {
+    "apply_start": "2026-02-03",
+    "apply_end": "2026-02-04",
+    "exam_start": "2026-02-09",
+    "exam_end": "2026-02-13",
+    "result": "2026-02-09"
+   },
+   "practical": {
+    "apply_start": "2026-03-05",
+    "apply_end": "2026-03-06",
+    "exam_start": "2026-03-16",
+    "exam_end": "2026-03-27",
+    "result": "2026-04-02"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 6,
+   "description": "국가기술자격 기능사 (2026년도 제6회)",
+   "written": {
+    "apply_start": "2026-02-25",
+    "apply_end": "2026-02-26",
+    "exam_start": "2026-03-03",
+    "exam_end": "2026-03-06",
+    "result": "2026-03-03"
+   },
+   "practical": {
+    "apply_start": "2026-03-19",
+    "apply_end": "2026-03-20",
+    "exam_start": "2026-03-30",
+    "exam_end": "2026-04-10",
+    "result": "2026-04-16"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 7,
+   "description": "국가기술자격 기능사 (2026년도 제7회)",
+   "written": {
+    "apply_start": "2026-03-03",
+    "apply_end": "2026-03-04",
+    "exam_start": "2026-03-09",
+    "exam_end": "2026-03-13",
+    "result": "2026-03-09"
+   },
+   "practical": {
+    "apply_start": "2026-04-02",
+    "apply_end": "2026-04-03",
+    "exam_start": "2026-04-13",
+    "exam_end": "2026-04-24",
+    "result": "2026-04-29"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 8,
+   "description": "국가기술자격 기능사 (2026년도 제8회)",
+   "written": {
+    "apply_start": "2026-03-10",
+    "apply_end": "2026-03-11",
+    "exam_start": "2026-03-16",
+    "exam_end": "2026-03-20",
+    "result": "2026-03-16"
+   },
+   "practical": {
+    "apply_start": "2026-04-16",
+    "apply_end": "2026-04-17",
+    "exam_start": "2026-04-27",
+    "exam_end": "2026-05-08",
+    "result": "2026-05-14"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 9,
+   "description": "국가기술자격 기능사 (2026년도 제9회)",
+   "written": {
+    "apply_start": "2026-03-17",
+    "apply_end": "2026-03-19",
+    "exam_start": "2026-03-23",
+    "exam_end": "2026-03-27",
+    "result": "2026-03-23"
+   },
+   "practical": {
+    "apply_start": "2026-04-29",
+    "apply_end": "2026-04-30",
+    "exam_start": "2026-05-11",
+    "exam_end": "2026-05-22",
+    "result": "2026-05-28"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 10,
+   "description": "국가기술자격 기능사 (2026년도 제10회)",
+   "written": {
+    "apply_start": "2026-03-24",
+    "apply_end": "2026-03-25",
+    "exam_start": "2026-03-30",
+    "exam_end": "2026-04-03",
+    "result": "2026-03-30"
+   },
+   "practical": {
+    "apply_start": "2026-05-14",
+    "apply_end": "2026-05-15",
+    "exam_start": "2026-05-26",
+    "exam_end": "2026-06-05",
+    "result": "2026-06-11"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 11,
+   "description": "국가기술자격 기능사 (2026년도 제11회)",
+   "written": {
+    "apply_start": "2026-03-31",
+    "apply_end": "2026-04-01",
+    "exam_start": "2026-04-06",
+    "exam_end": "2026-04-10",
+    "result": "2026-04-06"
+   },
+   "practical": {
+    "apply_start": "2026-05-28",
+    "apply_end": "2026-05-29",
+    "exam_start": "2026-06-08",
+    "exam_end": "2026-06-19",
+    "result": "2026-06-25"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 12,
+   "description": "국가기술자격 기능사 (2026년도 제12회)",
+   "written": {
+    "apply_start": "2026-04-07",
+    "apply_end": "2026-04-08",
+    "exam_start": "2026-04-13",
+    "exam_end": "2026-04-17",
+    "result": "2026-04-13"
+   },
+   "practical": {
+    "apply_start": "2026-06-11",
+    "apply_end": "2026-06-12",
+    "exam_start": "2026-06-22",
+    "exam_end": "2026-07-03",
+    "result": "2026-07-09"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 13,
+   "description": "국가기술자격 기능사 (2026년도 제13회)",
+   "written": {
+    "apply_start": "2026-04-14",
+    "apply_end": "2026-04-15",
+    "exam_start": "2026-04-20",
+    "exam_end": "2026-04-24",
+    "result": "2026-04-20"
+   },
+   "practical": {
+    "apply_start": "2026-06-25",
+    "apply_end": "2026-06-26",
+    "exam_start": "2026-07-06",
+    "exam_end": "2026-07-16",
+    "result": "2026-07-23"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 14,
+   "description": "국가기술자격 기능사 (2026년도 제14회)",
+   "written": {
+    "apply_start": "2026-04-21",
+    "apply_end": "2026-04-22",
+    "exam_start": "2026-04-27",
+    "exam_end": "2026-04-30",
+    "result": "2026-04-27"
+   },
+   "practical": {
+    "apply_start": "2026-07-09",
+    "apply_end": "2026-07-10",
+    "exam_start": "2026-07-20",
+    "exam_end": "2026-07-31",
+    "result": "2026-08-06"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 15,
+   "description": "국가기술자격 기능사 (2026년도 제15회)",
+   "written": {
+    "apply_start": "2026-05-06",
+    "apply_end": "2026-05-07",
+    "exam_start": "2026-05-11",
+    "exam_end": "2026-05-15",
+    "result": "2026-05-11"
+   },
+   "practical": {
+    "apply_start": "2026-07-23",
+    "apply_end": "2026-07-24",
+    "exam_start": "2026-08-03",
+    "exam_end": "2026-08-14",
+    "result": "2026-08-20"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 16,
+   "description": "국가기술자격 기능사 (2026년도 제16회)",
+   "written": {
+    "apply_start": "2026-05-12",
+    "apply_end": "2026-05-13",
+    "exam_start": "2026-05-18",
+    "exam_end": "2026-05-22",
+    "result": "2026-05-18"
+   },
+   "practical": {
+    "apply_start": "2026-08-06",
+    "apply_end": "2026-08-07",
+    "exam_start": "2026-08-18",
+    "exam_end": "2026-08-28",
+    "result": "2026-09-03"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 17,
+   "description": "국가기술자격 기능사 (2026년도 제17회)",
+   "written": {
+    "apply_start": "2026-05-26",
+    "apply_end": "2026-05-27",
+    "exam_start": "2026-06-01",
+    "exam_end": "2026-06-05",
+    "result": "2026-06-01"
+   },
+   "practical": {
+    "apply_start": "2026-08-20",
+    "apply_end": "2026-08-21",
+    "exam_start": "2026-08-31",
+    "exam_end": "2026-09-11",
+    "result": "2026-09-17"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 18,
+   "description": "국가기술자격 기능사 (2026년도 제18회)",
+   "written": {
+    "apply_start": "2026-06-02",
+    "apply_end": "2026-06-03",
+    "exam_start": "2026-06-08",
+    "exam_end": "2026-06-12",
+    "result": "2026-06-08"
+   },
+   "practical": {
+    "apply_start": "2026-09-03",
+    "apply_end": "2026-09-04",
+    "exam_start": "2026-09-14",
+    "exam_end": "2026-09-21",
+    "result": "2026-10-01"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 19,
+   "description": "국가기술자격 기능사 (2026년도 제19회)",
+   "written": {
+    "apply_start": "2026-06-09",
+    "apply_end": "2026-06-10",
+    "exam_start": "2026-06-15",
+    "exam_end": "2026-06-19",
+    "result": "2026-06-15"
+   },
+   "practical": {
+    "apply_start": "2026-09-17",
+    "apply_end": "2026-09-18",
+    "exam_start": "2026-09-30",
+    "exam_end": "2026-10-08",
+    "result": "2026-10-15"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 20,
+   "description": "국가기술자격 기능사 (2026년도 제20회)",
+   "written": {
+    "apply_start": "2026-06-16",
+    "apply_end": "2026-06-17",
+    "exam_start": "2026-06-22",
+    "exam_end": "2026-06-26",
+    "result": "2026-06-22"
+   },
+   "practical": {
+    "apply_start": "2026-10-01",
+    "apply_end": "2026-10-02",
+    "exam_start": "2026-10-12",
+    "exam_end": "2026-10-23",
+    "result": "2026-10-29"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 21,
+   "description": "국가기술자격 기능사 (2026년도 제21회)",
+   "written": {
+    "apply_start": "2026-06-23",
+    "apply_end": "2026-06-24",
+    "exam_start": "2026-06-29",
+    "exam_end": "2026-07-03",
+    "result": "2026-06-29"
+   },
+   "practical": {
+    "apply_start": "2026-10-15",
+    "apply_end": "2026-10-16",
+    "exam_start": "2026-10-26",
+    "exam_end": "2026-11-06",
+    "result": "2026-11-12"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 22,
+   "description": "국가기술자격 기능사 (2026년도 제22회)",
+   "written": {
+    "apply_start": "2026-07-14",
+    "apply_end": "2026-07-15",
+    "exam_start": "2026-07-20",
+    "exam_end": "2026-07-24",
+    "result": "2026-07-20"
+   },
+   "practical": {
+    "apply_start": "2026-10-29",
+    "apply_end": "2026-10-30",
+    "exam_start": "2026-11-09",
+    "exam_end": "2026-11-20",
+    "result": "2026-11-26"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 23,
+   "description": "국가기술자격 기능사 (2026년도 제23회)",
+   "written": {
+    "apply_start": "2026-07-21",
+    "apply_end": "2026-07-22",
+    "exam_start": "2026-07-27",
+    "exam_end": "2026-07-31",
+    "result": "2026-07-27"
+   },
+   "practical": {
+    "apply_start": "2026-11-12",
+    "apply_end": "2026-11-13",
+    "exam_start": "2026-11-23",
+    "exam_end": "2026-12-04",
+    "result": "2026-12-10"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 24,
+   "description": "국가기술자격 기능사 (2026년도 제24회)",
+   "written": {
+    "apply_start": "2026-07-28",
+    "apply_end": "2026-07-29",
+    "exam_start": "2026-08-03",
+    "exam_end": "2026-08-07",
+    "result": "2026-08-03"
+   },
+   "practical": {
+    "apply_start": "2026-11-26",
+    "apply_end": "2026-11-27",
+    "exam_start": "2026-12-07",
+    "exam_end": "2026-12-16",
+    "result": "2026-12-22"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 25,
+   "description": "국가기술자격 기능사 (2026년도 제25회)",
+   "written": {
+    "apply_start": "2026-08-04",
+    "apply_end": "2026-08-05",
+    "exam_start": "2026-08-10",
+    "exam_end": "2026-08-14",
+    "result": "2026-08-10"
+   },
+   "practical": {
+    "apply_start": "",
+    "apply_end": "",
+    "exam_start": "",
+    "exam_end": "",
+    "result": ""
+   }
+  },
+  {
+   "year": 2026,
+   "round": 26,
+   "description": "국가기술자격 기능사 (2026년도 제26회)",
+   "written": {
+    "apply_start": "2026-08-12",
+    "apply_end": "2026-08-13",
+    "exam_start": "2026-08-18",
+    "exam_end": "2026-08-21",
+    "result": "2026-08-18"
+   },
+   "practical": {
+    "apply_start": "",
+    "apply_end": "",
+    "exam_start": "",
+    "exam_end": "",
+    "result": ""
+   }
+  },
+  {
+   "year": 2026,
+   "round": 27,
+   "description": "국가기술자격 기능사 (2026년도 제27회)",
+   "written": {
+    "apply_start": "2026-08-25",
+    "apply_end": "2026-08-26",
+    "exam_start": "2026-08-31",
+    "exam_end": "2026-09-04",
+    "result": "2026-08-31"
+   },
+   "practical": {
+    "apply_start": "",
+    "apply_end": "",
+    "exam_start": "",
+    "exam_end": "",
+    "result": ""
+   }
+  },
+  {
+   "year": 2026,
+   "round": 28,
+   "description": "국가기술자격 기능사 (2026년도 제28회)",
+   "written": {
+    "apply_start": "2026-09-01",
+    "apply_end": "2026-09-02",
+    "exam_start": "2026-09-07",
+    "exam_end": "2026-09-11",
+    "result": "2026-09-07"
+   },
+   "practical": {
+    "apply_start": "",
+    "apply_end": "",
+    "exam_start": "",
+    "exam_end": "",
+    "result": ""
+   }
+  },
+  {
+   "year": 2026,
+   "round": 29,
+   "description": "국가기술자격 기능사 (2026년도 제29회)",
+   "written": {
+    "apply_start": "2026-09-08",
+    "apply_end": "2026-09-09",
+    "exam_start": "2026-09-14",
+    "exam_end": "2026-09-18",
+    "result": "2026-09-14"
+   },
+   "practical": {
+    "apply_start": "",
+    "apply_end": "",
+    "exam_start": "",
+    "exam_end": "",
+    "result": ""
+   }
+  },
+  {
+   "year": 2026,
+   "round": 30,
+   "description": "국가기술자격 기능사 (2026년도 제30회)",
+   "written": {
+    "apply_start": "2026-09-30",
+    "apply_end": "2026-10-01",
+    "exam_start": "2026-10-06",
+    "exam_end": "2026-10-08",
+    "result": "2026-10-06"
+   },
+   "practical": {
+    "apply_start": "",
+    "apply_end": "",
+    "exam_start": "",
+    "exam_end": "",
+    "result": ""
+   }
+  },
+  {
+   "year": 2026,
+   "round": 31,
+   "description": "국가기술자격 기능사 (2026년도 제31회)",
+   "written": {
+    "apply_start": "2026-10-06",
+    "apply_end": "2026-10-07",
+    "exam_start": "2026-10-12",
+    "exam_end": "2026-10-16",
+    "result": "2026-10-12"
+   },
+   "practical": {
+    "apply_start": "",
+    "apply_end": "",
+    "exam_start": "",
+    "exam_end": "",
+    "result": ""
+   }
+  },
+  {
+   "year": 2026,
+   "round": 32,
+   "description": "국가기술자격 기능사 (2026년도 제32회)",
+   "written": {
+    "apply_start": "2026-10-13",
+    "apply_end": "2026-10-13",
+    "exam_start": "2026-10-19",
+    "exam_end": "2026-10-23",
+    "result": "2026-10-19"
+   },
+   "practical": {
+    "apply_start": "",
+    "apply_end": "",
+    "exam_start": "",
+    "exam_end": "",
+    "result": ""
+   }
+  },
+  {
+   "year": 2026,
+   "round": 33,
+   "description": "국가기술자격 기능사 (2026년도 제33회)",
+   "written": {
+    "apply_start": "2026-10-20",
+    "apply_end": "2026-10-21",
+    "exam_start": "2026-10-26",
+    "exam_end": "2026-10-30",
+    "result": "2026-10-26"
+   },
+   "practical": {
+    "apply_start": "",
+    "apply_end": "",
+    "exam_start": "",
+    "exam_end": "",
+    "result": ""
+   }
+  },
+  {
+   "year": 2026,
+   "round": 34,
+   "description": "국가기술자격 기능사 (2026년도 제34회)",
+   "written": {
+    "apply_start": "2026-10-27",
+    "apply_end": "2026-10-27",
+    "exam_start": "2026-11-02",
+    "exam_end": "2026-11-06",
+    "result": "2026-11-02"
+   },
+   "practical": {
+    "apply_start": "",
+    "apply_end": "",
+    "exam_start": "",
+    "exam_end": "",
+    "result": ""
+   }
+  },
+  {
+   "year": 2026,
+   "round": 35,
+   "description": "국가기술자격 기능사 (2026년도 제35회)",
+   "written": {
+    "apply_start": "2026-11-03",
+    "apply_end": "2026-11-03",
+    "exam_start": "2026-11-09",
+    "exam_end": "2026-11-13",
+    "result": "2026-11-09"
+   },
+   "practical": {
+    "apply_start": "",
+    "apply_end": "",
+    "exam_start": "",
+    "exam_end": "",
+    "result": ""
+   }
+  },
+  {
+   "year": 2026,
+   "round": 36,
+   "description": "국가기술자격 기능사 (2026년도 제36회)",
+   "written": {
+    "apply_start": "2026-11-10",
+    "apply_end": "2026-11-10",
+    "exam_start": "2026-11-16",
+    "exam_end": "2026-11-20",
+    "result": "2026-11-16"
+   },
+   "practical": {
+    "apply_start": "",
+    "apply_end": "",
+    "exam_start": "",
+    "exam_end": "",
+    "result": ""
+   }
+  },
+  {
+   "year": 2026,
+   "round": 37,
+   "description": "국가기술자격 기능사 (2026년도 제37회)",
+   "written": {
+    "apply_start": "2026-11-17",
+    "apply_end": "2026-11-17",
+    "exam_start": "2026-11-23",
+    "exam_end": "2026-11-27",
+    "result": "2026-11-23"
+   },
+   "practical": {
+    "apply_start": "",
+    "apply_end": "",
+    "exam_start": "",
+    "exam_end": "",
+    "result": ""
+   }
+  },
+  {
+   "year": 2026,
+   "round": 38,
+   "description": "국가기술자격 기능사 (2026년도 제38회)",
+   "written": {
+    "apply_start": "2026-11-24",
+    "apply_end": "2026-11-25",
+    "exam_start": "2026-11-30",
+    "exam_end": "2026-12-04",
+    "result": "2026-11-30"
+   },
+   "practical": {
+    "apply_start": "",
+    "apply_end": "",
+    "exam_start": "",
+    "exam_end": "",
+    "result": ""
+   }
+  },
+  {
+   "year": 2026,
+   "round": 39,
+   "description": "국가기술자격 기능사 (2026년도 제39회)",
+   "written": {
+    "apply_start": "2026-12-01",
+    "apply_end": "2026-12-02",
+    "exam_start": "2026-12-07",
+    "exam_end": "2026-12-11",
+    "result": "2026-12-07"
+   },
+   "practical": {
+    "apply_start": "",
+    "apply_end": "",
+    "exam_start": "",
+    "exam_end": "",
+    "result": ""
+   }
+  },
+  {
+   "year": 2026,
+   "round": 40,
+   "description": "국가기술자격 기능사 (2026년도 제40회)",
+   "written": {
+    "apply_start": "2026-12-08",
+    "apply_end": "2026-12-09",
+    "exam_start": "2026-12-14",
+    "exam_end": "2026-12-18",
+    "result": "2026-12-14"
+   },
+   "practical": {
+    "apply_start": "",
+    "apply_end": "",
+    "exam_start": "",
+    "exam_end": "",
+    "result": ""
+   }
+  },
+  {
+   "year": 2026,
+   "round": 41,
+   "description": "국가기술자격 기능사 (2026년도 제41회)",
+   "written": {
+    "apply_start": "2026-12-15",
+    "apply_end": "2026-12-16",
+    "exam_start": "2026-12-21",
+    "exam_end": "2026-12-23",
+    "result": "2026-12-21"
+   },
+   "practical": {
+    "apply_start": "",
+    "apply_end": "",
+    "exam_start": "",
+    "exam_end": "",
+    "result": ""
+   }
+  }
+ ],
+ "pass_rates": [
+  {
+   "year": 2025,
+   "written": {
+    "applicants": 110316,
+    "passed": 81152,
+    "rate": 73.6,
+    "rounds": 41
+   },
+   "practical": {
+    "applicants": 126757,
+    "passed": 60745,
+    "rate": 47.9,
+    "rounds": 23
+   }
+  },
+  {
+   "year": 2024,
+   "written": {
+    "applicants": 112929,
+    "passed": 84201,
+    "rate": 74.6,
+    "rounds": 43
+   },
+   "practical": {
+    "applicants": 128023,
+    "passed": 59924,
+    "rate": 46.8,
+    "rounds": 22
+   }
+  },
+  {
+   "year": 2023,
+   "written": {
+    "applicants": 110279,
+    "passed": 81156,
+    "rate": 73.6,
+    "rounds": 33
+   },
+   "practical": {
+    "applicants": 123766,
+    "passed": 58551,
+    "rate": 47.3,
+    "rounds": 23
+   }
+  },
+  {
+   "year": 2022,
+   "written": {
+    "applicants": 94822,
+    "passed": 70877,
+    "rate": 74.7,
+    "rounds": 35
+   },
+   "practical": {
+    "applicants": 112030,
+    "passed": 54158,
+    "rate": 48.3,
+    "rounds": 24
+   }
+  },
+  {
+   "year": 2021,
+   "written": {
+    "applicants": 101408,
+    "passed": 72818,
+    "rate": 71.8,
+    "rounds": 43
+   },
+   "practical": {
+    "applicants": 109940,
+    "passed": 54392,
+    "rate": 49.5,
+    "rounds": 24
+   }
+  }
+ ],
+ "how_to": [
+  "시 행 처 : 한국산업인력공단",
+  "시험과목",
+  "- 필기 1. 지게차 주행 2.화물 적재3.운반 4. 하역 5.안전관리",
+  "- 실기 : 지게차운전 작업 및 도로주행",
+  "검정방법",
+  "- 필기 : 객관식 4지 택일형60문항(60분)",
+  "- 실기 : 작업형(4분 정도)",
+  "합격기준",
+  "- 필기 : 100점을 만점으로 하여 60점 이상",
+  "- 실기 : 100점을 만점으로 하여 60점 이상"
+ ]
+}

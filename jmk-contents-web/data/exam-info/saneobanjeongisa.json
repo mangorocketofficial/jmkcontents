@@ -1,0 +1,216 @@
+{
+ "slug": "saneobanjeongisa",
+ "name": "산업안전기사",
+ "jm_cd": "1431",
+ "fetched_on": "2026-11-25",
+ "source": {
+  "name": "한국산업인력공단 공개 API (공공데이터포털)",
+  "url": "https://www.q-net.or.kr"
+ },
+ "schedules": [
+  {
+   "year": 2026,
+   "round": 1,
+   "description": "국가기술자격 기사 (2026년도 제1회)",
+   "written": {
+    "apply_start": "2026-01-24",
+    "apply_end": "2026-01-25",
+    "exam_start": "2026-01-30",
+    "exam_end": "2026-03-03",
+    "result": "2026-03-11"
+   },
+   "practical": {
+    "apply_start": "2026-03-23",
+    "apply_end": "2026-04-13",
+    "exam_start": "2026-04-18",
+    "exam_end": "2026-05-06",
+    "result": "2026-06-05"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 1,
+   "description": "국가기술자격 기사 (2026년도 제1회)",
+   "written": {
+    "apply_start": "2026-01-12",
+    "apply_end": "2026-01-15",
+    "exam_start": "2026-01-30",
+    "exam_end": "2026-03-03",
+    "result": "2026-03-11"
+   },
+   "practical": {
+    "apply_start": "2026-03-23",
+    "apply_end": "2026-04-13",
+    "exam_start": "2026-04-18",
+    "exam_end": "2026-05-06",
+    "result": "2026-06-05"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 2,
+   "description": "국가기술자격 기사 (2026년도 제2회)",
+   "written": {
+    "apply_start": "2026-05-03",
+    "apply_end": "2026-05-04",
+    "exam_start": "2026-05-09",
+    "exam_end": "2026-05-29",
+    "result": "2026-06-10"
+   },
+   "practical": {
+    "apply_start": "2026-06-22",
+    "apply_end": "2026-07-13",
+    "exam_start": "2026-07-18",
+    "exam_end": "2026-08-05",
+    "result": "2026-09-04"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 2,
+   "description": "국가기술자격 기사 (2026년도 제2회)",
+   "written": {
+    "apply_start": "2026-04-20",
+    "apply_end": "2026-04-23",
+    "exam_start": "2026-05-09",
+    "exam_end": "2026-05-29",
+    "result": "2026-06-10"
+   },
+   "practical": {
+    "apply_start": "2026-06-22",
+    "apply_end": "2026-07-13",
+    "exam_start": "2026-07-18",
+    "exam_end": "2026-08-05",
+    "result": "2026-09-04"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 3,
+   "description": "국가기술자격 기사 (2026년도 제3회)",
+   "written": {
+    "apply_start": "2026-08-01",
+    "apply_end": "2026-08-02",
+    "exam_start": "2026-08-07",
+    "exam_end": "2026-09-01",
+    "result": "2026-09-09"
+   },
+   "practical": {
+    "apply_start": "2026-09-21",
+    "apply_end": "2026-10-19",
+    "exam_start": "2026-10-24",
+    "exam_end": "2026-11-15",
+    "result": "2026-12-11"
+   }
+  },
+  {
+   "year": 2026,
+   "round": 3,
+   "description": "국가기술자격 기사 (2026년도 제3회)",
+   "written": {
+    "apply_start": "2026-07-20",
+    "apply_end": "2026-07-23",
+    "exam_start": "2026-08-07",
+    "exam_end": "2026-09-01",
+    "result": "2026-09-09"
+   },
+   "practical": {
+    "apply_start": "2026-09-21",
+    "apply_end": "2026-10-19",
+    "exam_start": "2026-10-24",
+    "exam_end": "2026-11-15",
+    "result": "2026-12-11"
+   }
+  }
+ ],
+ "pass_rates": [
+  {
+   "year": 2025,
+   "written": {
+    "applicants": 90265,
+    "passed": 40772,
+    "rate": 45.2,
+    "rounds": 3
+   },
+   "practical": {
+    "applicants": 46506,
+    "passed": 31247,
+    "rate": 67.2,
+    "rounds": 3
+   }
+  },
+  {
+   "year": 2024,
+   "written": {
+    "applicants": 86032,
+    "passed": 36717,
+    "rate": 42.7,
+    "rounds": 3
+   },
+   "practical": {
+    "applicants": 52956,
+    "passed": 31191,
+    "rate": 58.9,
+    "rounds": 3
+   }
+  },
+  {
+   "year": 2023,
+   "written": {
+    "applicants": 80253,
+    "passed": 41014,
+    "rate": 51.1,
+    "rounds": 3
+   },
+   "practical": {
+    "applicants": 52776,
+    "passed": 28636,
+    "rate": 54.3,
+    "rounds": 3
+   }
+  },
+  {
+   "year": 2022,
+   "written": {
+    "applicants": 54500,
+    "passed": 26032,
+    "rate": 47.8,
+    "rounds": 3
+   },
+   "practical": {
+    "applicants": 32473,
+    "passed": 15681,
+    "rate": 48.3,
+    "rounds": 3
+   }
+  },
+  {
+   "year": 2021,
+   "written": {
+    "applicants": 41704,
+    "passed": 20205,
+    "rate": 48.4,
+    "rounds": 3
+   },
+   "practical": {
+    "applicants": 29571,
+    "passed": 15310,
+    "rate": 51.8,
+    "rounds": 3
+   }
+  }
+ ],
+ "how_to": [
+  "시 행 처 : 한국산업인력공단",
+  "관련학과 : 대학 및 전문대학의 안전공학, 산업안전공학, 보건안전학 관련학과",
+  "시험과목",
+  "- 필기 : 1. 산업재해 예방 및 안전보건교육 2. 인간공학 및 위험성 평가·관리 3. 기계·기구 및 설비 안전 관리 4. 전기설비 안전 관리 5. 화학설비 안전 관리 6. 건설공사 안전 관리",
+  "- 실기 :산업안전관리실무",
+  "검정방법",
+  "- 필기 : 객관식 4지 택일형 과목당 20문항(과목당 30분)",
+  "- 실기 : 복합형[필답형(1시간 30분, 55점) + 작업형(1시간 정도, 45점)]",
+  "합격기준",
+  "- 필기 : 100점을 만점으로 하여 과목당 40점 이상, 전과목 평균 60점 이상",
+  "- 실기 : 100점을 만점으로 하여 60점 이상"
+ ]
+}
