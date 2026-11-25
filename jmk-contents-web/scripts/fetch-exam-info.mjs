@@ -1,7 +1,9 @@
 // 한국산업인력공단 공개 API에서 종목별 시험 일정·합격률·응시 방법을 받아
 // data/exam-info/<slug>.json으로 쓴다. 사이트는 이 파일만 읽는다(방문 때 API를 부르지 않는다).
 //
-//   CERT_DATA_API_KEY=<공공데이터포털 인증키> node scripts/fetch-exam-info.mjs
+//   CERT_DATA_API_KEY=<공공데이터포털 인증키> node scripts/fetch-exam-info.mjs [slug ...]
+//
+// slug를 주면 그 종목만 다시 받는다.
 //
 // 일정이 바뀌거나 새해 일정이 등록되면 다시 돌려서 커밋한다.
 // 컴퓨터활용능력은 대한상공회의소 시험이라 이 API에 없다.
@@ -17,6 +19,7 @@ const CERTS = [
   { slug: 'miyongsa-nail', name: '미용사(네일)', jmCd: '7957', grdCd: '40' },
   { slug: 'miyongsa-pibu', name: '미용사(피부)', jmCd: '7947', grdCd: '40' },
   { slug: 'miyongsa-makeup', name: '미용사(메이크업)', jmCd: '7967', grdCd: '40' },
+  { slug: 'hansigjorigineungsa', name: '한식조리기능사', jmCd: '7910', grdCd: '40' },
   { slug: 'saneobanjeongisa', name: '산업안전기사', jmCd: '1431', grdCd: '30' },
   { slug: 'saneobanjeonsaneobgisa', name: '산업안전산업기사', jmCd: '2381', grdCd: '31' },
 ]
@@ -167,7 +170,10 @@ async function fetchQualInfo(jmCd) {
 const outDir = path.join(process.cwd(), 'data', 'exam-info')
 mkdirSync(outDir, { recursive: true })
 
+const only = process.argv.slice(2)
+
 for (const cert of CERTS) {
+  if (only.length > 0 && !only.includes(cert.slug)) continue
   const [schedules, pass_rates, how_to] = [
     await fetchSchedules(cert.jmCd),
     await fetchPassRates(cert),

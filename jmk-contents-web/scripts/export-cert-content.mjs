@@ -1,6 +1,8 @@
 // cert-apps 콘텐츠 DB에서 사이트에 올릴 데이터를 뽑아 data/cert/<slug>.json으로 쓴다.
 //
-//   node scripts/export-cert-content.mjs <cert-apps 체크아웃 경로>
+//   node scripts/export-cert-content.mjs <cert-apps 체크아웃 경로> [종목 id ...]
+//
+// 종목 id(forklift, hansik 등)를 주면 그 종목만 다시 만든다.
 //
 // 올리는 것: 자체 제작 예상문제(source = 'expected') 중 검수 상태가 ok인 문항과 그 해설.
 // 올리지 않는 것: 기출 원문(source = 'past'), 법령 대조가 안 끝난 문항(law_pending),
@@ -24,12 +26,13 @@ const CERTS = [
   { cert: 'makeup', slug: 'miyongsa-makeup', name: '미용사(메이크업)', category: '기능사', authority: QNET },
   { cert: 'safety_eng', slug: 'saneobanjeongisa', name: '산업안전기사', category: '기사', authority: QNET },
   { cert: 'safety_ind', slug: 'saneobanjeonsaneobgisa', name: '산업안전산업기사', category: '산업기사', authority: QNET, existing: true },
+  { cert: 'hansik', slug: 'hansigjorigineungsa', name: '한식조리기능사', category: '기능사', authority: QNET, existing: true },
   { cert: 'comp1', slug: 'comactiv1', name: '컴퓨터활용능력 1급', category: '컴퓨터자격증', authority: KORCHAM, existing: true },
 ]
 
 const certAppsDir = process.argv[2]
 if (!certAppsDir || !existsSync(path.join(certAppsDir, 'apps'))) {
-  console.error('사용법: node scripts/export-cert-content.mjs <cert-apps 체크아웃 경로>')
+  console.error('사용법: node scripts/export-cert-content.mjs <cert-apps 체크아웃 경로> [종목 id ...]')
   process.exit(1)
 }
 
@@ -46,11 +49,19 @@ function configValue(config, key) {
   return match ? match[1].trim() : ''
 }
 
+const only = process.argv.slice(3)
+const unknown = only.filter((id) => !CERTS.some((entry) => entry.cert === id))
+if (unknown.length > 0) {
+  console.error(`모르는 종목 id: ${unknown.join(', ')}`)
+  process.exit(1)
+}
+
 const outDir = path.join(process.cwd(), 'data', 'cert')
 const examsDir = path.join(process.cwd(), 'data', 'exams')
 mkdirSync(outDir, { recursive: true })
 
 for (const entry of CERTS) {
+  if (only.length > 0 && !only.includes(entry.cert)) continue
   const appDir = path.join(certAppsDir, 'apps', entry.cert)
   const dbPath = path.join(appDir, 'content.db')
   const config = readFileSync(path.join(appDir, 'config.yaml'), 'utf8')
