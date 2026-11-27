@@ -162,7 +162,7 @@ export default async function ExamPage({ params }: ExamPageProps) {
       )}
 
       {/* App Download - Secondary CTA */}
-      <section className="mt-10">
+      {(!cert || app.app_store_url) && <section className="mt-10">
         <Card className="bg-muted/30">
           <CardHeader>
             <CardTitle>📱 기출문제 앱 다운받기</CardTitle>
@@ -218,7 +218,7 @@ export default async function ExamPage({ params }: ExamPageProps) {
             )}
           </CardContent>
         </Card>
-      </section>
+      </section>}
 
     </div>
   )

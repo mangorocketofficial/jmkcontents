@@ -22,8 +22,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!cert) return {}
 
   return {
-    title: `${cert.name} 필기 핵심요약 (단원별 암기 포인트) - JMK Contents`,
-    description: `${cert.name} 필기 시험 출제기준 단원별 핵심요약입니다. 시험 직전에 암기 포인트만 빠르게 훑어보세요.`,
+    title: `${cert.name} 필기 단원별 핵심요약 - JMK Contents`,
+    description: `${cert.name} 필기 단원별 핵심요약으로 예상문제에서 다룬 내용을 복습하세요.`,
     alternates: { canonical: `${SITE_URL}/exams/${bundle_id}/summary` },
   }
 }
@@ -51,7 +51,7 @@ export default async function SummaryPage({ params }: PageProps) {
 
       <h1 className="border-b border-foreground pb-3 text-lg font-bold">{cert.name} 필기 핵심요약</h1>
       <p className="mb-6 mt-2 text-sm text-muted-foreground">
-        예상문제 해설의 암기 포인트를 출제기준 단원별로 모았습니다.
+        예상문제에서 다룬 핵심 내용을 단원별로 복습하세요.
       </p>
 
       <nav className="mb-10 border p-5">
@@ -62,6 +62,8 @@ export default async function SummaryPage({ params }: PageProps) {
               <a href={`#${unit.id}`} className="underline underline-offset-4">{unit.name}</a>
             </li>
           ))}
+          {!!cert.ox?.length && <li><a href="#ox" className="underline underline-offset-4">OX 퀴즈</a></li>}
+          {!!cert.terms?.length && <li><a href="#terms" className="underline underline-offset-4">용어사전</a></li>}
         </ul>
       </nav>
 
@@ -85,6 +87,36 @@ export default async function SummaryPage({ params }: PageProps) {
           ))}
         </section>
       ))}
+
+      {!!cert.ox?.length && (
+        <section id="ox" className="mb-10 scroll-mt-6">
+          <h2 className="mb-3 border-b pb-1.5 text-base font-bold">OX 퀴즈 {cert.ox.length}문항</h2>
+          <ul className="divide-y border px-4 text-sm leading-relaxed">
+            {cert.ox.map((question) => (
+              <li key={question.id} className="py-2">
+                <details>
+                  <summary className="cursor-pointer">{question.statement}</summary>
+                  <p className="mt-2"><strong>{question.answer ? 'O' : 'X'}</strong> {question.explanation}</p>
+                </details>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {!!cert.terms?.length && (
+        <section id="terms" className="mb-10 scroll-mt-6">
+          <h2 className="mb-3 border-b pb-1.5 text-base font-bold">용어사전 {cert.terms.length}개</h2>
+          <dl className="divide-y border px-4 text-sm leading-relaxed">
+            {cert.terms.map(({ term, definition }) => (
+              <div key={term} className="py-2">
+                <dt className="font-semibold">{term}</dt>
+                <dd>{definition}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
 
       <CertAppBanner name={cert.name} iosUrl={cert.ios_url} />
     </div>

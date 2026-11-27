@@ -37,6 +37,8 @@ export interface CertContent {
   subjects: string[]
   outline: { id: string; name: string; subject: string; weight: number }[]
   units: CertUnit[]
+  ox?: { id: string; statement: string; answer: 0 | 1; explanation: string }[]
+  terms?: { term: string; definition: string }[]
 }
 
 const CERT_DIR = path.join(process.cwd(), 'data', 'cert')
@@ -75,7 +77,7 @@ export interface SummaryGroup {
   points: string[]
 }
 
-// 단원의 핵심요약: 해설의 암기 포인트를 세부 단원별로 묶고 같은 문장은 한 번만 쓴다.
+// 암기 포인트가 없으면 정답 해설을 사용하고 같은 문장은 세부 단원별로 한 번만 쓴다.
 export function buildUnitSummary(unit: CertUnit): SummaryGroup[] {
   const names = new Map<string, string>([
     [unit.id, unit.name],
@@ -84,7 +86,7 @@ export function buildUnitSummary(unit: CertUnit): SummaryGroup[] {
   const groups = new Map<string, Set<string>>()
 
   for (const question of unit.questions) {
-    const point = question.point.trim()
+    const point = question.point.trim() || question.basis.trim()
     if (!point) continue
     if (!groups.has(question.unit_id)) groups.set(question.unit_id, new Set())
     groups.get(question.unit_id)!.add(point)

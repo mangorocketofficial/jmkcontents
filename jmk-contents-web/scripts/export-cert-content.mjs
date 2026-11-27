@@ -37,6 +37,8 @@ const CERTS = [
     icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/39/2c/ff/392cff1b-4cd8-e973-1223-984a39476a9e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg' },
   { cert: 'hansik', slug: 'hansigjorigineungsa', name: '한식조리기능사', category: '기능사', authority: QNET, existing: true,
     icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0f/16/a5/0f16a5a2-46d3-7c06-32e4-cd8e81f9dc8d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg' },
+  { cert: 'yangsik', slug: 'yangsigjorigineungsa', name: '양식조리기능사', category: '기능사', storePending: true, includeReviewMaterials: true,
+    authority: { ...QNET, url: 'https://www.q-net.or.kr/crf005.do?id=crf00503s02&jmCd=7911' } },
   { cert: 'comp1', slug: 'comactiv1', name: '컴퓨터활용능력 1급', category: '컴퓨터자격증', authority: KORCHAM, existing: true,
     icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b3/63/69/b36369da-8292-9762-1805-088edf3081e5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg' },
 ]
@@ -76,7 +78,7 @@ for (const entry of CERTS) {
   const appDir = path.join(certAppsDir, 'apps', entry.cert)
   const dbPath = path.join(appDir, 'content.db')
   const config = readFileSync(path.join(appDir, 'config.yaml'), 'utf8')
-  const appStoreId = configValue(config, 'app_store_id')
+  const appStoreId = entry.storePending ? '' : configValue(config, 'app_store_id').replace(/^'|'$/g, '')
 
   const units = query(dbPath, 'SELECT id, parent_id, subject, name, weight FROM units ORDER BY sort_order, id')
   const questions = query(dbPath, `
@@ -163,10 +165,17 @@ for (const entry of CERTS) {
     })),
     units: withQuestions,
   }
+  if (entry.includeReviewMaterials) {
+    data.ox = query(dbPath, 'SELECT id, statement, answer, explanation FROM ox ORDER BY id')
+    data.terms = query(dbPath, 'SELECT term, definition FROM terms ORDER BY term')
+  }
   writeFileSync(path.join(outDir, `${entry.slug}.json`), `${JSON.stringify(data, null, 1)}\n`)
 
   const total = withQuestions.reduce((sum, unit) => sum + unit.questions.length, 0)
   console.log(`${entry.slug}: 단원 ${withQuestions.length}개, 문항 ${total}개${skipped ? `, 제외 ${skipped}개` : ''}`)
+
+  // 공개 앱이 없는 동안 종목 목록과 공부방은 필기 콘텐츠 파일만 사용한다.
+  if (entry.storePending) continue
 
   // 종목 기록(data/exams/<slug>.json)의 앱 정보를 9.2 앱 것으로 맞춘다.
   // 이 파일의 값은 Firestore의 같은 종목 기록보다 우선한다(lib/content.ts의 mergeApps).
