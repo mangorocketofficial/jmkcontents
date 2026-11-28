@@ -93,6 +93,43 @@ export default function PrivacyPage() {
         </section>
 
         <section>
+          <h2 className="text-base font-bold mb-4">4-1. Google 애널리틱스</h2>
+          <p className="text-muted-foreground">
+            본 사이트는 방문 통계를 파악하고 서비스를 개선하기 위해 Google LLC가 제공하는
+            Google 애널리틱스를 사용합니다. Google 애널리틱스는 쿠키를 사용해 방문한 페이지,
+            체류 시간, 유입 경로, 기기·브라우저 종류, 대략적인 지역 같은 정보를 수집하며,
+            이름이나 연락처처럼 개인을 직접 식별하는 정보는 수집하지 않습니다.
+          </p>
+          <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
+            <li>수집된 정보는 Google의 서버(국외 포함)에 저장되며 Google의 개인정보처리방침이 적용됩니다.</li>
+            <li>
+              Google 애널리틱스 차단 브라우저 부가 기능으로 수집을 거부할 수 있습니다:
+              {' '}
+              <a
+                href="https://tools.google.com/dlpage/gaoptout"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-4"
+              >
+                https://tools.google.com/dlpage/gaoptout
+              </a>
+            </li>
+            <li>
+              Google의 데이터 처리 방식:
+              {' '}
+              <a
+                href="https://policies.google.com/technologies/partner-sites"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-4"
+              >
+                https://policies.google.com/technologies/partner-sites
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section>
           <h2 className="text-base font-bold mb-4">5. 쿠키 및 동의</h2>
           <p className="text-muted-foreground">
             사용자는 브라우저 설정에서 쿠키를 차단하거나 삭제할 수 있습니다. 다만,
@@ -140,7 +177,7 @@ export default function PrivacyPage() {
         </section>
 
         <div className="text-sm text-muted-foreground border-t pt-6 mt-8">
-          <p>최종 업데이트: 2026년 3월 25일</p>
+          <p>최종 업데이트: 2026년 11월 28일</p>
         </div>
       </div>
     </div>

@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { AdSenseHead } from "@/components/ads/AdSenseScript";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { SITE_URL } from "@/lib/site";
 import { SiteShell } from "@/components/SiteShell";
 import { SiteSidebar } from "@/components/SiteSidebar";
@@ -52,6 +53,7 @@ export default async function RootLayout({
       >
         <Header />
         <SiteShell sidebar={sidebar}>{children}</SiteShell>
+        <GoogleAnalytics />
         <Footer />
       </body>
     </html>
